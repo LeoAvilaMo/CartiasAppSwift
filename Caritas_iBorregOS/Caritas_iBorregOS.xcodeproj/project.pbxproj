@@ -14,6 +14,8 @@
 		4D04A86F2C7E070E007804E6 /* Caritas_iBorregOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D04A86E2C7E070E007804E6 /* Caritas_iBorregOSTests.swift */; };
 		4D04A8792C7E070E007804E6 /* Caritas_iBorregOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D04A8782C7E070E007804E6 /* Caritas_iBorregOSUITests.swift */; };
 		4D04A87B2C7E070E007804E6 /* Caritas_iBorregOSUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D04A87A2C7E070E007804E6 /* Caritas_iBorregOSUITestsLaunchTests.swift */; };
+		4D5960432C7E7EBA0056C298 /* EventosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D5960422C7E7EBA0056C298 /* EventosView.swift */; };
+		4D5960452C7E7EF30056C298 /* EventCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D5960442C7E7EF30056C298 /* EventCardView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +46,8 @@
 		4D04A8742C7E070E007804E6 /* Caritas_iBorregOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Caritas_iBorregOSUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D04A8782C7E070E007804E6 /* Caritas_iBorregOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Caritas_iBorregOSUITests.swift; sourceTree = "<group>"; };
 		4D04A87A2C7E070E007804E6 /* Caritas_iBorregOSUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Caritas_iBorregOSUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		4D5960422C7E7EBA0056C298 /* EventosView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventosView.swift; sourceTree = "<group>"; };
+		4D5960442C7E7EF30056C298 /* EventCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +100,8 @@
 			children = (
 				4D04A85D2C7E070B007804E6 /* Caritas_iBorregOSApp.swift */,
 				4D04A85F2C7E070B007804E6 /* ContentView.swift */,
+				4D5960422C7E7EBA0056C298 /* EventosView.swift */,
+				4D5960442C7E7EF30056C298 /* EventCardView.swift */,
 				4D04A8612C7E070D007804E6 /* Assets.xcassets */,
 				4D04A8632C7E070D007804E6 /* Preview Content */,
 			);
@@ -257,6 +263,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D5960432C7E7EBA0056C298 /* EventosView.swift in Sources */,
+				4D5960452C7E7EF30056C298 /* EventCardView.swift in Sources */,
 				4D04A8602C7E070B007804E6 /* ContentView.swift in Sources */,
 				4D04A85E2C7E070B007804E6 /* Caritas_iBorregOSApp.swift in Sources */,
 			);
