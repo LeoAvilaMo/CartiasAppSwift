@@ -17,7 +17,8 @@ struct ContentView: View {
     //Variables extra de prubea
     @State private var username = ""
     @State private var password = ""
-    @State private var isLoggedIn: Bool = false
+    @State private var signIn = false
+    @State private var passwordAlert = false
     
     var body: some View {
         ZStack {
@@ -46,23 +47,51 @@ struct ContentView: View {
             //Tarjeta verde de adelante
             VStack (alignment: .leading){
                 HStack {Spacer()}
-                VStack {
-                    HStack{
-                        Text("Usuario")
+                VStack (alignment: .leading) {
+                    //Usuario
+                    Text("Usuario")
                             .font(.title)
                             .foregroundColor(darkBlueC)
-                        Spacer()
-                    }
                     TextField("Introduce tu usuario", text: $username)
-                    HStack{
-                        Text("Constraseña")
+                        .font(.system(size: 23))
+                    Divider()
+                    
+                    //Contraseña
+                    Text("Constraseña")
                             .font(.title)
                             .foregroundColor(darkBlueC)
+                    SecureField("Introduce tu contraseña", text: $password)
+                        .font(.system(size: 23))
+                    Divider()
+                    //Olvidé mi contraseña
+                    HStack{
                         Spacer()
+                        Button("¿Perdiste tu contraseña?"){
+                            passwordAlert = true
+                        }
+                        .alert(isPresented: $passwordAlert, content: {
+                            Alert(title: Text("(81) 1340-2090"), message: Text("Ponte en contacto con el número de teléfono para recuperar tu contraseña"), dismissButton: .default(Text("Volver")))
+                        })
+                        .font(.system(size: 18))
                     }
-                    TextField("Introduce tu contraseña", text: $password)
+                    .offset(y: 10)
+                    
+                    //Iniciar sesión
+                    Button("Iniciar sesión"){
+                        if username == "Juan" && password == "1234"{
+                            signIn = true
+                        }
+                    }
+                    .frame(maxWidth: .infinity)
+                    .padding(15)
+                    .font(.system(size: 25))
+                    .foregroundColor(whiteC)
+                    .background(darkBlueC)
+                    .clipShape(.buttonBorder)
+                    .cornerRadius(20)
+                    .offset(y: 75)
                 }
-                .offset(y: 25)
+                .offset(y: 40)
                 .padding(25)
                 Spacer()
             }
