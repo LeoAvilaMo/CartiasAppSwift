@@ -8,33 +8,40 @@
 import SwiftUI
 
 struct TabViews: View {
+    // Colores
+    private let selectedTintColor = Color(red: 0.8196078431372549, green: 0.8784313725490196, blue: 0.8431372549019608)
+    private let tabBarBackgroundColor = UIColor(hex: "#009CA6")
+    private let unselectedItemTintColor = UIColor(hex: "#003B5C")
     var body: some View {
         VStack {
+            // Componente principal TabView
             TabView{
             EventosView()
                     .tabItem {
-                        Label("Usuario", systemImage: "house")
+                        Label("Eventos", systemImage: "house")
                     }
-                EventosView()
+                RetosView()
                     .tabItem {
-                        Label("Eventos", systemImage: "person.3.fill")
+                        Label("Retos", systemImage: "person.3.fill")
                     }
-                EventosView()
+                TiendaView()
                     .tabItem {
-                        Label("Retos", systemImage: "medal")
+                        Label("Tienda", systemImage: "medal")
                     }
-                EventosView()
+                PerfilView()
                     .tabItem {
-                        Label("Tienda", systemImage: "person.fill")
+                        Label("Usuario", systemImage: "person.fill")
                     }
                 
             }
             .background()
-            .tint(Color(red: 0.8196078431372549, green: 0.8784313725490196, blue: 0.8431372549019608))
-            .onAppear(){
-                UITabBar.appearance().barTintColor = UIColor(hex: "#009CA6") // Hex for blue
-                UITabBar.appearance().backgroundColor = UIColor(hex: "#009CA6")
-                UITabBar.appearance().unselectedItemTintColor = UIColor(hex: "#003B5C") // Hex for black
+            // Colores cuando se seleccionan
+            .tint(selectedTintColor)
+            .onAppear {
+                let appearance = UITabBar.appearance()
+                appearance.barTintColor = tabBarBackgroundColor
+                appearance.backgroundColor = tabBarBackgroundColor
+                appearance.unselectedItemTintColor = unselectedItemTintColor
             }
 
         }

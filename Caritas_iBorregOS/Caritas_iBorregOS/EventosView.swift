@@ -9,9 +9,6 @@ struct EventosView: View {
     
     var body: some View {
         NavigationStack{
-            // FIX NAVIGATION
-            if eventDetail { 
-            }
             VStack {
                 // Stack con logo y puntos
                 HStack {
@@ -34,7 +31,7 @@ struct EventosView: View {
                     .background(darkBlueC)
                     .cornerRadius(12)
                 }
-                //
+                // Titulo
                 Text("Eventos")
                     .font(.system(size: 35))
                     .bold()
@@ -48,8 +45,7 @@ struct EventosView: View {
                             title: "Yoga en el parque Rufino Tamayo",
                             date: "24/01/2024",
                             points: 10,
-                            iconName: "dumbbell.fill",
-                            action: {eventDetail.toggle()}
+                            iconName: "dumbbell.fill"
                         )
                     }
                     NavigationLink(destination: EventDetailView()) {
@@ -57,8 +53,7 @@ struct EventosView: View {
                             title: "Meditation Workshop",
                             date: "25/01/2024",
                             points: 15,
-                            iconName: "figure.walk",
-                            action: {eventDetail.toggle()}
+                            iconName: "figure.walk"
                         )
                     }
                     NavigationLink(destination: EventDetailView()) {
@@ -66,8 +61,7 @@ struct EventosView: View {
                             title: "Outdoor Running",
                             date: "26/01/2024",
                             points: 12,
-                            iconName: "flame.fill",
-                            action: {eventDetail.toggle()}
+                            iconName: "flame.fill"
                         )
                     }
                     NavigationLink(destination: EventDetailView()) {
@@ -75,8 +69,7 @@ struct EventosView: View {
                             title: "Strength Training",
                             date: "27/01/2024",
                             points: 20,
-                            iconName: "bolt.fill",
-                            action: {}
+                            iconName: "bolt.fill"
                         )
                     }
                 }

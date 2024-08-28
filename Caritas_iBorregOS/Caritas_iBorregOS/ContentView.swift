@@ -17,7 +17,7 @@ let pinkC = Color(red: 161/255, green: 90/255, blue: 149/255)
 
 struct ContentView: View {
     
-    //Variables extra de prubea
+    // Variables extra de prubea
     @State private var username = ""
     @State private var password = ""
     @State private var signIn = false

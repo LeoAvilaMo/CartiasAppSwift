@@ -5,14 +5,13 @@ struct EventCardView: View {
     let date: String
     let points: Int
     let iconName: String
-    let action: () -> Void // Action for the button click
     
     var body: some View {
         HStack {
             Image(systemName: iconName)
                 .resizable()
                 .aspectRatio(contentMode: .fit)
-                .frame(width: 40, height: 40)  // Set both width and height
+                .frame(width: 40, height: 40)
                 .padding()
                 .background(Color.teal)
                 .cornerRadius(10)
@@ -48,14 +47,14 @@ struct EventCardView: View {
                 .foregroundColor(.white)
         }
         .padding()
-        .background(Color.white) // Match background color with the card's background
-        .cornerRadius(15) // Apply the corner radius to match the stroke
+        .background(Color.white)
+        .cornerRadius(15)
         .overlay(
             RoundedRectangle(cornerRadius: 15)
-                .stroke(Color.gray, lineWidth: 2) // Outline with rounded corners
+                .stroke(Color.gray, lineWidth: 2)
         )
         .shadow(radius: 2)
-        .buttonStyle(PlainButtonStyle()) // Remove default button styles (like the blue highlight)
+        .buttonStyle(PlainButtonStyle())
     }
 }
 
@@ -64,7 +63,6 @@ struct EventCardView: View {
         title: "Yoga en el parque Rufino Tamayo",
         date: "24/01/2024",
         points: 10,
-        iconName: "dumbbell.fill",
-        action: {}
+        iconName: "dumbbell.fill"
     )
 }
