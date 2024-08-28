@@ -13,19 +13,19 @@ struct TabViews: View {
             TabView{
             EventosView()
                     .tabItem {
-                        Label("Eventos", systemImage: "house.circle")
+                        Label("Usuario", systemImage: "house")
                     }
                 EventosView()
                     .tabItem {
-                        Label("Retos", systemImage: "person.3.fill")
+                        Label("Eventos", systemImage: "person.3.fill")
                     }
                 EventosView()
                     .tabItem {
-                        Label("Tienda", systemImage: "storefront")
+                        Label("Retos", systemImage: "medal")
                     }
                 EventosView()
                     .tabItem {
-                        Label("Usuario", systemImage: "person.fill")
+                        Label("Tienda", systemImage: "person.fill")
                     }
                 
             }

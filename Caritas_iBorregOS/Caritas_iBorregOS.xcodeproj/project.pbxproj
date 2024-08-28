@@ -19,6 +19,7 @@
 		4D5960492C7E9E820056C298 /* EventDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D5960482C7E9E820056C298 /* EventDetailView.swift */; };
 		4D59604B2C7F5A8B0056C298 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D59604A2C7F5A8B0056C298 /* Colors.swift */; };
 		4D59604D2C7F5AAC0056C298 /* TabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D59604C2C7F5AAC0056C298 /* TabView.swift */; };
+		4D59604F2C7F731E0056C298 /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D59604E2C7F731E0056C298 /* ProgressView.swift */; };
 		7930CF132C7E6B2E008A55C6 /* PerfilView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7930CF122C7E6B2E008A55C6 /* PerfilView.swift */; };
 /* End PBXBuildFile section */
 
@@ -55,6 +56,7 @@
 		4D5960482C7E9E820056C298 /* EventDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailView.swift; sourceTree = "<group>"; };
 		4D59604A2C7F5A8B0056C298 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		4D59604C2C7F5AAC0056C298 /* TabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabView.swift; sourceTree = "<group>"; };
+		4D59604E2C7F731E0056C298 /* ProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
 		7930CF122C7E6B2E008A55C6 /* PerfilView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerfilView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -111,6 +113,7 @@
 				4D04A85F2C7E070B007804E6 /* ContentView.swift */,
 				4D59604A2C7F5A8B0056C298 /* Colors.swift */,
 				4D59604C2C7F5AAC0056C298 /* TabView.swift */,
+				4D59604E2C7F731E0056C298 /* ProgressView.swift */,
 				4D5960422C7E7EBA0056C298 /* EventosView.swift */,
 				4D5960482C7E9E820056C298 /* EventDetailView.swift */,
 				4D5960442C7E7EF30056C298 /* EventCardView.swift */,
@@ -291,6 +294,7 @@
 				4D04A8602C7E070B007804E6 /* ContentView.swift in Sources */,
 				7930CF132C7E6B2E008A55C6 /* PerfilView.swift in Sources */,
 				4D04A85E2C7E070B007804E6 /* Caritas_iBorregOSApp.swift in Sources */,
+				4D59604F2C7F731E0056C298 /* ProgressView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

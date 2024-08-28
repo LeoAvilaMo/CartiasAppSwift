@@ -18,27 +18,19 @@ struct EventCardView: View {
                 .cornerRadius(10)
                 .foregroundColor(.white)
             
-            VStack(alignment: .leading, spacing: 10) {
+            VStack(alignment: .leading, spacing: 8) {
                 Text(title)
                     .font(.system(size: 18, weight: .bold))
                     .foregroundColor(.black)
                 
                 VStack(alignment: .leading, spacing: 5) {
                     HStack {
-                        Image(systemName: "location.fill")
-                            .foregroundColor(.orange)
-                        
-                        Text(date)
-                            .font(.system(size: 16))
-                            .foregroundColor(.orange)
-                    }
-                    HStack {
                         Image(systemName: "calendar")
-                            .foregroundColor(.orange)
+                            .foregroundColor(Color.orange)
                         
                         Text(date)
                             .font(.system(size: 16))
-                            .foregroundColor(.orange)
+                            .foregroundColor(darkBlueC)
                     }
                 }
 
@@ -62,7 +54,17 @@ struct EventCardView: View {
             RoundedRectangle(cornerRadius: 15)
                 .stroke(Color.gray, lineWidth: 2) // Outline with rounded corners
         )
-        .shadow(radius: 5)
+        .shadow(radius: 2)
         .buttonStyle(PlainButtonStyle()) // Remove default button styles (like the blue highlight)
     }
+}
+
+#Preview{
+    EventCardView(
+        title: "Yoga en el parque Rufino Tamayo",
+        date: "24/01/2024",
+        points: 10,
+        iconName: "dumbbell.fill",
+        action: {}
+    )
 }
