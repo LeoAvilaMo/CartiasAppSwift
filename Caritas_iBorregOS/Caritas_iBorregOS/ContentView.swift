@@ -6,11 +6,12 @@
 //
 
 import SwiftUI
-import CryptoKit
+
 let blueC = Color(red: 0/255, green: 156/255, blue: 166/255)
 let darkBlueC = Color(red: 0/255, green: 59/255, blue: 92/255)
 let lightGreenC = Color(red: 209/255, green: 224/255, blue: 215/255)
 let whiteC = Color(red: 255/255, green: 255/255, blue: 255/255)
+let whiteMateC = Color (red: 253/255, green: 251/255, blue: 249/255)
 let orangeC = Color(red: 255/255, green: 127/255, blue: 50/255)
 let pinkC = Color(red: 161/255, green: 90/255, blue: 149/255)
 
@@ -35,11 +36,12 @@ struct ContentView: View {
                         VStack{
                             Image("logoCaritas")
                                 .shadow(color: Color.black.opacity(0.2), radius: 5, x: 0, y: 5)
+                                .foregroundColor(whiteMateC)
                             HStack {
                                 Text("Iniciar sesión")
                                     .font(.system(size: 45))
                                     .bold()
-                                    .foregroundColor(whiteC)
+                                    .foregroundColor(whiteMateC)
                                     .shadow(color: Color.black.opacity(0.2), radius: 5, x: 0, y: 5)
                                     .offset(y: 10)
                                 Spacer()
@@ -92,7 +94,7 @@ struct ContentView: View {
                                 }
                             }
                             .alert(isPresented: $logInAlert, content: {
-                                Alert( title: Text("Error al iniciar sesión"), message: Text("Introduce correctamente tu usuario y/o contraseña."), dismissButton: .default(Text("OK")))
+                                Alert( title: Text("Error al iniciar sesión"), message: Text("Introduce correctamente tu usuario y/o contraseña."), dismissButton: .default(Text("Volver")))
                             })
                             .frame(maxWidth: .infinity)
                             .padding(15)
