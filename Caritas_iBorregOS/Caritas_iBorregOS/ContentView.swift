@@ -26,7 +26,7 @@ struct ContentView: View {
     var body: some View {
         NavigationStack{
             if signIn {
-                PerfilView()
+                TabViews()
             } else {
                 ZStack {
                     // Parte de atrás azul fuerte
