@@ -17,6 +17,8 @@
 		4D5960432C7E7EBA0056C298 /* EventosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D5960422C7E7EBA0056C298 /* EventosView.swift */; };
 		4D5960452C7E7EF30056C298 /* EventCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D5960442C7E7EF30056C298 /* EventCardView.swift */; };
 		4D5960492C7E9E820056C298 /* EventDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D5960482C7E9E820056C298 /* EventDetailView.swift */; };
+		4D59604B2C7F5A8B0056C298 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D59604A2C7F5A8B0056C298 /* Colors.swift */; };
+		4D59604D2C7F5AAC0056C298 /* TabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D59604C2C7F5AAC0056C298 /* TabView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +52,8 @@
 		4D5960422C7E7EBA0056C298 /* EventosView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventosView.swift; sourceTree = "<group>"; };
 		4D5960442C7E7EF30056C298 /* EventCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCardView.swift; sourceTree = "<group>"; };
 		4D5960482C7E9E820056C298 /* EventDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailView.swift; sourceTree = "<group>"; };
+		4D59604A2C7F5A8B0056C298 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		4D59604C2C7F5AAC0056C298 /* TabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +106,8 @@
 			children = (
 				4D04A85D2C7E070B007804E6 /* Caritas_iBorregOSApp.swift */,
 				4D04A85F2C7E070B007804E6 /* ContentView.swift */,
+				4D59604A2C7F5A8B0056C298 /* Colors.swift */,
+				4D59604C2C7F5AAC0056C298 /* TabView.swift */,
 				4D5960422C7E7EBA0056C298 /* EventosView.swift */,
 				4D5960482C7E9E820056C298 /* EventDetailView.swift */,
 				4D5960442C7E7EF30056C298 /* EventCardView.swift */,
@@ -267,8 +273,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				4D5960432C7E7EBA0056C298 /* EventosView.swift in Sources */,
+				4D59604B2C7F5A8B0056C298 /* Colors.swift in Sources */,
 				4D5960492C7E9E820056C298 /* EventDetailView.swift in Sources */,
 				4D5960452C7E7EF30056C298 /* EventCardView.swift in Sources */,
+				4D59604D2C7F5AAC0056C298 /* TabView.swift in Sources */,
 				4D04A8602C7E070B007804E6 /* ContentView.swift in Sources */,
 				4D04A85E2C7E070B007804E6 /* Caritas_iBorregOSApp.swift in Sources */,
 			);
