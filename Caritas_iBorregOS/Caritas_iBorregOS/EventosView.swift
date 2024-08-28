@@ -43,34 +43,42 @@ struct EventosView: View {
                 
                 // Stack que contiene Cards de cada evento
                 VStack(spacing: 15) {
-                    EventCardView(
-                        title: "Yoga en el parque Rufino Tamayo",
-                        date: "24/01/2024",
-                        points: 10,
-                        iconName: "dumbbell.fill",
-                        action: {eventDetail.toggle()}
-                    )
-                    EventCardView(
-                        title: "Meditation Workshop",
-                        date: "25/01/2024",
-                        points: 15,
-                        iconName: "figure.walk",
-                        action: {eventDetail.toggle()}
-                    )
-                    EventCardView(
-                        title: "Outdoor Running",
-                        date: "26/01/2024",
-                        points: 12,
-                        iconName: "flame.fill",
-                        action: {eventDetail.toggle()}
-                    )
-                    EventCardView(
-                        title: "Strength Training",
-                        date: "27/01/2024",
-                        points: 20,
-                        iconName: "bolt.fill",
-                        action: {eventDetail.toggle()}
-                    )
+                    NavigationLink(destination: EventDetailView()) {
+                        EventCardView(
+                            title: "Yoga en el parque Rufino Tamayo",
+                            date: "24/01/2024",
+                            points: 10,
+                            iconName: "dumbbell.fill",
+                            action: {eventDetail.toggle()}
+                        )
+                    }
+                    NavigationLink(destination: EventDetailView()) {
+                        EventCardView(
+                            title: "Meditation Workshop",
+                            date: "25/01/2024",
+                            points: 15,
+                            iconName: "figure.walk",
+                            action: {eventDetail.toggle()}
+                        )
+                    }
+                    NavigationLink(destination: EventDetailView()) {
+                        EventCardView(
+                            title: "Outdoor Running",
+                            date: "26/01/2024",
+                            points: 12,
+                            iconName: "flame.fill",
+                            action: {eventDetail.toggle()}
+                        )
+                    }
+                    NavigationLink(destination: EventDetailView()) {
+                        EventCardView(
+                            title: "Strength Training",
+                            date: "27/01/2024",
+                            points: 20,
+                            iconName: "bolt.fill",
+                            action: {}
+                        )
+                    }
                 }
                 Spacer()
             }
