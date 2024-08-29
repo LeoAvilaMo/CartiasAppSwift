@@ -81,7 +81,7 @@ struct ContentView: View {
                                     Text("¿Olvidaste tu contraseña?").underline()
                                 }
                                 .font(.system(size: 20))
-                                .foregroundStyle(orangeC)
+                                .foregroundStyle(Color.black)
                                 
                             }
                             .offset(y: 10)

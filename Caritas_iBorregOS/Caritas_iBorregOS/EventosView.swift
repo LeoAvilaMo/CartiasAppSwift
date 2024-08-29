@@ -12,12 +12,6 @@ struct EventosView: View {
             VStack {
                 // Stack con logo y puntos
                 HStack {
-                    Image("logoCaritas") // CAMBIAR A LOGO VERDE
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(height: 40)
-                        .foregroundColor(blueC)
-                    Spacer()
                     // Stack de puntos
                     HStack {
                         Image(systemName: "star.fill")
