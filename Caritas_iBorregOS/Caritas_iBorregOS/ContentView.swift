@@ -14,6 +14,9 @@ let whiteC = Color(red: 255/255, green: 255/255, blue: 255/255)
 let whiteMateC = Color (red: 253/255, green: 251/255, blue: 249/255)
 let orangeC = Color(red: 255/255, green: 127/255, blue: 50/255)
 let pinkC = Color(red: 161/255, green: 90/255, blue: 149/255)
+let lightTealC = Color(red: 247/255, green: 250/255, blue: 248/255)
+let chartC = Color(red: 132/255, green: 104/255, blue: 175/255)
+let chartBackgroundC = Color(red: 227/255, green: 220/255, blue: 237/255)
 
 struct ContentView: View {
     

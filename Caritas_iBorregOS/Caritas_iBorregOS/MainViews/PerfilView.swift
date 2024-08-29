@@ -6,8 +6,14 @@
 //
 
 import SwiftUI
+import Charts
 
-
+var graphData = [
+    PesoPorMes(month: "Mayo", weight: 55.5),
+    PesoPorMes(month: "Jun", weight: 80.5),
+    PesoPorMes(month: "Jul", weight: 57.1),
+    PesoPorMes(month: "Ago", weight: 62.5),
+]
 
 struct PerfilView: View {
     @State private var user: String = "María Martínez"
@@ -16,8 +22,13 @@ struct PerfilView: View {
     
     var body: some View {
         
+        //Overlaping things
         ZStack{
+            
+            //Green background
             VStack {
+
+                // Notifications and rewards buttons
                 HStack {
                     Button{
                         notification = true
@@ -50,15 +61,22 @@ struct PerfilView: View {
             .padding()
             .background(lightGreenC)
             
-            ScrollView(.vertical) {
+            //White card content
+            ScrollView(.vertical,showsIndicators: false) {
+                //Spacer to fill the screen
                 HStack {Spacer()}
+            
                 VStack{
                     
+                    //Content in the white card
                     Text(user)
-                    .foregroundStyle(blueC)
-                    .font(.system(size: 40))
-                    .bold()
+                        .foregroundStyle(blueC)
+                        .font(.system(size: 40))
+                        .bold()
+                    
+                    //Progress Bar with Reto text
                     VStack(spacing: 20) {
+                        
                         ZStack(alignment: .leading) {
                             // Background Progress View
                             ProgressView(value: progress)
@@ -95,28 +113,68 @@ struct PerfilView: View {
                             
                             .padding(.horizontal)
                         }
-                        Text("Reto: Yoga mensual 🧘")
-                    }
-                    .frame(height: 50) // Set the height to match the overall height of the progress bar and the icon
-                    .padding()
                         
+                        Text("Reto: ")
+                            .bold()
+                        + Text("Yoga mensual 🧘")
+                            .foregroundStyle(pinkC)
+                    }
+                    .frame(height: 50)
+                    .padding()
+                    
+                    // Weight and height cards
+                    PesoAlturaView()
+                    
+                    //Charts
+                        VStack (alignment: .leading){
+                            Text("Tu progreso 🏃‍➡️")
+                                .font(.title)
+                                .bold()
+                                .foregroundStyle(chartC)
+                        Chart{
+                            ForEach(graphData) { d in
+                                BarMark(
+                                    x: PlottableValue.value("Mes",d.month), y: PlottableValue.value("Peso", d.weight))
+                                .foregroundStyle(chartC)
+                                .annotation{
+                                    Text(String("\(d.weight) kg"))
+                                        .foregroundStyle(chartC)
+                                }
+                            }
+                            
+                        }
+                        .chartYAxis {
+                            AxisMarks(stroke: StrokeStyle(lineWidth: 0))
+                        }
+                        .chartYAxis(.hidden)
+                        .chartXAxis {
+                            AxisMarks(stroke: StrokeStyle(lineWidth: 0))
+                        }
+                        .frame(height: 200)
+                        .padding()
+                    }
+                    .padding()
+                    .background(chartBackgroundC)
+                    .cornerRadius(10)
+                    
                 }
                 .padding(.horizontal, 1)
                 .padding(.vertical, 85)
                 Spacer()
             }
             .padding()
-            .background(whiteMateC)
+            .background(lightTealC)
             .cornerRadius(50)
             .offset(y: 150)
             .shadow(color: Color.black.opacity(0.01), radius: 5, x: 0, y: 5)
+            
+            //Profile picture
             VStack {
                 FotoView()
                     .padding(.horizontal, 20)
                     .padding(.vertical, 35)
                     .frame(width: 250)
                     .shadow(color: blueC,radius: 10)
-                    
                 Spacer()
             }
             
