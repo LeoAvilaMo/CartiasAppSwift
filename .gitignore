@@ -1,44 +1,57 @@
-# Xcode
-DerivedData/
+# Swift/General
+# Ignore Xcode project temp files and workspace settings
 *.xcworkspace
-xcuserdata/
 *.xcuserstate
-*.xcodeproj/project.xcworkspace/
+*.xcodeproj/*
+!*.xcodeproj/project.pbxproj
+!*.xcodeproj/xcshareddata
+!*.xcodeproj/xcshareddata/*
+xcuserdata
 
 # Swift Package Manager
-.build/
-Packages/
-.swiftpm/
+/.build
+/Packages
+.swiftpm/xcode/*
+.swiftpm/build/*
 
-# CocoaPods
+# Carthage
+Carthage/Build
+
+# Cocoapods
 Pods/
 Podfile.lock
 
-# Carthage
-Carthage/Build/
+# Derived Data and other Xcode generated files
+DerivedData/
+build/
 
+# Ignore archives and schemes
+*.ipa
+*.dSYM.zip
+*.dSYM
 
-# Fastlane
+# Ignore Swift playgrounds' auxiliary files
+timeline.xctimeline
+playground.xcworkspace
+
+# Ignore fastlane specific files
 fastlane/report.xml
+fastlane/Preview.html
 fastlane/screenshots
 fastlane/test_output
-fastlane/report.json
 
-# Temporary files
-*.tmp
+# Ignore logs and user-specific files
+*.log
+*.DS_Store
 *.swp
 *.lock
+*.xcuserstate
+*.moved-aside
 
-# SwiftLint & SwiftFormat
-.swiftlint.yml
-.swiftformat
+# Ignore environment-specific settings
+.env
+.env.*
 
-# macOS
-.DS_Store
-
-# Build products
-*.app
-*.ipa
-*.dSYM
-build/
-*.framework
+# Ignore backup files
+*.bak
+*.orig
