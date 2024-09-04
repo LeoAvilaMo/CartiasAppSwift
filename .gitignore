@@ -1,0 +1,43 @@
+# Xcode
+DerivedData/
+*.xcworkspace
+xcuserdata/
+*.xcuserstate
+*.xcodeproj/project.xcworkspace/
+
+# Swift Package Manager
+.build/
+Packages/
+.swiftpm/
+
+# CocoaPods
+Pods/
+Podfile.lock
+
+# Carthage
+Carthage/Build/
+
+# Fastlane
+fastlane/report.xml
+fastlane/screenshots
+fastlane/test_output
+fastlane/report.json
+
+# Temporary files
+*.tmp
+*.swp
+*.lock
+
+# SwiftLint & SwiftFormat
+.swiftlint.yml
+.swiftformat
+
+# macOS
+.DS_Store
+
+# Build products
+*.app
+*.ipa
+*.dSYM
+build/
+*.framework
