@@ -17,6 +17,7 @@ Podfile.lock
 # Carthage
 Carthage/Build/
 
+
 # Fastlane
 fastlane/report.xml
 fastlane/screenshots
