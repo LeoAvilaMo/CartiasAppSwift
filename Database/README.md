@@ -1,7 +1,7 @@
 # Queries para la base de datos
 
 ## Aparte
--CREATE DATABASE
+- CREATE DATABASE
 ##
 - POST
 - GET
