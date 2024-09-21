@@ -1,8 +1,8 @@
 # Queries para la base de datos
 
-## Aparte
+## Queries para crear la base de datos
 - CREATE DATABASE
-##
+## Queries para hacer llamadas al API
 - POST
 - GET
 - DELETE
