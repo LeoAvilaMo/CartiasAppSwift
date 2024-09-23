@@ -132,6 +132,7 @@
 		4D04A85C2C7E070B007804E6 /* Caritas_iBorregOS */ = {
 			isa = PBXGroup;
 			children = (
+				4D0F67912C88C17900FA65F6 /* ViewModels */,
 				4D5960952C7FA9C60056C298 /* Constants */,
 				79A8BD412C826B9B00ED59CC /* Models */,
 				798304062C7E7C1000BF5233 /* MainViews */,
@@ -167,6 +168,14 @@
 				4D04A87A2C7E070E007804E6 /* Caritas_iBorregOSUITestsLaunchTests.swift */,
 			);
 			path = Caritas_iBorregOSUITests;
+			sourceTree = "<group>";
+		};
+		4D0F67912C88C17900FA65F6 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = ViewModels;
+			path = MainViews/ViewModels;
 			sourceTree = "<group>";
 		};
 		4D5960952C7FA9C60056C298 /* Constants */ = {
