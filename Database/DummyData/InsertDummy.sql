@@ -12,12 +12,11 @@ VALUES
 ('Maria', 'Gonzalez', 'Ramirez', 2, 'maria.gonzalez@example.com', 'password2'),
 ('Luis', 'Martinez', 'Fernandez', 1, 'luis.martinez@example.com', 'password3');
 
--- Insert dummy data into EVENTOS
-INSERT INTO [EVENTOS] ([NOMBRE], [DESCRIPCION], [NUM_MAX_ASISTENTES], [PUNTAJE])
+INSERT INTO [EVENTOS] ([NOMBRE], [DESCRIPCION], [NUM_MAX_ASISTENTES], [PUNTAJE], [FECHA_EVENTO])
 VALUES
-('Conferencia de Tecnología', 'Evento sobre los últimos avances en tecnología', 200, 50),
-('Feria de Emprendimiento', 'Feria para promover startups y negocios locales', 150, 40),
-('Taller de Programación', 'Taller intensivo de programación en Python', 100, 30);
+('Conferencia de Tecnología', 'Evento sobre los últimos avances en tecnología', 200, 50, '2023-10-15'),
+('Feria de Emprendimiento', 'Feria para promover startups y negocios locales', 150, 40, '2023-11-01'),
+('Taller de Programación', 'Taller intensivo de programación en Python', 100, 30, '2023-11-20');
 
 -- Insert dummy data into DATOS_FISICOS
 INSERT INTO [DATOS_FISICOS] ([ID_USUARIO], [PESO], [ALTURA], [IMC], [GLUCOSA], [FECHA_ACTUALIZACION])
