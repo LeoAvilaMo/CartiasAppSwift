@@ -17,10 +17,12 @@ import Foundation
 
 import Foundation
 
-public struct USUARIOS {
+// Define the USUARIOS structure that matches the API response
+public struct USUARIOS: Codable {
     let ID_USUARIO: Int
     let NOMBRE: String
     let A_PATERNO: String
     let A_MATERNO: String
     let ID_TIPO_USUARIO: Int
+
 }

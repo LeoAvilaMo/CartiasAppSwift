@@ -1,14 +1,18 @@
+//
+//  EventCrdMidView.swift
+//  Caritas_iBorregOS
+//
+//  Created by Diego Torre on 24/09/24.
+//
+
 import SwiftUI
 
 struct EventCardView: View {
-    let title: String
-    let date: String
-    let points: Int
-    let iconName: String
+    let event: EVENTOS
     
     var body: some View {
         HStack {
-            Image(systemName: iconName)
+            Image(systemName: "star.fill")
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .frame(width: 40, height: 40)
@@ -18,8 +22,8 @@ struct EventCardView: View {
                 .foregroundColor(.white)
             
             VStack(alignment: .leading, spacing: 8) {
-                Text(title)
-                    .font(.system(size: 18, weight: .bold))
+                Text(event.NOMBRE)
+                    .font(.system(size: 16, weight: .bold))
                     .foregroundColor(.black)
                 
                 VStack(alignment: .leading, spacing: 5) {
@@ -27,7 +31,7 @@ struct EventCardView: View {
                         Image(systemName: "calendar")
                             .foregroundColor(Color.orange)
                         
-                        Text(date)
+                        Text("Fecha: \(formattedDate(event.FECHA_EVENTO))")
                             .font(.system(size: 16))
                             .foregroundColor(darkBlueC)
                     }
@@ -38,7 +42,7 @@ struct EventCardView: View {
             
             Spacer()
             
-            Text("\(points) pts")
+            Text("Puntos: \(event.PUNTAJE)")
                 .font(.system(size: 16, weight: .bold))
                 .padding(.vertical, 6)
                 .padding(.horizontal, 10)
@@ -60,9 +64,6 @@ struct EventCardView: View {
 
 #Preview{
     EventCardView(
-        title: "Yoga en el parque Rufino Tamayo",
-        date: "24/01/2024",
-        points: 10,
-        iconName: "dumbbell.fill"
+        event:exampleEvent
     )
 }

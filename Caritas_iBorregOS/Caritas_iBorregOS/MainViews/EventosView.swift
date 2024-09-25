@@ -5,76 +5,79 @@ struct EventosView: View {
     let darkBlueC = Color(red: 0/255, green: 59/255, blue: 92/255)
     let lightGreenC = Color(red: 209/255, green: 224/255, blue: 215/255)
     let whiteC = Color(red: 255/255, green: 255/255, blue: 255/255)
-    @State private var eventDetail = false
+    
+    @State private var events: [EVENTOS] = []  // Store fetched events
+    @State private var errorMessage: String?   // For error handling
+    @State private var path = NavigationPath()
     
     var body: some View {
-        NavigationStack{
-            VStack {
-                // Stack con logo y puntos
-                HStack {
-                    // Stack de puntos
+        NavigationStack {
+            ScrollView {
+                VStack {
+                    // Stack with logo and points
                     HStack {
-                        Image(systemName: "star.fill")
-                            .foregroundColor(.yellow)
-                        Text("135")
-                            .font(.system(size: 18, weight: .bold))
-                            .foregroundColor(whiteC)
+                        HStack {
+                            Image(systemName: "star.fill")
+                                .foregroundColor(.yellow)
+                            Text("135")
+                                .font(.system(size: 18, weight: .bold))
+                                .foregroundColor(whiteC)
+                        }
+                        .padding(.vertical, 6)
+                        .padding(.horizontal, 10)
+                        .background(darkBlueC)
+                        .cornerRadius(12)
                     }
-                    .padding(.vertical, 6)
-                    .padding(.horizontal, 10)
-                    .background(darkBlueC)
-                    .cornerRadius(12)
+                    
+                    // Title
+                    Text("Eventos")
+                        .font(.system(size: 35))
+                        .bold()
+                        .foregroundColor(darkBlueC)
+                        .padding(.bottom, 20)
+                    
+                    // If events are successfully fetched, display them as cards
+                    if !events.isEmpty {
+                        VStack(spacing: 15) {
+                            ForEach(events) { event in
+                                NavigationLink(destination: EventDetailView(event: event)
+                                    ) {
+                                    EventCardView(event: event)
+                                }
+                            }
+                        }
+                    } else {
+                        // Placeholder when fetching events or error occurs
+                        if let errorMessage = errorMessage {
+                            Text("Error: \(errorMessage)")
+                                .foregroundColor(.red)
+                        } else {
+                            Text("Fetching events...")
+                                .foregroundColor(darkBlueC)
+                        }
+                    }
+                    
+                    Spacer()
                 }
-                // Titulo
-                Text("Eventos")
-                    .font(.system(size: 35))
-                    .bold()
-                    .foregroundColor(darkBlueC)
-                    .padding(.bottom, 20)
-                
-                // Stack que contiene Cards de cada evento
-                VStack(spacing: 15) {
-                    NavigationLink(destination: EventDetailView()) {
-                        EventCardView(
-                            title: "Yoga en el parque Rufino Tamayo",
-                            date: "24/01/2024",
-                            points: 10,
-                            iconName: "dumbbell.fill"
-                        )
-                    }
-                    NavigationLink(destination: EventDetailView()) {
-                        EventCardView(
-                            title: "Meditation Workshop",
-                            date: "25/01/2024",
-                            points: 15,
-                            iconName: "figure.walk"
-                        )
-                    }
-                    NavigationLink(destination: EventDetailView()) {
-                        EventCardView(
-                            title: "Outdoor Running",
-                            date: "26/01/2024",
-                            points: 12,
-                            iconName: "flame.fill"
-                        )
-                    }
-                    NavigationLink(destination: EventDetailView()) {
-                        EventCardView(
-                            title: "Strength Training",
-                            date: "27/01/2024",
-                            points: 20,
-                            iconName: "bolt.fill"
-                        )
+                .padding()
+                .onAppear {
+                    // Fetch events when the view appears
+                    Task {
+                        do {
+                            let fetchedEvents = try await fetchEvents()
+                            events = fetchedEvents
+                        } catch {
+                            errorMessage = "Failed to fetch events: \(error.localizedDescription)"
+                        }
                     }
                 }
-                Spacer()
             }
-            .padding()
             .background(lightGreenC)
         }
-
-            
-        }
+    }
+    
+    // Inject the presentation mode environment variable for dismissing the view
+    @Environment(\.presentationMode) var presentationMode
 }
 
 #Preview {

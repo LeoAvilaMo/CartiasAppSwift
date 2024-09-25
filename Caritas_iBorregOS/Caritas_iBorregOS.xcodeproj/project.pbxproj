@@ -24,6 +24,7 @@
 		4D5960942C7F89D60056C298 /* RetosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D5960932C7F89D60056C298 /* RetosView.swift */; };
 		4D90B03C2C800B0300470D91 /* PesoEnMesesData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D90B03B2C800B0300470D91 /* PesoEnMesesData.swift */; };
 		4D90B03E2C800B4A00470D91 /* PesoAlturaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D90B03D2C800B4A00470D91 /* PesoAlturaView.swift */; };
+		4DF739212CA35DA400BF5788 /* EventosViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF739202CA35DA400BF5788 /* EventosViewModel.swift */; };
 		790C89232C83C52C0030828B /* obtenRetosTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 790C89222C83C52C0030828B /* obtenRetosTest.swift */; };
 		790C89252C83C7540030828B /* obtenBeneficiosTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 790C89242C83C7540030828B /* obtenBeneficiosTest.swift */; };
 		79274E962C7E8950006A0E26 /* FotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79274E952C7E8950006A0E26 /* FotoView.swift */; };
@@ -73,6 +74,7 @@
 		4D5960932C7F89D60056C298 /* RetosView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetosView.swift; sourceTree = "<group>"; };
 		4D90B03B2C800B0300470D91 /* PesoEnMesesData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PesoEnMesesData.swift; sourceTree = "<group>"; };
 		4D90B03D2C800B4A00470D91 /* PesoAlturaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PesoAlturaView.swift; sourceTree = "<group>"; };
+		4DF739202CA35DA400BF5788 /* EventosViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventosViewModel.swift; sourceTree = "<group>"; };
 		790C89222C83C52C0030828B /* obtenRetosTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = obtenRetosTest.swift; sourceTree = "<group>"; };
 		790C89242C83C7540030828B /* obtenBeneficiosTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = obtenBeneficiosTest.swift; sourceTree = "<group>"; };
 		79274E952C7E8950006A0E26 /* FotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FotoView.swift; sourceTree = "<group>"; };
@@ -173,6 +175,7 @@
 		4D0F67912C88C17900FA65F6 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				4DF739202CA35DA400BF5788 /* EventosViewModel.swift */,
 			);
 			name = ViewModels;
 			path = MainViews/ViewModels;
@@ -384,6 +387,7 @@
 				4D5960922C7F89B80056C298 /* TiendaView.swift in Sources */,
 				4D5960942C7F89D60056C298 /* RetosView.swift in Sources */,
 				790C89232C83C52C0030828B /* obtenRetosTest.swift in Sources */,
+				4DF739212CA35DA400BF5788 /* EventosViewModel.swift in Sources */,
 				4D5960432C7E7EBA0056C298 /* EventosView.swift in Sources */,
 				798330D02C839B790054E21A /* USUARIOS.swift in Sources */,
 				79630D292C83BA60007E94AA /* BeneficioCardView.swift in Sources */,
