@@ -18,7 +18,7 @@ public struct EVENTOS: Codable, Identifiable {
     let PUNTAJE: Int
     let FECHA_EVENTO: Date
 
-    // Custom decoding initializer for JSON
+    // Decodificamos los datos al incializar objeto de evento
     public init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         ID_EVENTO = Int(try container.decode(String.self, forKey: .ID_EVENTO))!
@@ -28,8 +28,9 @@ public struct EVENTOS: Codable, Identifiable {
         PUNTAJE = Int(try container.decode(String.self, forKey: .PUNTAJE))!
         let dateString = try container.decode(String.self, forKey: .FECHA_EVENTO)
         let dateFormatter = DateFormatter()
+        // Formato para la fecha
         dateFormatter.dateFormat = "EEE, dd MMM yyyy HH:mm:ss zzz"
-        dateFormatter.locale = Locale(identifier: "en_US_POSIX") // Fixed format
+        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
         guard let date = dateFormatter.date(from: dateString) else {
             throw DecodingError.dataCorruptedError(forKey: .FECHA_EVENTO,
                                                    in: container,

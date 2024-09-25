@@ -14,14 +14,14 @@ struct EventosView: View {
         NavigationStack {
             ScrollView {
                 VStack {
-                    // Title
+                    // Titulo
                     Text("Eventos")
                         .font(.system(size: 35))
                         .bold()
                         .foregroundColor(darkBlueC)
                         .padding(.bottom, 20)
                     
-                    // If events are successfully fetched, display them as cards
+                    // Si se obtuvieron los eventos, renderizar cartas
                     if !events.isEmpty {
                         VStack(spacing: 15) {
                             ForEach(events) { event in
@@ -32,7 +32,7 @@ struct EventosView: View {
                             }
                         }
                     } else {
-                        // Placeholder when fetching events or error occurs
+                        // Hacer display de mensaje cuando suceda un error
                         if let errorMessage = errorMessage {
                             Text("Error: \(errorMessage)")
                                 .foregroundColor(.red)
@@ -46,7 +46,7 @@ struct EventosView: View {
                 }
                 .padding()
                 .onAppear {
-                    // Fetch events when the view appears
+                    // Cuando aparezca nuestro view, hacer el fetch de eventos
                     Task {
                         do {
                             let fetchedEvents = try await fetchEvents()
@@ -60,9 +60,6 @@ struct EventosView: View {
             .background(lightGreenC)
         }
     }
-    
-    // Inject the presentation mode environment variable for dismissing the view
-    @Environment(\.presentationMode) var presentationMode
 }
 
 #Preview {
