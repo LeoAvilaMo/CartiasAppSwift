@@ -33,12 +33,12 @@ public struct EVENTOS: Codable, Identifiable {
         guard let date = dateFormatter.date(from: dateString) else {
             throw DecodingError.dataCorruptedError(forKey: .FECHA_EVENTO,
                                                    in: container,
-                                                   debugDescription: "Date string does not match format expected by formatter.")
+                                                   debugDescription: "La fecha no esta en el formato adecuado.")
         }
         FECHA_EVENTO = date
     }
 
-    // Manual initializer for direct instance creation
+    // Inicializaodr manual
     init(ID_EVENTO: Int, NOMBRE: String, DESCRIPCION: String, NUM_MAX_ASISTENTES: Int, PUNTAJE: Int, FECHA_EVENTO: Date) {
         self.ID_EVENTO = ID_EVENTO
         self.NOMBRE = NOMBRE

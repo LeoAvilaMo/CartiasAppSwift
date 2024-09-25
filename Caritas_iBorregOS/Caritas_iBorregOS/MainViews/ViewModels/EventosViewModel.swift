@@ -127,54 +127,6 @@ func fetchEvents() async throws -> [EVENTOS] {
     }
 }
 
-
-// Helper function to decode event data
-func decodeEventData(_ data: Data) throws -> EVENTOS {
-    let decoder = JSONDecoder()
-
-    // Set up the custom date decoding strategy
-    let dateFormatter = DateFormatter()
-    dateFormatter.dateFormat = "EEE, dd MMM yyyy HH:mm:ss zzz"
-    decoder.dateDecodingStrategy = .formatted(dateFormatter)
-
-    // Fix numeric fields in the JSON if they are strings
-    let fixedData = try fixNumericFieldsInJSON(data)
-
-    // Decode the fixed data into EVENTOS
-    let event = try decoder.decode(EVENTOS.self, from: fixedData)
-    return event
-}
-
-// Helper function to decode array of events
-func decodeEventsData(_ data: Data) throws -> [EVENTOS] {
-    let decoder = JSONDecoder()
-
-    // Set up the custom date decoding strategy
-    let dateFormatter = DateFormatter()
-    dateFormatter.dateFormat = "EEE, dd MMM yyyy HH:mm:ss zzz"
-    decoder.dateDecodingStrategy = .formatted(dateFormatter)
-
-    // Fix numeric fields in the JSON if they are strings
-    let fixedData = try fixNumericFieldsInJSON(data)
-
-    // Decode the fixed data into an array of EVENTOS
-    let events = try decoder.decode([EVENTOS].self, from: fixedData)
-    return events
-}
-
-
-// Helper function to get the date decoding strategy
-func getDateDecodingStrategy() -> JSONDecoder.DateDecodingStrategy {
-    let dateFormatter = DateFormatter()
-    dateFormatter.dateFormat = "E, dd MMM yyyy HH:mm:ss zzz"  // Matches "Sun, 15 Oct 2023 00:00:00 GMT"
-    dateFormatter.locale = Locale(identifier: "en_US_POSIX")
-    dateFormatter.timeZone = TimeZone(secondsFromGMT: 0)
-    
-    return .formatted(dateFormatter)
-}
-
-
-
 func formattedDate(_ date: Date) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .medium
@@ -188,5 +140,5 @@ let exampleEvent = EVENTOS(
     DESCRIPCION: "Una clase de yoga en el parque.",
     NUM_MAX_ASISTENTES: 50,
     PUNTAJE: 10,
-    FECHA_EVENTO: Date(timeIntervalSince1970: 1700793600)  // Example Date
+    FECHA_EVENTO: Date(timeIntervalSince1970: 1700793600) 
 )

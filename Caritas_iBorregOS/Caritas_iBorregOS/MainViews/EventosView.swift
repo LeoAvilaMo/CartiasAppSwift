@@ -6,8 +6,8 @@ struct EventosView: View {
     let lightGreenC = Color(red: 209/255, green: 224/255, blue: 215/255)
     let whiteC = Color(red: 255/255, green: 255/255, blue: 255/255)
     
-    @State private var events: [EVENTOS] = []  // Store fetched events
-    @State private var errorMessage: String?   // For error handling
+    @State private var events: [EVENTOS] = []
+    @State private var errorMessage: String?   
     @State private var path = NavigationPath()
     
     var body: some View {
