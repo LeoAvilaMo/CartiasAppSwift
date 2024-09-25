@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct BENEFICIOS : Identifiable{
+public struct BENEFICIOS : Identifiable, Codable{
     public var id: Int
     var NOMBRE: String
     var DESCRIPCION: String

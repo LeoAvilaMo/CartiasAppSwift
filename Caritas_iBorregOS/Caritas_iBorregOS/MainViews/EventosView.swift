@@ -14,21 +14,6 @@ struct EventosView: View {
         NavigationStack {
             ScrollView {
                 VStack {
-                    // Stack with logo and points
-                    HStack {
-                        HStack {
-                            Image(systemName: "star.fill")
-                                .foregroundColor(.yellow)
-                            Text("135")
-                                .font(.system(size: 18, weight: .bold))
-                                .foregroundColor(whiteC)
-                        }
-                        .padding(.vertical, 6)
-                        .padding(.horizontal, 10)
-                        .background(darkBlueC)
-                        .cornerRadius(12)
-                    }
-                    
                     // Title
                     Text("Eventos")
                         .font(.system(size: 35))
