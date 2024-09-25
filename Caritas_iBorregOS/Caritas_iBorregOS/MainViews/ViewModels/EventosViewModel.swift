@@ -43,7 +43,7 @@ func fixNumericFieldsInJSON(_ data: Data) throws -> Data {
 // Improved fetchEvent function to handle and print specific errors
 func fetchEvent(eventID: Int) async throws -> EVENTOS {
     // Construct the URL
-    guard let url = URL(string: "http://localhost:5000/event/\(eventID)") else {
+    guard let url = URL(string: "https://a00835641.tc2007b.tec.mx:10201/event/\(eventID)") else {
         throw APIError.invalidURL
     }
     
@@ -98,7 +98,7 @@ func fetchEvent(eventID: Int) async throws -> EVENTOS {
 
 // Function to fetch all events
 func fetchEvents() async throws -> [EVENTOS] {
-    guard let url = URL(string: "http://localhost:5000/all-events") else {
+    guard let url = URL(string: "https://a00835641.tc2007b.tec.mx:10201/all-events") else {
         throw URLError(.badURL)
     }
 
