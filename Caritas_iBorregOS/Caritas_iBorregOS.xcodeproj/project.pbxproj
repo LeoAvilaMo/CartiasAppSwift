@@ -36,6 +36,7 @@
 		798330D22C839BA60054E21A /* EVENTOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798330D12C839BA60054E21A /* EVENTOS.swift */; };
 		798330D42C839C3A0054E21A /* BENEFICIOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798330D32C839C3A0054E21A /* BENEFICIOS.swift */; };
 		798330D62C839CBC0054E21A /* RETOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798330D52C839CBC0054E21A /* RETOS.swift */; };
+		79A5C0392CA4BCF800271DEB /* UsuariosViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A5C0382CA4BCF800271DEB /* UsuariosViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,6 +89,7 @@
 		798330D12C839BA60054E21A /* EVENTOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EVENTOS.swift; sourceTree = "<group>"; };
 		798330D32C839C3A0054E21A /* BENEFICIOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BENEFICIOS.swift; sourceTree = "<group>"; };
 		798330D52C839CBC0054E21A /* RETOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RETOS.swift; sourceTree = "<group>"; };
+		79A5C0382CA4BCF800271DEB /* UsuariosViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsuariosViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,6 +183,7 @@
 			children = (
 				4D9F56782CA4A43900C41A4E /* TiendaViewModel.swift */,
 				4DF739202CA35DA400BF5788 /* EventosViewModel.swift */,
+				79A5C0382CA4BCF800271DEB /* UsuariosViewModel.swift */,
 			);
 			name = ViewModels;
 			path = MainViews/ViewModels;
@@ -411,6 +414,7 @@
 				4D9F56792CA4A43900C41A4E /* TiendaViewModel.swift in Sources */,
 				4D04A85E2C7E070B007804E6 /* Caritas_iBorregOSApp.swift in Sources */,
 				4D59604F2C7F731E0056C298 /* ProgressView.swift in Sources */,
+				79A5C0392CA4BCF800271DEB /* UsuariosViewModel.swift in Sources */,
 				798330D62C839CBC0054E21A /* RETOS.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

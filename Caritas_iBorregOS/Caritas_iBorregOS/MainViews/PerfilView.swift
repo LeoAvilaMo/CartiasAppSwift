@@ -20,6 +20,9 @@ struct PerfilView: View {
     @State private var notification: Bool = false
     @State private var progress: Double = 0.2 // Current progress (99%)
     
+    @State private var usuario: USUARIOS?
+    @State private var errorMessage: String?
+    
     var body: some View {
         
         //Overlaping things
@@ -27,7 +30,7 @@ struct PerfilView: View {
             
             //Green background
             VStack {
-
+                
                 // Notifications and rewards buttons
                 HStack {
                     Button{
@@ -65,11 +68,11 @@ struct PerfilView: View {
             ScrollView(.vertical,showsIndicators: false) {
                 //Spacer to fill the screen
                 HStack {Spacer()}
-            
+                
                 VStack{
                     
                     //Content in the white card
-                    Text(user)
+                    Text(usuario?.NOMBRE ?? "SN")
                         .foregroundStyle(blueC)
                         .font(.system(size: 40))
                         .bold()
@@ -126,11 +129,11 @@ struct PerfilView: View {
                     PesoAlturaView()
                     
                     //Charts
-                        VStack (alignment: .leading){
-                            Text("Tu progreso 🏃‍➡️")
-                                .font(.title)
-                                .bold()
-                                .foregroundStyle(chartC)
+                    VStack (alignment: .leading){
+                        Text("Tu progreso 🏃‍➡️")
+                            .font(.title)
+                            .bold()
+                            .foregroundStyle(chartC)
                         Chart{
                             ForEach(graphData) { d in
                                 BarMark(
@@ -179,8 +182,21 @@ struct PerfilView: View {
             }
             
         }
+        .onAppear{
+            Task {
+                do{
+                    let fetchUser = try await fetchUsuario(usuarioID: 1)
+                    usuario = fetchUser
+                } catch {
+                    errorMessage = "Error fetching user: \(error.localizedDescription)"
+                }
+            }
+        }
     }
+    // Inject the presentation mode environment variable for dismissing the view
+    @Environment(\.presentationMode) var presentationMode
 }
+
 
 #Preview {
     PerfilView()
