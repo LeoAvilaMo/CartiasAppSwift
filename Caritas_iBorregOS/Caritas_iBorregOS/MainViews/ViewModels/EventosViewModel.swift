@@ -17,11 +17,11 @@ enum APIError: Error {
 
 import Foundation
 
-// Function to convert numeric strings to actual numbers in the JSON
+// Convertir valores numericos del evento a string para renderizar
 func fixNumericFieldsInJSON(_ data: Data) throws -> Data {
-    // Decode the raw JSON as a dictionary first
+
     if var jsonDict = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
-        // Manually convert string fields to numbers
+    
         if let id = jsonDict["ID_EVENTO"] as? String, let idInt = Int(id) {
             jsonDict["ID_EVENTO"] = idInt
         }
@@ -32,40 +32,38 @@ func fixNumericFieldsInJSON(_ data: Data) throws -> Data {
             jsonDict["PUNTAJE"] = puntajeInt
         }
 
-        // Re-encode the modified dictionary back to Data
+        
         return try JSONSerialization.data(withJSONObject: jsonDict, options: [])
     }
     
-    // If the data could not be converted, return the original
+    // En caso de tener error, regresar datos originales
     return data
 }
 
-// Improved fetchEvent function to handle and print specific errors
+// Funcion para manejar ruta que obtiene un evento individual
 func fetchEvent(eventID: Int) async throws -> EVENTOS {
     // Construct the URL
     guard let url = URL(string: "https://a00835641.tc2007b.tec.mx:10201/event/\(eventID)") else {
         throw APIError.invalidURL
     }
     
-    // Perform the request asynchronously
     let (data, response) = try await URLSession.shared.data(from: url)
     
-    // Check for the HTTP status code
     if let httpResponse = response as? HTTPURLResponse {
         switch httpResponse.statusCode {
         case 200:
             do {
                 let decoder = JSONDecoder()
 
-                // Set the custom date decoding strategy
+                // Formato de fecha como buscamos
                 let dateFormatter = DateFormatter()
                 dateFormatter.dateFormat = "EEE, dd MMM yyyy HH:mm:ss zzz"
                 decoder.dateDecodingStrategy = .formatted(dateFormatter)
 
-                // Fix numeric fields in the JSON if they are strings
+                // Cambiar valores numericos a strings
                 let fixedData = try fixNumericFieldsInJSON(data)
 
-                // Decode the JSON data into the EVENTOS struct
+                // Decodificar a la estrucutra eventos
                 let event = try decoder.decode(EVENTOS.self, from: fixedData)
                 return event
             } catch {
@@ -96,37 +94,47 @@ func fetchEvent(eventID: Int) async throws -> EVENTOS {
     }
 }
 
-// Function to fetch all events
+// Funcion que obtiene todos los eventos
 func fetchEvents() async throws -> [EVENTOS] {
     guard let url = URL(string: "https://a00835641.tc2007b.tec.mx:10201/all-events") else {
         throw URLError(.badURL)
     }
 
-    // Fetch the data from the API
+    // Llamada asincrona
     let (data, response) = try await URLSession.shared.data(from: url)
 
-    // Check if the HTTP response is OK (status code 200)
     guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
         throw URLError(.badServerResponse)
     }
 
-    // Optionally print the raw JSON data for debugging
+    // Hacer print para ver los datos como fueron obtenidos
     if let jsonString = String(data: data, encoding: .utf8) {
         print("Raw JSON Response: \(jsonString)")
     }
 
     do {
-        // Decode the JSON into an array of EVENTOS objects
+        // Construir arreglo de objetos EVENTO
         let decoder = JSONDecoder()
         let events = try decoder.decode([EVENTOS].self, from: data)
         return events
     } catch {
-        // Handle and rethrow decoding errors
+        // Manejar errores
         print("Error decoding JSON: \(error)")
         throw error
     }
 }
 
+// Cambiar fecha a spanish
+func dateToStringEs(_ date: Date) -> String {
+    let dateFormatter = DateFormatter()
+    dateFormatter.dateStyle = .medium
+    dateFormatter.timeStyle = .none
+    dateFormatter.locale = Locale(identifier: "es_ES") 
+    
+    return dateFormatter.string(from: date)
+}
+
+// Formato de fecha adecuado
 func formattedDate(_ date: Date) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .medium
