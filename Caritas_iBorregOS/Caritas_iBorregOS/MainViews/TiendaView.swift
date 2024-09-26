@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct TiendaView: View {
-    // Colores personalizados
     let blueC = Color(red: 0/255, green: 156/255, blue: 166/255)
     let darkBlueC = Color(red: 0/255, green: 59/255, blue: 92/255)
     let lightGreenC = Color(red: 209/255, green: 224/255, blue: 215/255)
@@ -20,20 +19,25 @@ struct TiendaView: View {
     let chartC = Color(red: 132/255, green: 104/255, blue: 175/255)
     let chartBackgroundC = Color(red: 227/255, green: 220/255, blue: 237/255)
 
-    // ViewModel
-    @StateObject private var viewModel = ViewModelTienda()
+    @State private var beneficios: [BENEFICIOS] = []
+    @State private var errorMessage: String?
+    @State private var path = NavigationPath()
     
-    @State private var alertItem: AlertItem?
+    struct AlertItem: Identifiable {
+        let id = UUID()
+        let title: String
+        let message: String
+    }
 
+    @State private var alertItem: AlertItem?
+    
     var body: some View {
         NavigationStack {
             VStack {
                 HStack { Spacer() }
                 
-                // Stack con logo y puntos
                 HStack {
                     Spacer()
-                    // Stack de puntos
                     HStack {
                         Image(systemName: "star.fill")
                             .foregroundColor(.yellow)
@@ -47,35 +51,47 @@ struct TiendaView: View {
                     .cornerRadius(12)
                 }
                 .padding(.horizontal)
-
-                // Titulo
+                
                 Text("Tienda")
                     .font(.largeTitle)
                     .bold()
                     .foregroundColor(darkBlueC)
                     .padding(.bottom, 20)
 
-                // Lista de beneficios
-                VStack {
-                    List(viewModel.beneficios) { beneficio in // Usar la lista de beneficios del ViewModel
-                        NavigationLink(destination: BeneficioDetailView(beneficioX: beneficio)) {
-                            BeneficioCardView(beneficioX: beneficio)
+                ScrollView {
+                    VStack(spacing: 15) {
+                        if !beneficios.isEmpty {
+                            ForEach(beneficios) { beneficio in
+                                NavigationLink(destination: BeneficioDetailView(beneficioX: beneficio)) {
+                                    BeneficioCardView(beneficioX: beneficio)
+                                }
+                            }
+                        } else {
+                            if let errorMessage = errorMessage {
+                                Text("Error: \(errorMessage)")
+                                    .foregroundColor(.red)
+                            } else {
+                                Text("Fetching events...")
+                                    .foregroundColor(darkBlueC)
+                            }
                         }
                     }
-                    .listStyle(PlainListStyle())
-                    .scrollIndicators(.hidden)
+                    .padding()
+                    .background(lightGreenC)
+                    .cornerRadius(10)
+                    .padding(.top, 10)
+                    .frame(maxHeight: 300)
                 }
-                .background(lightGreenC)
-                .cornerRadius(10)
-                .padding()
-                .offset(y: -10)
             }
             .background(lightGreenC)
             .onAppear {
-                viewModel.fetchBeneficios()
-                // Manejo del error
-                if let errorMessage = viewModel.errorMessage {
-                    alertItem = AlertItem(message: errorMessage)
+                Task {
+                    do {
+                        let fetchedBeneficios = try await fetchBeneficios()
+                        beneficios = fetchedBeneficios
+                    } catch {
+                        errorMessage = "Failed to fetch events: \(error.localizedDescription)"
+                    }
                 }
             }
             .alert(item: $alertItem) { alertItem in
@@ -90,4 +106,3 @@ struct TiendaView_Previews: PreviewProvider {
         TiendaView()
     }
 }
-
