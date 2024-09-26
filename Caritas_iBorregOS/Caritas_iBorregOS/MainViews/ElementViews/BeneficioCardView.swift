@@ -20,7 +20,7 @@ struct BeneficioCardView: View {
     var body: some View {
         VStack{
             HStack{
-                Image(systemName: beneficioX.ICONO)
+                Image(systemName: "gift.fill")
                     .resizable()
                     .foregroundStyle(blueC)
                     .aspectRatio(contentMode: .fit)
@@ -49,7 +49,6 @@ struct BeneficioCardView: View {
                 
                 Spacer()
                 Button(action: {
-                    // Acción del botón
                 }) {
                     HStack {
                         Image(systemName: "arrow.down.right.square.fill")
@@ -60,14 +59,11 @@ struct BeneficioCardView: View {
                     .padding(.vertical, 8)
                 }
             }
-        }
-    }
-}
-
-struct BeneficioCardView_Previews: PreviewProvider {
-    static var previews: some View {
-        let placeholderBeneficioX = BENEFICIOS(id:1 , NOMBRE: "UN BENEFICIO", DESCRIPCION: "UNA DESCRIPCIÓN", PUNTOS: 10000, ICONO: "person.fill")
-        BeneficioCardView(beneficioX: placeholderBeneficioX)
+        }.background(.white)
+            .cornerRadius(20)
+            .cornerRadius(20)
+            .shadow(color: Color.black.opacity(0.2), radius: 5, x: 0, y: 5)
+        
     }
 }
 

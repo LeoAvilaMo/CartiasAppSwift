@@ -9,9 +9,9 @@ struct BeneficioDetailView: View {
     let orangeC = Color(red: 255/255, green: 127/255, blue: 50/255)
     
     @Environment(\.presentationMode) var presentationMode
-    @State private var showAlert = false // Variable para mostrar la alerta
-    @StateObject private var viewModel = ViewModelTienda() // Asegúrate de que el ViewModel esté definido
-    @State private var puntosUsuario: Int = 0 // Variable para almacenar los puntos del usuario
+    @State private var showAlert = false
+    @StateObject private var viewModel = ViewModelTienda()
+    @State private var puntosUsuario: Int = 0
     @State private var showResponseAlert = false
     @State private var showMessage: Bool = false
     @State private var message: String = ""
@@ -53,13 +53,13 @@ struct BeneficioDetailView: View {
             .edgesIgnoringSafeArea(.bottom)
             
             VStack(spacing: 20) {
-                Image(systemName: beneficioX.ICONO)
+                Image(systemName: "gift.fill")
                     .resizable()
                     .scaledToFit()
                     .frame(width: 100, height: 100)
                     .foregroundColor(blueC)
                 
-                Text(beneficioX.NOMBRE)
+                Text(beneficioX.NOMBRE ?? "Nombre no disponible")
                     .font(.system(size: 28))
                     .bold()
                     .foregroundColor(darkBlueC)
@@ -74,7 +74,7 @@ struct BeneficioDetailView: View {
                         Image(systemName: "star.fill")
                             .foregroundColor(.yellow)
                             .frame(width: 24, height: 24)
-                        Text("\(puntosUsuario)") // Mostrar puntos del usuario
+                        Text("\(puntosUsuario)")
                             .font(.system(size: 22, weight: .bold))
                             .foregroundColor(whiteC)
                     }
@@ -86,9 +86,9 @@ struct BeneficioDetailView: View {
                 }
                 .padding(.horizontal)
                 
-                // Usar la descripción obtenida del ViewModel
+                
                 if let benefitDescription = viewModel.currentBenefitDescription {
-                    Text(benefitDescription) // Muestra la descripción obtenida
+                    Text(benefitDescription)
                         .font(.system(size: 18))
                         .foregroundColor(.gray)
                         .multilineTextAlignment(.leading)
@@ -102,7 +102,7 @@ struct BeneficioDetailView: View {
                 Spacer()
                 
                 Button(action: {
-                                showAlert = true // Mostrar alerta al hacer clic
+                                showAlert = true
                             }) {
                                 Text("CANJEAR BENEFICIO")
                                     .font(.title2)
@@ -110,17 +110,17 @@ struct BeneficioDetailView: View {
                                     .foregroundColor(.white)
                                     .padding(.horizontal, 20)
                                     .padding(.vertical, 15)
-                                    .background(Color.orange) // Cambia orangeC si no está definido
+                                    .background(Color.orange)
                                     .cornerRadius(20)
                             }
                             .padding(.horizontal)
                             .padding(.bottom, 20)
-                            .alert(isPresented: $showAlert) { // Alerta que se mostrará
+                            .alert(isPresented: $showAlert) {
                                 Alert(
                                     title: Text("Confirmación"),
                                     message: Text("¿Deseas canjear tus puntos por este beneficio?"),
                                     primaryButton: .default(Text("Sí")) {
-                                        // Ejecutar la función al confirmar
+                                     
                                         viewModel.nuevoBeneficioUsuario(
                                             idBeneficio: beneficioX.id,
                                             idUsuario: 1,
@@ -128,9 +128,7 @@ struct BeneficioDetailView: View {
                                             puntosBeneficio: beneficioX.PUNTOS
                                         )
                                         
-                                        // Esperar un momento antes de mostrar el mensaje
                                         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                                            // Verifica el estado de respuesta
                                             if let responseMessage = viewModel.responseMessage {
                                                 message = responseMessage
                                             } else {
@@ -140,26 +138,26 @@ struct BeneficioDetailView: View {
                                         }
                                     },
                                     secondaryButton: .cancel(Text("No")) {
-                                        // No hacer nada
                                     }
                                 )
                             }
                             
-                            // Mostrar el mensaje en pantalla
                             if showMessage {
                                 Text(message)
                                     .font(.title2)
                                     .bold()
                                     .foregroundColor(.white)
                                     .padding()
-                                    .transition(.slide) // Efecto de transición si lo deseas
+                                    .transition(.slide)
+                                    //.animation(.easeInOut) //cambiar para xcode 15.4 en adelante
                             }
                         }
         }
     }
 }
 
+
 #Preview {
     
-    BeneficioDetailView(beneficioX: BENEFICIOS(id: 1, NOMBRE: "Café gratis Oxxo", DESCRIPCION: "prueba", PUNTOS: 100, ICONO: "fork.knife"))
+    BeneficioDetailView(beneficioX: BENEFICIOS(ID_BENEFICIO: 1, NOMBRE: "Café gratis Oxxo", DESCRIPCION: "prueba", PUNTOS: 100))
 }
