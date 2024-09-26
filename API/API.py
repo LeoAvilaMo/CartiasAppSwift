@@ -209,6 +209,46 @@ def get_all_benefits():
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
+# Ruta para obtener un evento de la base de datos en funcion de su ID 
+@app.route("/event/<int:event_id>", methods=['GET']) 
+def get_event(event_id): 
+    """ 
+    Obtener informacion de un evento en funcion de su ID
+    --- 
+    parameters: 
+      - name: event_id 
+        in: path 
+        type: integer 
+        required: true 
+        description: The ID of the event to retrieve 
+    responses: 
+      200: 
+        description: Returns event data as JSON 
+        content: 
+          application/json: 
+            schema: 
+              type: object 
+              properties: 
+                id: 
+                  type: integer 
+                  description: The event ID 
+                name: 
+                  type: string 
+                  description: Name of the event 
+                description: 
+                  type: string 
+                  description: Description of the event 
+      404: 
+        description: Event not found 
+      500: 
+        description: Server error 
+    """ 
+    event_data = MSSql.sql_read_where('EVENTOS', {'ID_EVENTO': event_id}) 
+    if event_data: 
+        return make_response(jsonify(event_data)), 200 
+    else: 
+        return jsonify({"error": "Event not found"}), 404
+  
 if __name__ == '__main__':
     # SSL context setup
     import ssl
