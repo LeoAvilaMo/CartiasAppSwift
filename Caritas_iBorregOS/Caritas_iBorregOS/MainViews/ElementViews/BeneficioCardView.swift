@@ -68,9 +68,6 @@ struct BeneficioCardView: View {
 }
 
 #Preview {
-    ZStack {
-        var placeholderBeneficioX = BENEFICIOS(id:1 , NOMBRE: "UN BENEFICIO", DESCRIPCION: "UNA DESCRIPCIÓN", PUNTOS: 10000, ICONO: "person.fill")
+        var placeholderBeneficioX = BENEFICIOS(ID_BENEFICIO: 1, NOMBRE: "UN BENEFICIO", DESCRIPCION: "UNA DESCRIPCIÓN", PUNTOS: 10000)
         BeneficioCardView(beneficioX: placeholderBeneficioX)
-    }
-    
 }

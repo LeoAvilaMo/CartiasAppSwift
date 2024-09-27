@@ -24,7 +24,7 @@ func numeros(_ data: Data) throws -> Data {
 }
 
 func fetchBeneficios() async throws -> [BENEFICIOS] {
-    guard let url = URL(string: "http://127.0.0.1:10201/all-benefits") else {
+    guard let url = URL(string: "https://a00835641.tc2007b.tec.mx:10201/all-benefits") else {
         throw URLError(.badURL)
     }
 
