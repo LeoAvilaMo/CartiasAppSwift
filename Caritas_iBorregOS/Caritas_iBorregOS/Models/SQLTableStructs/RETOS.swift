@@ -12,5 +12,4 @@ public struct RETOS {
     let NOMBRE: String
     let DESCRIPCION: String
     let PUNTAJE: Int
-    let ICONO: String
 }
