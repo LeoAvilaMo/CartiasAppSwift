@@ -14,7 +14,7 @@ let devEndpoint = "http://10.14.255.62:10206"
 let homeEndpoint = "http://127.0.0.1:10206"
 
 // Https dev
-let prodString = "https://10.14.255.62:10206"
+let devString = "https://10.14.255.62:10206"
 
 // Https Prod
 let prodString = "https://iborregos.tc2007b.tec.mx:10206"
