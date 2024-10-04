@@ -16,12 +16,9 @@ var graphData = [
 ]
 
 struct PerfilView: View {
-    @State private var user: String = "María Martínez"
+    let miPerfil = getUsuario(email: "juan.perez@example.com")
     @State private var notification: Bool = false
     @State private var progress: Double = 0.2 // Current progress (99%)
-    
-    @State private var usuario: USUARIOS?
-    @State private var errorMessage: String?
     
     var body: some View {
         
@@ -72,7 +69,7 @@ struct PerfilView: View {
                 VStack{
                     
                     //Content in the white card
-                    Text(usuario?.NOMBRE ?? "SN")
+                    Text(miPerfil.NOMBRE + " " + miPerfil.A_PATERNO + " " + miPerfil.A_MATERNO)
                         .foregroundStyle(blueC)
                         .font(.system(size: 40))
                         .bold()
@@ -181,16 +178,6 @@ struct PerfilView: View {
                 Spacer()
             }
             
-        }
-        .onAppear{
-            Task {
-                do{
-                    let fetchUser = try await fetchUsuario(usuarioID: 1)
-                    usuario = fetchUser
-                } catch {
-                    errorMessage = "Error fetching user: \(error.localizedDescription)"
-                }
-            }
         }
     }
     // Inject the presentation mode environment variable for dismissing the view

@@ -33,6 +33,7 @@
 		7930CF132C7E6B2E008A55C6 /* PerfilView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7930CF122C7E6B2E008A55C6 /* PerfilView.swift */; };
 		794C01512CA52716005108C5 /* VMTienda.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794C01502CA52716005108C5 /* VMTienda.swift */; };
 		79630D292C83BA60007E94AA /* BeneficioCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79630D282C83BA60007E94AA /* BeneficioCardView.swift */; };
+		797D0E4B2CB03BCE00450EE2 /* RetosViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 797D0E4A2CB03BCE00450EE2 /* RetosViewModel.swift */; };
 		798330D02C839B790054E21A /* USUARIOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798330CF2C839B790054E21A /* USUARIOS.swift */; };
 		798330D22C839BA60054E21A /* EVENTOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798330D12C839BA60054E21A /* EVENTOS.swift */; };
 		798330D42C839C3A0054E21A /* BENEFICIOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798330D32C839C3A0054E21A /* BENEFICIOS.swift */; };
@@ -88,6 +89,7 @@
 		7930CF122C7E6B2E008A55C6 /* PerfilView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerfilView.swift; sourceTree = "<group>"; };
 		794C01502CA52716005108C5 /* VMTienda.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VMTienda.swift; sourceTree = "<group>"; };
 		79630D282C83BA60007E94AA /* BeneficioCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeneficioCardView.swift; sourceTree = "<group>"; };
+		797D0E4A2CB03BCE00450EE2 /* RetosViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetosViewModel.swift; sourceTree = "<group>"; };
 		798330CF2C839B790054E21A /* USUARIOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = USUARIOS.swift; sourceTree = "<group>"; };
 		798330D12C839BA60054E21A /* EVENTOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EVENTOS.swift; sourceTree = "<group>"; };
 		798330D32C839C3A0054E21A /* BENEFICIOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BENEFICIOS.swift; sourceTree = "<group>"; };
@@ -188,6 +190,7 @@
 				4D9F56782CA4A43900C41A4E /* TiendaViewModel.swift */,
 				4DF739202CA35DA400BF5788 /* EventosViewModel.swift */,
 				79A5C0382CA4BCF800271DEB /* UsuariosViewModel.swift */,
+				797D0E4A2CB03BCE00450EE2 /* RetosViewModel.swift */,
 				794C01502CA52716005108C5 /* VMTienda.swift */,
 			);
 			name = ViewModels;
@@ -417,6 +420,7 @@
 				4D59604D2C7F5AAC0056C298 /* TabView.swift in Sources */,
 				4D04A8602C7E070B007804E6 /* ContentView.swift in Sources */,
 				790C89252C83C7540030828B /* obtenBeneficiosTest.swift in Sources */,
+				797D0E4B2CB03BCE00450EE2 /* RetosViewModel.swift in Sources */,
 				798330D22C839BA60054E21A /* EVENTOS.swift in Sources */,
 				7930CF132C7E6B2E008A55C6 /* PerfilView.swift in Sources */,
 				4D9F56792CA4A43900C41A4E /* TiendaViewModel.swift in Sources */,

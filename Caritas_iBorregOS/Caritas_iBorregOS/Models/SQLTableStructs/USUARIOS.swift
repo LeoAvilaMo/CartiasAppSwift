@@ -16,32 +16,21 @@
 import Foundation
 
 // Define the USUARIOS structure that matches the API response
-public struct USUARIOS: Codable, Identifiable {
-    public var id: Int {ID_USUARIO}
-    let ID_USUARIO: Int
-    let NOMBRE: String
-    let A_PATERNO: String
+public struct USUARIOS: Codable {
     let A_MATERNO: String
-    let ID_TIPO_USUARIO: Int
-    let EMAIL: String
+    let A_PATERNO: String
     let CONTRASENA: String
-    let PUNTOS: Int
-    
-    // Custom decoding initializer for JSON
-    public init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        ID_USUARIO = Int(try container.decode(String.self, forKey: .ID_USUARIO))!
-        NOMBRE = try container.decode(String.self, forKey: .NOMBRE)
-        A_PATERNO = try container.decode(String.self, forKey: .A_PATERNO)
-        A_MATERNO = try container.decode(String.self, forKey: .A_MATERNO)
-        ID_TIPO_USUARIO = Int(try container.decode(String.self, forKey: .ID_TIPO_USUARIO))!
-        EMAIL = try container.decode(String.self, forKey: .EMAIL)
-        CONTRASENA = try container.decode(String.self, forKey: .CONTRASENA)
-        PUNTOS = Int(try container.decode(String.self, forKey: .PUNTOS))!
-    }
+    let EMAIL: String
+    let ID_USUARIO: Int
+    let ID_TIPO_USUARIO: Int
+    let NOMBRE: String
+
+
+
+
     
     //Inicializador manual
-    init(ID_USUARIO: Int, NOMBRE: String, A_PATERNO: String, A_MATERNO: String, ID_TIPO_USUARIO: Int, EMAIL: String, CONTRASENA: String, PUNTOS: Int) {
+    init(ID_USUARIO: Int, NOMBRE: String, A_PATERNO: String, A_MATERNO: String, ID_TIPO_USUARIO: Int, EMAIL: String, CONTRASENA: String) {
         self.ID_USUARIO = ID_USUARIO
         self.NOMBRE = NOMBRE
         self.A_PATERNO = A_PATERNO
@@ -49,7 +38,6 @@ public struct USUARIOS: Codable, Identifiable {
         self.ID_TIPO_USUARIO = ID_TIPO_USUARIO
         self.EMAIL = EMAIL
         self.CONTRASENA = CONTRASENA
-        self.PUNTOS = PUNTOS
     }
 }
 
