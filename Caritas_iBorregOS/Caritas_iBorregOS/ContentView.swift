@@ -74,7 +74,7 @@ struct ContentView: View {
                             SecureField("Introduce tu contraseña", text: $password)
                                 .font(.system(size: 23))
                             Divider()
-                            //Olvidé mi contraseña
+                            // Olvidé mi contraseña
                             HStack{
                                 Spacer()
                                 Link(destination: URL(string: "https://dailykitten.com/")!){
