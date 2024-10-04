@@ -10,40 +10,46 @@ import SwiftUI
 struct RetosView: View {
     var body: some View {
         NavigationStack{
-            VStack(alignment: .leading) {
+            VStack(alignment: .center) {
                 HStack {Spacer()}
                 Spacer()
-                Text("Retos")
+                Text("Eventos")
+                    .font(.system(size: 35))
+                    .bold()
+                    .foregroundColor(darkBlueC)
+                    .padding()
                 ScrollView{
+                    VStack{}
+                    .padding()
                     NavigationLink{
                         TiendaView()
                     } label: {
-                        VStack(alignment: .leading){
-                            RetoCardView()
-                        }
-                        .background(whiteC)
-                        .cornerRadius(10)
-                        .shadow(radius: 10)
-                        .padding(.vertical, -1)
+                        RetoCardView()
+                            .multilineTextAlignment(.leading)
+                            .foregroundStyle(.black)
                     }
-                    NavigationLink{
-                        TiendaView()
-                    } label: {
-                        VStack(alignment: .leading){
-                            RetoCardView()
-                        }
-                        .background(whiteC)
-                        .cornerRadius(10)
-                        .shadow(radius: 10)
-                        .padding()
-                    }
+                    .padding(.vertical, 5)
+                    .padding(.horizontal)
                 }
-                Spacer()
+                //.background(whiteMateC)
+                //.clipShape(RoundedCornerShape(radius: 50, corners: [.topLeft, .topRight])) // Custom rounded top corners
+                //.shadow(radius: 10)
+                
             }
             .background(lightGreenC)
         }
-        
-        
+    }
+}
+
+// Custom Shape to round only specific corners
+//Chat GPT struct
+struct RoundedCornerShape: Shape {
+    var radius: CGFloat
+    var corners: UIRectCorner
+
+    func path(in rect: CGRect) -> Path {
+        let path = UIBezierPath(roundedRect: rect, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
+        return Path(path.cgPath)
     }
 }
 

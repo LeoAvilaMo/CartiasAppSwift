@@ -38,6 +38,7 @@
 		798330D42C839C3A0054E21A /* BENEFICIOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798330D32C839C3A0054E21A /* BENEFICIOS.swift */; };
 		798330D62C839CBC0054E21A /* RETOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798330D52C839CBC0054E21A /* RETOS.swift */; };
 		79A5C0392CA4BCF800271DEB /* UsuariosViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A5C0382CA4BCF800271DEB /* UsuariosViewModel.swift */; };
+		79CCC70B2CAF67E5009FFCC3 /* RetoCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79CCC70A2CAF67E5009FFCC3 /* RetoCardView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,6 +93,7 @@
 		798330D32C839C3A0054E21A /* BENEFICIOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BENEFICIOS.swift; sourceTree = "<group>"; };
 		798330D52C839CBC0054E21A /* RETOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RETOS.swift; sourceTree = "<group>"; };
 		79A5C0382CA4BCF800271DEB /* UsuariosViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsuariosViewModel.swift; sourceTree = "<group>"; };
+		79CCC70A2CAF67E5009FFCC3 /* RetoCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetoCardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -231,6 +233,7 @@
 				4D59604E2C7F731E0056C298 /* ProgressView.swift */,
 				4D5960442C7E7EF30056C298 /* EventCardView.swift */,
 				79630D282C83BA60007E94AA /* BeneficioCardView.swift */,
+				79CCC70A2CAF67E5009FFCC3 /* RetoCardView.swift */,
 			);
 			path = ElementViews;
 			sourceTree = "<group>";
@@ -407,6 +410,7 @@
 				4D59604B2C7F5A8B0056C298 /* Colors.swift in Sources */,
 				794C01512CA52716005108C5 /* VMTienda.swift in Sources */,
 				4D5960492C7E9E820056C298 /* EventDetailView.swift in Sources */,
+				79CCC70B2CAF67E5009FFCC3 /* RetoCardView.swift in Sources */,
 				4D5960452C7E7EF30056C298 /* EventCardView.swift in Sources */,
 				4D90B03C2C800B0300470D91 /* PesoEnMesesData.swift in Sources */,
 				4D9F567B2CA4A49100C41A4E /* BeneficioDetailView.swift in Sources */,

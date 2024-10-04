@@ -7,35 +7,52 @@
 
 import SwiftUI
 
-
 struct RetoCardView: View {
-    public var nombreReto: String = "Formulario de Cáritas Monterrey"
-    public var puntosReto: Int = 100
+    public var RetoX: RETOS = RETOS(ID_RETO: 1, NOMBRE: "Formulario Cáritas Monterrey", DESCRIPCION: "Un reto para todos", PUNTAJE: 100)
+    
     var body: some View {
-        HStack{
-            Image(systemName: "bubble.and.pencil")
-                .resizable()
-                .frame(width: 60, height: 60)
-                .foregroundStyle(.black)
-            VStack(alignment: .leading){
-                Text(nombreReto)
-                    .foregroundStyle(blueC)
-                    .font(.system(size: 25, weight: .bold))
-                HStack{
-                    Image(systemName: "star.fill")
-                        .foregroundColor(.yellow)
-                        .font(.system(size: 18, weight: .bold))
-                    Text(String(puntosReto))
-                        .font(.system(size: 20, weight: .bold))
-                        .foregroundColor(pinkC)
+        VStack{
+            HStack {
+                Image(systemName: "bubble.and.pencil")
+                    .resizable()
+                    .frame(width: 60, height: 60)
+                    .padding(6)
+                VStack(alignment: .leading){
+                    HStack{
+                        Text(RetoX.NOMBRE)
+                            .foregroundStyle(blueC)
+                            .bold()
+                            .font(.system(size: 23))
+                        Spacer()
+                        Image(systemName: "chevron.right")
+                            .foregroundStyle(.gray)
+                    }
+                    
+                    Divider()
+                    HStack{
+                        Spacer()
+                        Image(systemName: "star.fill")
+                            .font(.system(size: 24))
+                            .foregroundStyle(.yellow)
+                        Text(String(RetoX.PUNTAJE))
+                            .padding(.horizontal, -4)
+                            .font(.system(size: 23))
+                            .foregroundStyle(pinkC)
+                            .bold()
+                    }
                 }
             }
         }
         .padding()
-        
+        .background(whiteC)
+        .clipShape(RoundedRectangle(cornerRadius: 15))
+        .shadow(color: .black.opacity(0.2), radius: 10, x: 0, y: 5) // Shadow at the bottom
     }
 }
 
 #Preview {
-    RetoCardView()
+ 
+    RetoCardView(RetoX: RETOS(ID_RETO: 1, NOMBRE: "Formulario Cáritas Monterrey", DESCRIPCION: "Un reto para todos", PUNTAJE: 100))
+    
+    
 }
