@@ -1,12 +1,6 @@
-//
-//  ContentView.swift
-//  CaritasApp
-//
-//  Created by Leo A.Molina on 26/08/24.
-//
-
 import SwiftUI
 
+// Colores definidos
 let blueC = Color(red: 0/255, green: 156/255, blue: 166/255)
 let darkBlueC = Color(red: 0/255, green: 59/255, blue: 92/255)
 let lightGreenC = Color(red: 209/255, green: 224/255, blue: 215/255)
@@ -18,33 +12,35 @@ let lightTealC = Color(red: 247/255, green: 250/255, blue: 248/255)
 let chartC = Color(red: 132/255, green: 104/255, blue: 175/255)
 let chartBackgroundC = Color(red: 227/255, green: 220/255, blue: 237/255)
 
+
+// ContentView con lógica de login
 struct ContentView: View {
     
-    // Variables extra de prubea
     @State private var username = ""
     @State private var password = ""
     @State private var signIn = false
     @State private var logInAlert = false
-    
+    @State private var errorMessage = ""
+
     var body: some View {
         NavigationStack{
             if signIn {
                 TabViews()
             } else {
                 ZStack {
-                    // Parte de atrás azul fuerte
+                    // Fondo azul fuerte
                     VStack {
                         Spacer()
                         HStack {Spacer()}
                         VStack{
                             Image("logoCaritas")
                                 .shadow(color: Color.black.opacity(0.2), radius: 5, x: 0, y: 5)
-                                .foregroundColor(whiteMateC)
+                                .foregroundColor(whiteC)
                             HStack {
                                 Text("Iniciar sesión")
                                     .font(.system(size: 45))
                                     .bold()
-                                    .foregroundColor(whiteMateC)
+                                    .foregroundColor(whiteC)
                                     .shadow(color: Color.black.opacity(0.2), radius: 5, x: 0, y: 5)
                                     .offset(y: 10)
                                 Spacer()
@@ -55,11 +51,11 @@ struct ContentView: View {
                     .padding()
                     .background(blueC)
                     
-                    //Tarjeta verde de adelante
+                    // Tarjeta verde de login
                     VStack (alignment: .leading){
                         HStack {Spacer()}
                         VStack (alignment: .leading) {
-                            //Usuario
+                            // Usuario
                             Text("Usuario")
                                 .font(.title)
                                 .foregroundColor(darkBlueC)
@@ -67,13 +63,14 @@ struct ContentView: View {
                                 .font(.system(size: 23))
                             Divider()
                             
-                            //Contraseña
-                            Text("Constraseña")
+                            // Contraseña
+                            Text("Contraseña")
                                 .font(.title)
                                 .foregroundColor(darkBlueC)
                             SecureField("Introduce tu contraseña", text: $password)
                                 .font(.system(size: 23))
                             Divider()
+                            
                             // Olvidé mi contraseña
                             HStack{
                                 Spacer()
@@ -82,22 +79,26 @@ struct ContentView: View {
                                 }
                                 .font(.system(size: 20))
                                 .foregroundStyle(Color.black)
-                                
                             }
                             .offset(y: 10)
                             
-                            //Iniciar sesión
-                            Button("Iniciar sesión"){
-                                if (username == "Admin" && password == "admin"){
-                                    signIn = true
-                                } else {
-                                    logInAlert.toggle()
-                                    username = ""
-                                    password = ""
+                            // Iniciar sesión
+                            Button("Iniciar sesión") {
+                                loginUser(username: username, password: password) { success in
+                                    if success {
+                                        signIn = true // Update state to indicate a successful login
+                                    } else {
+                                        logInAlert = true
+                                            errorMessage = "Credenciales incorrectas. Intenta de nuevo."
+                                    }
                                 }
                             }
                             .alert(isPresented: $logInAlert, content: {
-                                Alert( title: Text("Error al iniciar sesión"), message: Text("Introduce correctamente tu usuario y/o contraseña."), dismissButton: .default(Text("Volver")))
+                                Alert(
+                                    title: Text("Error al iniciar sesión"),
+                                    message: Text(errorMessage),
+                                    dismissButton: .default(Text("Volver"))
+                                )
                             })
                             .frame(maxWidth: .infinity)
                             .padding(15)
@@ -120,6 +121,7 @@ struct ContentView: View {
             }
         }
     }
+
 }
 
 #Preview {
