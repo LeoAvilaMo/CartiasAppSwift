@@ -38,3 +38,28 @@ BEGIN
     WHERE UR.ID_USUARIO = @ID_USUARIO
     AND UR.COMPLETADO = 0;  -- 0 represents 'false' for the bit field
 END;
+
+USE icaritasborregos;  
+GO  
+
+CREATE PROCEDURE GetRetoStats
+    @ID_USUARIO NUMERIC(18,0)
+AS
+BEGIN
+    -- Count total number of RETOS
+    DECLARE @TotalRetos INT;
+    DECLARE @CompletedRetos INT;
+
+    -- Count total RETOS
+    SELECT @TotalRetos = COUNT(*)
+    FROM RETOS;
+
+    -- Count completed RETOS by the user
+    SELECT @CompletedRetos = COUNT(*)
+    FROM USUARIOS_RETOS
+    WHERE ID_USUARIO = @ID_USUARIO AND COMPLETADO = 1;
+
+    -- Return the results
+    SELECT @TotalRetos AS TotalRetos, @CompletedRetos AS CompletedRetos;
+END;
+GO
