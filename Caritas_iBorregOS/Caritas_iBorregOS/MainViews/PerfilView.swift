@@ -18,16 +18,23 @@ var graphData = [
     PesoPorMes(month: "Ago", weight: 62.5),
 ]
 
+
+
+let miPerfil = getUsuario(email: "juan.perez@example.com")
+
 struct PerfilView: View {
-  //  let miPerfil = getUsuario(email: "juan.perez@example.com")
+    
     @State private var notification: Bool = false
-    @State private var progress: Double = 0.2 // Current progress (99%)
+    @State private var retosCompletados = getRetosCompletados(usuarioID: miPerfil.ID_USUARIO)
+    @State private var chartsData: Array<DATOS_FISICOS> = getDatosFisicos(userID: miPerfil.ID_USUARIO)
     
     var body: some View {
-        
+        let mensajeMotivador = randomMotivationalMessage()
+        let progress = Double(retosCompletados.CompletedRetos) / Double(retosCompletados.TotalRetos)
+        let recentWeight = chartsData.first?.PESO ?? 0
+        let recentHeight = chartsData.first?.ALTURA ?? 0
         //Overlaping things
         ZStack{
-            
             //Green background
             VStack {
                 
@@ -72,12 +79,26 @@ struct PerfilView: View {
                 VStack{
                     
                     //Content in the white card
-                  /*
+                  
                     Text(miPerfil.NOMBRE + " " + miPerfil.A_PATERNO + " " + miPerfil.A_MATERNO)
                         .foregroundStyle(blueC)
                         .font(.system(size: 40))
                         .bold()
-                    */
+                    HStack{
+                        Image(systemName: "trophy.fill")
+                            .foregroundStyle(.yellow)
+                            .font(.title)
+                            
+                        Text("Retos completados")
+                            .font(.title)
+                            .bold()
+                        Image(systemName: "trophy.fill")
+                            .foregroundStyle(.yellow)
+                            .font(.title)
+                    }
+                    .padding(.bottom, 25)
+                    .padding(.top, 5)
+                    .padding(.horizontal, 15)
                     
                     //Progress Bar with Reto text
                     VStack(spacing: 20) {
@@ -119,16 +140,15 @@ struct PerfilView: View {
                             .padding(.horizontal)
                         }
                         
-                        Text("Reto: ")
-                            .bold()
-                        + Text("Yoga mensual 🧘")
+                        Text(mensajeMotivador)
                             .foregroundStyle(pinkC)
+                            .bold()
                     }
                     .frame(height: 50)
                     .padding()
                     
                     // Weight and height cards
-                    PesoAlturaView()
+                    PesoAlturaView(weightX: recentWeight, heightX: recentHeight)
                     
                     //Charts
                     VStack (alignment: .leading){

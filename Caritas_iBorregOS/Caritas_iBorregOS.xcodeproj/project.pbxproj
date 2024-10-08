@@ -34,9 +34,14 @@
 		791992F72CB4A16300FC400A /* RetoDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 791992F62CB4A16300FC400A /* RetoDetailView.swift */; };
 		79274E962C7E8950006A0E26 /* FotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79274E952C7E8950006A0E26 /* FotoView.swift */; };
 		7930CF132C7E6B2E008A55C6 /* PerfilView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7930CF122C7E6B2E008A55C6 /* PerfilView.swift */; };
+		7938C29F2CB5CF7F00F4DE5B /* MensajesMotivadores.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7938C29E2CB5CF7F00F4DE5B /* MensajesMotivadores.swift */; };
 		794C01512CA52716005108C5 /* VMTienda.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794C01502CA52716005108C5 /* VMTienda.swift */; };
 		79630D292C83BA60007E94AA /* BeneficioCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79630D282C83BA60007E94AA /* BeneficioCardView.swift */; };
+		796684852CB5DE75007B4536 /* DATOS_FISICOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 796684842CB5DE75007B4536 /* DATOS_FISICOS.swift */; };
+		796684872CB5E054007B4536 /* DatosFisicosViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 796684862CB5E054007B4536 /* DatosFisicosViewModel.swift */; };
 		797D0E4B2CB03BCE00450EE2 /* RetosViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 797D0E4A2CB03BCE00450EE2 /* RetosViewModel.swift */; };
+		798281392CB5C8430076DE89 /* RetosCompletadosModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798281382CB5C8430076DE89 /* RetosCompletadosModel.swift */; };
+		7982813D2CB5C8C20076DE89 /* RetosCompletadosViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7982813C2CB5C8C20076DE89 /* RetosCompletadosViewModel.swift */; };
 		798330D02C839B790054E21A /* USUARIOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798330CF2C839B790054E21A /* USUARIOS.swift */; };
 		798330D22C839BA60054E21A /* EVENTOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798330D12C839BA60054E21A /* EVENTOS.swift */; };
 		798330D42C839C3A0054E21A /* BENEFICIOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798330D32C839C3A0054E21A /* BENEFICIOS.swift */; };
@@ -93,9 +98,14 @@
 		791992F62CB4A16300FC400A /* RetoDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetoDetailView.swift; sourceTree = "<group>"; };
 		79274E952C7E8950006A0E26 /* FotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FotoView.swift; sourceTree = "<group>"; };
 		7930CF122C7E6B2E008A55C6 /* PerfilView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerfilView.swift; sourceTree = "<group>"; };
+		7938C29E2CB5CF7F00F4DE5B /* MensajesMotivadores.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MensajesMotivadores.swift; sourceTree = "<group>"; };
 		794C01502CA52716005108C5 /* VMTienda.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VMTienda.swift; sourceTree = "<group>"; };
 		79630D282C83BA60007E94AA /* BeneficioCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeneficioCardView.swift; sourceTree = "<group>"; };
+		796684842CB5DE75007B4536 /* DATOS_FISICOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DATOS_FISICOS.swift; sourceTree = "<group>"; };
+		796684862CB5E054007B4536 /* DatosFisicosViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatosFisicosViewModel.swift; sourceTree = "<group>"; };
 		797D0E4A2CB03BCE00450EE2 /* RetosViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetosViewModel.swift; sourceTree = "<group>"; };
+		798281382CB5C8430076DE89 /* RetosCompletadosModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetosCompletadosModel.swift; sourceTree = "<group>"; };
+		7982813C2CB5C8C20076DE89 /* RetosCompletadosViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetosCompletadosViewModel.swift; sourceTree = "<group>"; };
 		798330CF2C839B790054E21A /* USUARIOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = USUARIOS.swift; sourceTree = "<group>"; };
 		798330D12C839BA60054E21A /* EVENTOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EVENTOS.swift; sourceTree = "<group>"; };
 		798330D32C839C3A0054E21A /* BENEFICIOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BENEFICIOS.swift; sourceTree = "<group>"; };
@@ -200,6 +210,8 @@
 				794C01502CA52716005108C5 /* VMTienda.swift */,
 				4D2CDE032CAF374800E2CC26 /* Environment.swift */,
 				4D59914C2CB48B0600D57CB1 /* LogInViewModel.swift */,
+				7982813C2CB5C8C20076DE89 /* RetosCompletadosViewModel.swift */,
+				796684862CB5E054007B4536 /* DatosFisicosViewModel.swift */,
 			);
 			name = ViewModels;
 			path = MainViews/ViewModels;
@@ -218,6 +230,8 @@
 		790C891F2C83C4700030828B /* ListsData */ = {
 			isa = PBXGroup;
 			children = (
+				7938C29E2CB5CF7F00F4DE5B /* MensajesMotivadores.swift */,
+				798281382CB5C8430076DE89 /* RetosCompletadosModel.swift */,
 				4D90B03B2C800B0300470D91 /* PesoEnMesesData.swift */,
 			);
 			path = ListsData;
@@ -266,6 +280,7 @@
 				798330D12C839BA60054E21A /* EVENTOS.swift */,
 				798330D32C839C3A0054E21A /* BENEFICIOS.swift */,
 				798330D52C839CBC0054E21A /* RETOS.swift */,
+				796684842CB5DE75007B4536 /* DATOS_FISICOS.swift */,
 			);
 			path = SQLTableStructs;
 			sourceTree = "<group>";
@@ -424,6 +439,7 @@
 				79CCC70B2CAF67E5009FFCC3 /* RetoCardView.swift in Sources */,
 				4D5960452C7E7EF30056C298 /* EventCardView.swift in Sources */,
 				4D90B03C2C800B0300470D91 /* PesoEnMesesData.swift in Sources */,
+				798281392CB5C8430076DE89 /* RetosCompletadosModel.swift in Sources */,
 				4D59914D2CB48B0600D57CB1 /* LogInViewModel.swift in Sources */,
 				4D9F567B2CA4A49100C41A4E /* BeneficioDetailView.swift in Sources */,
 				4D2CDE062CB02BF500E2CC26 /* EventDetailView.swift in Sources */,
@@ -433,9 +449,13 @@
 				797D0E4B2CB03BCE00450EE2 /* RetosViewModel.swift in Sources */,
 				791992F72CB4A16300FC400A /* RetoDetailView.swift in Sources */,
 				798330D22C839BA60054E21A /* EVENTOS.swift in Sources */,
+				796684852CB5DE75007B4536 /* DATOS_FISICOS.swift in Sources */,
 				7930CF132C7E6B2E008A55C6 /* PerfilView.swift in Sources */,
 				4D9F56792CA4A43900C41A4E /* TiendaViewModel.swift in Sources */,
 				4D2CDE042CAF374800E2CC26 /* Environment.swift in Sources */,
+				796684872CB5E054007B4536 /* DatosFisicosViewModel.swift in Sources */,
+				7982813D2CB5C8C20076DE89 /* RetosCompletadosViewModel.swift in Sources */,
+				7938C29F2CB5CF7F00F4DE5B /* MensajesMotivadores.swift in Sources */,
 				4D04A85E2C7E070B007804E6 /* Caritas_iBorregOSApp.swift in Sources */,
 				4D59604F2C7F731E0056C298 /* ProgressView.swift in Sources */,
 				79A5C0392CA4BCF800271DEB /* UsuariosViewModel.swift in Sources */,
