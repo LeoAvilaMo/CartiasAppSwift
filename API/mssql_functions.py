@@ -89,28 +89,31 @@ def sql_read_where(table_name, d_where):
 def sql_insert_row_into(table_name, d):
     import pymssql
     global cnx, mssql_params
-    keys = ""
-    values = ""
+    
+    keys = []
+    values = []
     data = []
+    
     for k in d:
-        keys += k + ','
-        values += "%s,"
-        if isinstance(d[k],bool):
+        keys.append(k)
+        values.append("%s")
+        if isinstance(d[k], bool):
             data.append(int(d[k] == True))
         else:
             data.append(d[k])
-    keys = keys[:-1]
-    values = values[:-1]
-    insert = 'INSERT INTO %s (%s) VALUES (%s)'  % (table_name, keys, values)
+    
+    keys_str = ', '.join(keys)
+    values_str = ', '.join(values)
+    
+    insert = f'INSERT INTO {table_name} ({keys_str}) VALUES ({values_str})'
     data = tuple(data)
-    #print(insert)
-    #print(data)
+    
     try:
         try:
             cursor = cnx.cursor(as_dict=True)
             cursor.execute(insert, data)
         except pymssql._pymssql.InterfaceError:
-            print("reconnecting...")
+            print("Reconnecting...")
             cnx = mssql_connect(mssql_params)
             cursor = cnx.cursor(as_dict=True)
             cursor.execute(insert, data)
@@ -119,8 +122,8 @@ def sql_insert_row_into(table_name, d):
         cursor.close()
         return id_new
     except Exception as e:
-        raise TypeError("sql_insert_row_into:%s" % e)
-
+        raise TypeError(f"sql_insert_row_into: {e}")
+        
 def sql_update_where(table_name, d_field, d_where):
     import pymssql
     global cnx, mssql_params
