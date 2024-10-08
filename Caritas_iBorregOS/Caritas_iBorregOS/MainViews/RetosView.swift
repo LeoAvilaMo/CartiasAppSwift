@@ -9,6 +9,13 @@ import SwiftUI
 
 struct RetosView: View {
     var body: some View {
+        // var retos: Array<Reto> = getAvailableRETOS(userID: myUser.ID_USUARIO)
+        let listaRETOS: Array<RETOS> = [
+            RETOS(ID_RETO: 1, NOMBRE: "ENCUESTA", DESCRIPCION: "Contesta esta encuesta satisfactoriamente sobre salud mental para obtener un bono", PUNTAJE: 100),
+            .init(ID_RETO: 2, NOMBRE: "SEGURIDAD", DESCRIPCION: "Completa el formulario de seguridad para obtener un bono", PUNTAJE: 100),
+            .init(ID_RETO: 3, NOMBRE: "SEGURIDAD", DESCRIPCION: "Completa el formulario de seguridad para obtener un bono", PUNTAJE: 100)
+            
+        ]
         NavigationStack{
             VStack(alignment: .center) {
                 HStack {Spacer()}
@@ -21,15 +28,17 @@ struct RetosView: View {
                 ScrollView{
                     VStack{}
                     .padding()
-                    NavigationLink{
-                        TiendaView()
-                    } label: {
-                        RetoCardView()
-                            .multilineTextAlignment(.leading)
-                            .foregroundStyle(.black)
+                    ForEach(listaRETOS){ reto in
+                        NavigationLink{
+                            RetoDetailView(retoX: reto)
+                        } label: {
+                            RetoCardView(RetoX: reto)
+                                .multilineTextAlignment(.leading)
+                                .foregroundStyle(.black)
+                        }
+                        .padding(.vertical, 5)
+                        .padding(.horizontal)
                     }
-                    .padding(.vertical, 5)
-                    .padding(.horizontal)
                 }
                 //.background(whiteMateC)
                 //.clipShape(RoundedCornerShape(radius: 50, corners: [.topLeft, .topRight])) // Custom rounded top corners

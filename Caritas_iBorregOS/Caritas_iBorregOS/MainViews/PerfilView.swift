@@ -8,6 +8,9 @@
 import SwiftUI
 import Charts
 
+//User
+let myUser = USUARIOS(ID_USUARIO: 1, NOMBRE: "", A_PATERNO: "", A_MATERNO: "", ID_TIPO_USUARIO: 1, EMAIL: "", CONTRASENA: "")
+
 var graphData = [
     PesoPorMes(month: "Mayo", weight: 55.5),
     PesoPorMes(month: "Jun", weight: 80.5),
@@ -16,7 +19,7 @@ var graphData = [
 ]
 
 struct PerfilView: View {
-    let miPerfil = getUsuario(email: "juan.perez@example.com")
+  //  let miPerfil = getUsuario(email: "juan.perez@example.com")
     @State private var notification: Bool = false
     @State private var progress: Double = 0.2 // Current progress (99%)
     
@@ -69,10 +72,12 @@ struct PerfilView: View {
                 VStack{
                     
                     //Content in the white card
+                  /*
                     Text(miPerfil.NOMBRE + " " + miPerfil.A_PATERNO + " " + miPerfil.A_MATERNO)
                         .foregroundStyle(blueC)
                         .font(.system(size: 40))
                         .bold()
+                    */
                     
                     //Progress Bar with Reto text
                     VStack(spacing: 20) {

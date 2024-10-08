@@ -29,6 +29,7 @@
 		4DF739212CA35DA400BF5788 /* EventosViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF739202CA35DA400BF5788 /* EventosViewModel.swift */; };
 		790C89232C83C52C0030828B /* obtenRetosTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 790C89222C83C52C0030828B /* obtenRetosTest.swift */; };
 		790C89252C83C7540030828B /* obtenBeneficiosTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 790C89242C83C7540030828B /* obtenBeneficiosTest.swift */; };
+		791992F72CB4A16300FC400A /* RetoDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 791992F62CB4A16300FC400A /* RetoDetailView.swift */; };
 		79274E962C7E8950006A0E26 /* FotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79274E952C7E8950006A0E26 /* FotoView.swift */; };
 		7930CF132C7E6B2E008A55C6 /* PerfilView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7930CF122C7E6B2E008A55C6 /* PerfilView.swift */; };
 		794C01512CA52716005108C5 /* VMTienda.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794C01502CA52716005108C5 /* VMTienda.swift */; };
@@ -85,6 +86,7 @@
 		4DF739202CA35DA400BF5788 /* EventosViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventosViewModel.swift; sourceTree = "<group>"; };
 		790C89222C83C52C0030828B /* obtenRetosTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = obtenRetosTest.swift; sourceTree = "<group>"; };
 		790C89242C83C7540030828B /* obtenBeneficiosTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = obtenBeneficiosTest.swift; sourceTree = "<group>"; };
+		791992F62CB4A16300FC400A /* RetoDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetoDetailView.swift; sourceTree = "<group>"; };
 		79274E952C7E8950006A0E26 /* FotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FotoView.swift; sourceTree = "<group>"; };
 		7930CF122C7E6B2E008A55C6 /* PerfilView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerfilView.swift; sourceTree = "<group>"; };
 		794C01502CA52716005108C5 /* VMTienda.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VMTienda.swift; sourceTree = "<group>"; };
@@ -246,6 +248,7 @@
 			children = (
 				4D5960482C7E9E820056C298 /* EventDetailView.swift */,
 				4D9F567A2CA4A49100C41A4E /* BeneficioDetailView.swift */,
+				791992F62CB4A16300FC400A /* RetoDetailView.swift */,
 			);
 			path = SubViews;
 			sourceTree = "<group>";
@@ -421,6 +424,7 @@
 				4D04A8602C7E070B007804E6 /* ContentView.swift in Sources */,
 				790C89252C83C7540030828B /* obtenBeneficiosTest.swift in Sources */,
 				797D0E4B2CB03BCE00450EE2 /* RetosViewModel.swift in Sources */,
+				791992F72CB4A16300FC400A /* RetoDetailView.swift in Sources */,
 				798330D22C839BA60054E21A /* EVENTOS.swift in Sources */,
 				7930CF132C7E6B2E008A55C6 /* PerfilView.swift in Sources */,
 				4D9F56792CA4A43900C41A4E /* TiendaViewModel.swift in Sources */,
