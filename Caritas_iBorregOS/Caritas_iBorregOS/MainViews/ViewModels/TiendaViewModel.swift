@@ -11,13 +11,10 @@ public class ViewModelTienda: ObservableObject {
     @Published var responseMessage: String?
 
     private var cancellables = Set<AnyCancellable>()
-    
-    // Base URL for your API
-    private let baseURL = "http://your_api_base_url"
 
     // MARK: - Fetch All Benefits
     public func fetchBeneficios() {
-        guard let url = URL(string: "\(baseURL)/beneficios") else { return }
+        guard let url = URL(string: "\(urlEndpoint)/beneficios") else { return }
 
         URLSession.shared.dataTaskPublisher(for: url)
             .map { $0.data }
@@ -37,7 +34,7 @@ public class ViewModelTienda: ObservableObject {
 
     // MARK: - Fetch User Points
     public func fetchPuntosUsuario(by userId: Int) {
-            guard let url = URL(string: "\(baseURL)/usuario/puntos?userId=\(userId)") else { return }
+            guard let url = URL(string: "\(urlEndpoint)/usuario/puntos?userId=\(userId)") else { return }
 
             URLSession.shared.dataTaskPublisher(for: url)
                 .map { $0.data }
@@ -59,7 +56,7 @@ public class ViewModelTienda: ObservableObject {
 
     // MARK: - Fetch Benefit Description
     public func fetchDescripcionBeneficio(by benefitId: Int) {
-            guard let url = URL(string: "\(baseURL)/beneficio/descripcion?beneficioId=\(benefitId)") else { return }
+            guard let url = URL(string: "\(urlEndpoint)/beneficio/descripcion?beneficioId=\(benefitId)") else { return }
 
             URLSession.shared.dataTaskPublisher(for: url)
                 .map { $0.data }
@@ -80,7 +77,7 @@ public class ViewModelTienda: ObservableObject {
 
     // MARK: - Validate and Assign Benefit
     public func nuevoBeneficioUsuario(idBeneficio: Int, idUsuario: Int, puntosUsuario: Int, puntosBeneficio: Int) {
-            guard let url = URL(string: "\(baseURL)/usuarios/beneficio") else { return }
+            guard let url = URL(string: "\(urlEndpoint)/usuarios/beneficio") else { return }
 
             let parameters: [String: Any] = [
                 "id_beneficio": idBeneficio,

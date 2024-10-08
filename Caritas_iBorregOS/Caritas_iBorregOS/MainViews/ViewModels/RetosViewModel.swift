@@ -10,7 +10,7 @@ import Foundation
 
 func getAvailableRETOS(userID: Int) -> Array<RETOS>{
     var listRETOS: Array<RETOS> = []
-    guard let url = URL(string:"https://jsonplaceholder.typicode.com/posts\(userID)") else{ // Cambiar el link por el indicado
+    guard let url = URL(string:"\(urlEndpoint)\(userID)") else{ // Cambiar el link por el indicado
         return listRETOS
     }
     

@@ -8,15 +8,16 @@
 import Foundation
 
 // http dev
-let devEndpoint = "http://10.14.255.62:10206"
+let HttpDevEndpoint = "http://10.14.255.62:10206"
 
 // at home
 let homeEndpoint = "http://127.0.0.1:10206"
 
 // Https dev
-let devString = "https://10.14.255.62:10206"
+let HttpsDevEndpoint = "https://10.14.255.62:10206"
 
 // Https Prod
-let prodString = "https://iborregos.tc2007b.tec.mx:10206"
+let ProdEndpoint = "https://iborregos.tc2007b.tec.mx:10206"
 
 
+let urlEndpoint = ProdEndpoint

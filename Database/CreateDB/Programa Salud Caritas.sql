@@ -1,3 +1,11 @@
+-- Crear la base de datos iborreguitos
+CREATE DATABASE icaritasborregos;
+GO
+
+-- Utilizar la base de datos iborreguitos
+USE icaritasborregos;
+GO
+
 CREATE TABLE [USUARIOS] (
   [ID_USUARIO] numeric(18,0) PRIMARY KEY NOT NULL IDENTITY(1, 1),
   [NOMBRE] varchar(100),
@@ -65,7 +73,7 @@ CREATE TABLE [USUARIOS_EVENTOS] (
   [ID] NUMERIC(18,0) PRIMARY KEY NOT NULL IDENTITY(1, 1),
   [USUARIO] NUMERIC(18,0),
   [EVENTO] NUMERIC(18,0),
-  [ASISTIO] bit NOT NULL DEFAULT 0
+  [ASISTIO] BIT NOT NULL DEFAULT 0
 );
 GO
 
@@ -85,14 +93,6 @@ CREATE TABLE [USUARIOS_RETOS] (
 );
 GO
 
--- Adding extended properties
-EXEC sp_addextendedproperty
-@name = N'Column_Description',
-@value = 'Empleado / Voluntario',
-@level0type = N'Schema', @level0name = 'dbo',
-@level1type = N'Table',  @level1name = 'USUARIOS',
-@level2type = N'Column', @level2name = 'ID_TIPO_USUARIO';
-GO
 
 -- Foreign Key Constraints
 ALTER TABLE [DATOS_FISICOS] ADD FOREIGN KEY ([ID_USUARIO]) REFERENCES [USUARIOS] ([ID_USUARIO]);

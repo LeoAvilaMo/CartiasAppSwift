@@ -421,7 +421,6 @@
 				4D90B03E2C800B4A00470D91 /* PesoAlturaView.swift in Sources */,
 				4D59604B2C7F5A8B0056C298 /* Colors.swift in Sources */,
 				794C01512CA52716005108C5 /* VMTienda.swift in Sources */,
-				4D5960492C7E9E820056C298 /* EventDetailView.swift in Sources */,
 				79CCC70B2CAF67E5009FFCC3 /* RetoCardView.swift in Sources */,
 				4D5960452C7E7EF30056C298 /* EventCardView.swift in Sources */,
 				4D90B03C2C800B0300470D91 /* PesoEnMesesData.swift in Sources */,

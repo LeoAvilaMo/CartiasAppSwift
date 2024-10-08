@@ -21,8 +21,6 @@ struct AttendanceResponse: Codable {
     let error: String?
 }
 
-let urlEndpoint = homeEndpoint
-
 import Foundation
 
 // Convertir valores numericos del evento a string para renderizar
