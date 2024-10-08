@@ -13,17 +13,18 @@ def mssql_connect(sql_creds):
 def read_user_data(table_name, username):
     import pymssql
     global cnx, mssql_params
-    read = "SELECT * FROM {} WHERE username = '{}'".format(table_name, username)
+    query = "SELECT * FROM {} WHERE username = '%s'".format(table_name)
+    params = (username, )
     #print(read)
     try:
         try:
             cursor = cnx.cursor(as_dict=True)
-            cursor.execute(read)
+            cursor.execute(query, params)
         except pymssql._pymssql.InterfaceError:
             print("reconnecting...")
             cnx = mssql_connect(mssql_params)
             cursor = cnx.cursor(as_dict=True)
-            cursor.execute(read)
+            cursor.execute(query, params)
         a = cursor.fetchall()
         cursor.close()
         return a
@@ -52,33 +53,38 @@ def sql_read_all(table_name):
 def sql_read_where(table_name, d_where):
     import pymssql
     global cnx, mssql_params
-    read = 'SELECT * FROM %s WHERE ' % table_name
-    read += '('
-    for k,v in d_where.items():
+
+    conditions = []
+    params = []
+
+    for k, v in d_where.items():
         if v is not None:
-            if isinstance(v,bool):
-                read += "%s = '%s' AND " % (k,int(v == True))
+            if isinstance(v, bool):
+                conditions.append(f"{k} = %s")
+                params.append(int(v == True))
             else:
-                read += "%s = '%s' AND " % (k,v)
+                conditions.append(f"{k} = %s")
+                params.append(v)
         else:
-            read += '%s is NULL AND ' % (k)
-    # Remove last "AND "
-    read = read[:-4]
-    read += ')'
+            conditions.append(f"{k} IS NULL")
+
+    where_clause = " AND ".join(conditions)
+    query = f"SELECT * FROM {table_name} WHERE {where_clause}"
+
     try:
         try:
             cursor = cnx.cursor(as_dict=True)
-            cursor.execute(read)
+            cursor.execute(query, params)
         except pymssql._pymssql.InterfaceError:
-            print("reconnecting...")
+            print("Reconnecting...")
             cnx = mssql_connect(mssql_params)
             cursor = cnx.cursor(as_dict=True)
-            cursor.execute(read)
+            cursor.execute(query, params)
         a = cursor.fetchall()
         cursor.close()
         return a
     except Exception as e:
-        raise TypeError("sql_read_where:%s" % e)
+        raise TypeError(f"sql_read_where: {e}")
 
 def sql_insert_row_into(table_name, d):
     import pymssql
