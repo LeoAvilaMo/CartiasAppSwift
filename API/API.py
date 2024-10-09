@@ -680,6 +680,109 @@ def register_challenge_completion():
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
+@app.route("/redeem-benefit", methods=['POST'])
+def redeem_benefit():
+    """
+    Redeem a benefit for a user.
+    ---
+    tags:
+      - Benefits
+    consumes:
+      - application/json
+    parameters:
+      - in: body
+        name: benefit
+        description: The benefit redemption data with user and benefit information
+        required: true
+        schema:
+          type: object
+          required:
+            - usuario_id
+            - beneficio_id
+          properties:
+            usuario_id:
+              type: integer
+              description: The ID of the user
+            beneficio_id:
+              type: integer
+              description: The ID of the benefit
+    responses:
+      201:
+        description: Benefit redeemed successfully
+      400:
+        description: Invalid input data
+      404:
+        description: Benefit not found or insufficient points
+      500:
+        description: Server error
+    """
+    try:
+        data = request.json
+        usuario_id = data.get('usuario_id')
+        beneficio_id = data.get('beneficio_id')
+
+        if usuario_id is None or beneficio_id is None:
+            return jsonify({"error": "Invalid input data"}), 400
+
+        benefit_data = MSSql.sql_read_where_attribute("BENEFICIOS", {"ID_BENEFICIO": beneficio_id}, attributes=["PUNTOS"])
+
+        if not benefit_data:
+            return jsonify({"error": "Benefit not found"}), 404
+        
+        points_required = benefit_data[0]['PUNTOS']
+
+        total_points = MSSql.obtener_puntos_usuario(usuario_id)
+
+        if total_points < points_required:
+            return jsonify({"error": "Insufficient points to redeem this benefit"}), 404
+
+        redemption_data = {
+            'USUARIO': usuario_id,
+            'BENEFICIO': beneficio_id,
+            'CANJEADO': 1  
+        }
+
+        #insertar beneficio
+        MSSql.sql_insert_row_into('USUARIOS_BENEFICIOS', redemption_data)
+
+        return jsonify({"message": "Benefit redeemed successfully"}), 201
+
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+
+@app.route("/usuario/puntos", methods=['GET'])
+def get_usuario_puntos():
+    """
+        Obtiene los puntos de un usuario específico
+        ---
+        parameters:
+          - name: userId
+            in: query
+            required: true
+            description: ID del usuario
+        responses:
+            200:
+                description: application/json "Puntos del usuario"
+            400:
+                description: "Solicitud incorrecta"
+            404:
+                description: "Usuario no encontrado"
+    """
+    userId = request.args.get('userId', None)
+    if userId is None:
+        return make_response(jsonify({'error': 'Missing userId'}), 400)
+
+    try:
+        #puntos usuario
+        puntos = get_usuario_puntos_db(userId)
+
+        if puntos is None:
+            return make_response(jsonify({'error': 'User not found'}), 404)
+
+        return make_response(jsonify({'puntos': puntos}), 200)
+        
+
 if __name__ == '__main__':
     # SSL context setup
     import ssl
