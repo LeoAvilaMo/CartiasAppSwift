@@ -83,6 +83,7 @@ struct PerfilView: View {
                         //Content in the white card
                         
                         Text(miPerfil.NOMBRE + " " + miPerfil.A_PATERNO + " " + miPerfil.A_MATERNO)
+                            .padding(.top, 15)
                             .foregroundStyle(blueC)
                             .font(.system(size: 40))
                             .bold()
@@ -170,6 +171,10 @@ struct PerfilView: View {
                     }
                     .padding(.horizontal, 1)
                     .padding(.vertical, 85)
+                    VStack {
+                        
+                    }
+                    .padding(25)
                     Spacer()
                 }
                 .padding(.horizontal)
