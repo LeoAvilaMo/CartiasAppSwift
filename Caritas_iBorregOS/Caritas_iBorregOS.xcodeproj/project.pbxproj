@@ -29,6 +29,9 @@
 		4D9F56792CA4A43900C41A4E /* TiendaViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9F56782CA4A43900C41A4E /* TiendaViewModel.swift */; };
 		4D9F567B2CA4A49100C41A4E /* BeneficioDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9F567A2CA4A49100C41A4E /* BeneficioDetailView.swift */; };
 		4DF739212CA35DA400BF5788 /* EventosViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF739202CA35DA400BF5788 /* EventosViewModel.swift */; };
+		4DF7EA462CB61C6700CADE7B /* HistorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF7EA452CB61C6700CADE7B /* HistorialView.swift */; };
+		4DF7EA482CB61FC200CADE7B /* HistorialEventosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF7EA472CB61FC200CADE7B /* HistorialEventosView.swift */; };
+		4DF7EA4A2CB6299C00CADE7B /* HistorialretosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF7EA492CB6299C00CADE7B /* HistorialretosView.swift */; };
 		790C89232C83C52C0030828B /* obtenRetosTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 790C89222C83C52C0030828B /* obtenRetosTest.swift */; };
 		790C89252C83C7540030828B /* obtenBeneficiosTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 790C89242C83C7540030828B /* obtenBeneficiosTest.swift */; };
 		791992F72CB4A16300FC400A /* RetoDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 791992F62CB4A16300FC400A /* RetoDetailView.swift */; };
@@ -88,6 +91,9 @@
 		4D9F56782CA4A43900C41A4E /* TiendaViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TiendaViewModel.swift; sourceTree = "<group>"; };
 		4D9F567A2CA4A49100C41A4E /* BeneficioDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeneficioDetailView.swift; sourceTree = "<group>"; };
 		4DF739202CA35DA400BF5788 /* EventosViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventosViewModel.swift; sourceTree = "<group>"; };
+		4DF7EA452CB61C6700CADE7B /* HistorialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistorialView.swift; sourceTree = "<group>"; };
+		4DF7EA472CB61FC200CADE7B /* HistorialEventosView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistorialEventosView.swift; sourceTree = "<group>"; };
+		4DF7EA492CB6299C00CADE7B /* HistorialretosView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistorialretosView.swift; sourceTree = "<group>"; };
 		790C89222C83C52C0030828B /* obtenRetosTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = obtenRetosTest.swift; sourceTree = "<group>"; };
 		790C89242C83C7540030828B /* obtenBeneficiosTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = obtenBeneficiosTest.swift; sourceTree = "<group>"; };
 		791992F62CB4A16300FC400A /* RetoDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetoDetailView.swift; sourceTree = "<group>"; };
@@ -199,6 +205,9 @@
 				797D0E4A2CB03BCE00450EE2 /* RetosViewModel.swift */,
 				794C01502CA52716005108C5 /* VMTienda.swift */,
 				4D2CDE032CAF374800E2CC26 /* Environment.swift */,
+				4DF7EA452CB61C6700CADE7B /* HistorialView.swift */,
+				4DF7EA472CB61FC200CADE7B /* HistorialEventosView.swift */,
+				4DF7EA492CB6299C00CADE7B /* HistorialretosView.swift */,
 				4D59914C2CB48B0600D57CB1 /* LogInViewModel.swift */,
 			);
 			name = ViewModels;
@@ -431,14 +440,17 @@
 				4D04A8602C7E070B007804E6 /* ContentView.swift in Sources */,
 				790C89252C83C7540030828B /* obtenBeneficiosTest.swift in Sources */,
 				797D0E4B2CB03BCE00450EE2 /* RetosViewModel.swift in Sources */,
+				4DF7EA482CB61FC200CADE7B /* HistorialEventosView.swift in Sources */,
 				791992F72CB4A16300FC400A /* RetoDetailView.swift in Sources */,
 				798330D22C839BA60054E21A /* EVENTOS.swift in Sources */,
+				4DF7EA462CB61C6700CADE7B /* HistorialView.swift in Sources */,
 				7930CF132C7E6B2E008A55C6 /* PerfilView.swift in Sources */,
 				4D9F56792CA4A43900C41A4E /* TiendaViewModel.swift in Sources */,
 				4D2CDE042CAF374800E2CC26 /* Environment.swift in Sources */,
 				4D04A85E2C7E070B007804E6 /* Caritas_iBorregOSApp.swift in Sources */,
 				4D59604F2C7F731E0056C298 /* ProgressView.swift in Sources */,
 				79A5C0392CA4BCF800271DEB /* UsuariosViewModel.swift in Sources */,
+				4DF7EA4A2CB6299C00CADE7B /* HistorialretosView.swift in Sources */,
 				798330D62C839CBC0054E21A /* RETOS.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

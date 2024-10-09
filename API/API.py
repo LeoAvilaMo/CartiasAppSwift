@@ -679,7 +679,6 @@ def register_challenge_completion():
         return jsonify({"message": "Completion registered successfully"}), 201
     except Exception as e:
         return jsonify({"error": str(e)}), 500
-
 if __name__ == '__main__':
     # SSL context setup
     import ssl

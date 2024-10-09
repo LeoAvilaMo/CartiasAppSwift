@@ -148,19 +148,13 @@ struct EventDetailView: View {
                                     .shadow(color: Color.black.opacity(0.5), radius: 2, x: 1, y: 1)
                             }
                             .sheet(isPresented: $asistenciaModal) {
-                                RegistrarAsistenciaModalView(event: event, isPresented: $asistenciaModal)
+                                RegistrarAsistenciaModalView(event: event, isPresented: $asistenciaModal, participa: Binding(get: { participa ?? false }, set: { participa = $0 }))
+
+
                             }
-                            
-                            Button(action: { participa?.toggle() }) {
-                                Text("Cancelar")
-                                    .bold()
-                                    .frame(maxWidth: .infinity)
-                                    .padding()
-                                    .background(Color.red)
-                                    .foregroundColor(.white)
-                                    .cornerRadius(10)
-                                    .shadow(color: Color.black.opacity(0.5), radius: 2, x: 1, y: 1)
-                            }
+
+
+
                         }
                     } else {
                         Button(action: {
@@ -222,6 +216,7 @@ struct RegistrarAsistenciaModalView: View {
     var event: EVENTOS
     @Binding var isPresented: Bool  // Use a binding to control the modal visibility
     @State private var codigoValidacion: String = ""
+    @Binding var participa: Bool
     
     var body: some View {
         ZStack {
@@ -255,14 +250,20 @@ struct RegistrarAsistenciaModalView: View {
                 
                 HStack {
                     Button("Subir") {
-                        if let codigo = Int(codigoValidacion) {
-                            // Process the validation code (codigo) here
-                            print("Código ingresado: \(codigo)")
+                            let attendance = AttendanceRequest(usuario_id: 1, evento_id: event.ID_EVENTO, event_name: event.NOMBRE, event_code: codigoValidacion)
+
+                            registerEventCompletion(attendance: attendance) { result in
+                                switch result {
+                                case .success(let message):
+                                    print("Success: \(message)")
+                                   participa = true
+                                case .failure(let error):
+                                    print("Error: \(error.localizedDescription)")
+                                }
+                            }
+                            print("Código ingresado: \(codigoValidacion)")
                             isPresented = false  // Close the modal when the button is pressed
-                        } else {
-                            // Handle invalid input
-                            print("El código ingresado no es válido.")
-                        }
+                        
                     }
                     .padding()
                     .foregroundColor(.white)

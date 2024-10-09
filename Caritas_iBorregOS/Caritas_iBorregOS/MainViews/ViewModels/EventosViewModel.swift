@@ -21,6 +21,14 @@ struct AttendanceResponse: Codable {
     let error: String?
 }
 
+struct AttendanceRequest: Codable {
+    let usuario_id: Int
+    let evento_id: Int
+    let event_name: String
+    let event_code: String
+}
+
+
 import Foundation
 
 // Convertir valores numericos del evento a string para renderizar
@@ -231,9 +239,56 @@ func registerAttendance(usuarioID: Int, eventoID: Int) async throws -> Bool {
     }
 }
 
-
-
-
+func registerEventCompletion(attendance: AttendanceRequest, completion: @escaping (Result<String, Error>) -> Void) {
+    // Create the URL
+    guard let url = URL(string: "\(urlEndpoint)/register-event-completion") else {
+        completion(.failure(NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "Invalid URL"])))
+        return
+    }
+    
+    // Create the request
+    var request = URLRequest(url: url)
+    request.httpMethod = "POST"
+    request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+    
+    // Encode the attendance request to JSON
+    do {
+        let jsonData = try JSONEncoder().encode(attendance)
+        request.httpBody = jsonData
+    } catch {
+        completion(.failure(error))
+        return
+    }
+    
+    // Perform the request
+    let task = URLSession.shared.dataTask(with: request) { data, response, error in
+        // Handle network or other errors
+        if let error = error {
+            completion(.failure(error))
+            return
+        }
+        
+        // Ensure we received a proper response
+        guard let httpResponse = response as? HTTPURLResponse else {
+            completion(.failure(NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "Invalid response"])))
+            return
+        }
+        
+        // Handle the different status codes from the API
+        switch httpResponse.statusCode {
+        case 200, 201:
+            completion(.success("Attendance registered successfully"))
+        case 400:
+            completion(.failure(NSError(domain: "", code: 400, userInfo: [NSLocalizedDescriptionKey: "Invalid input data or event code"])))
+        case 404:
+            completion(.failure(NSError(domain: "", code: 404, userInfo: [NSLocalizedDescriptionKey: "Event not found"])))
+        default:
+            completion(.failure(NSError(domain: "", code: httpResponse.statusCode, userInfo: [NSLocalizedDescriptionKey: "Server error"])))
+        }
+    }
+    
+    task.resume()  // Start the request
+}
 
 let exampleEvent = EVENTOS(
     ID_EVENTO: 1,

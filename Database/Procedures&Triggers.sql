@@ -1,4 +1,4 @@
-USE iborregos;
+USE icaritasborregos;
 GO CREATE PROCEDURE sp_AddUsuarioEvento @UsuarioID numeric(18, 0),
     @EventoID numeric(18, 0) AS BEGIN
 INSERT INTO USUARIOS_EVENTOS (USUARIO, EVENTO)
@@ -38,3 +38,5 @@ BEGIN
     WHERE UR.ID_USUARIO = @ID_USUARIO
     AND UR.COMPLETADO = 0;  -- 0 represents 'false' for the bit field
 END;
+
+SELECT * FROM USUARIOS_EVENTOS;
