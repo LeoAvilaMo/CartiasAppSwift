@@ -794,7 +794,6 @@ def get_premio_by_id(id_premio):
         "id": premio.id,
         "nombre": premio.nombre,
         "descripcion": premio.descripcion,
-        "icono": premio.icono,
         "puntos": premio.puntos
     }), 200       
 
