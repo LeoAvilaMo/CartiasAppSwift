@@ -47,6 +47,7 @@
 		798330D42C839C3A0054E21A /* BENEFICIOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798330D32C839C3A0054E21A /* BENEFICIOS.swift */; };
 		798330D62C839CBC0054E21A /* RETOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798330D52C839CBC0054E21A /* RETOS.swift */; };
 		79A5C0392CA4BCF800271DEB /* UsuariosViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A5C0382CA4BCF800271DEB /* UsuariosViewModel.swift */; };
+		79AF2BFD2CB614A6001AF07E /* ChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79AF2BFC2CB614A6001AF07E /* ChartView.swift */; };
 		79CCC70B2CAF67E5009FFCC3 /* RetoCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79CCC70A2CAF67E5009FFCC3 /* RetoCardView.swift */; };
 /* End PBXBuildFile section */
 
@@ -111,6 +112,7 @@
 		798330D32C839C3A0054E21A /* BENEFICIOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BENEFICIOS.swift; sourceTree = "<group>"; };
 		798330D52C839CBC0054E21A /* RETOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RETOS.swift; sourceTree = "<group>"; };
 		79A5C0382CA4BCF800271DEB /* UsuariosViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsuariosViewModel.swift; sourceTree = "<group>"; };
+		79AF2BFC2CB614A6001AF07E /* ChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartView.swift; sourceTree = "<group>"; };
 		79CCC70A2CAF67E5009FFCC3 /* RetoCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetoCardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -259,6 +261,7 @@
 				4D5960442C7E7EF30056C298 /* EventCardView.swift */,
 				79630D282C83BA60007E94AA /* BeneficioCardView.swift */,
 				79CCC70A2CAF67E5009FFCC3 /* RetoCardView.swift */,
+				79AF2BFC2CB614A6001AF07E /* ChartView.swift */,
 			);
 			path = ElementViews;
 			sourceTree = "<group>";
@@ -446,6 +449,7 @@
 				4D59604D2C7F5AAC0056C298 /* TabView.swift in Sources */,
 				4D04A8602C7E070B007804E6 /* ContentView.swift in Sources */,
 				790C89252C83C7540030828B /* obtenBeneficiosTest.swift in Sources */,
+				79AF2BFD2CB614A6001AF07E /* ChartView.swift in Sources */,
 				797D0E4B2CB03BCE00450EE2 /* RetosViewModel.swift in Sources */,
 				791992F72CB4A16300FC400A /* RetoDetailView.swift in Sources */,
 				798330D22C839BA60054E21A /* EVENTOS.swift in Sources */,
