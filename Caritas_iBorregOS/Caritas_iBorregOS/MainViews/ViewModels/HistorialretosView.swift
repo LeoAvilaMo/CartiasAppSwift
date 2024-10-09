@@ -4,7 +4,7 @@ struct RetosHistorialView: View {
     let blueC = Color(red: 0/255, green: 156/255, blue: 166/255)
     let darkBlueC = Color(red: 0/255, green: 59/255, blue: 92/255)
     let lightGreenC = Color(red: 209/255, green: 224/255, blue: 215/255)
-
+    @State private var retosCompletados = getCompletedRETOSList(userID: 1)
     @State private var completedRetos: [RETOS] = []  // State for storing completed retos
     @State private var errorMessage: String?
     let usuarioID: Int  // The ID of the user to fetch retos for
@@ -22,8 +22,8 @@ struct RetosHistorialView: View {
                     .padding()
 
                 ScrollView {
-                    if !completedRetos.isEmpty {
-                        ForEach(completedRetos) { reto in
+                    if !retosCompletados.isEmpty {
+                        ForEach(retosCompletados) { reto in
                             NavigationLink(destination: RetoDetailView(retoX: reto)) {
                                 RetoCardView(RetoX: reto)
                                     .multilineTextAlignment(.leading)

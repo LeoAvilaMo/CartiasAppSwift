@@ -3,7 +3,7 @@ import SwiftUI
 struct HistorialView: View {
     @State private var selectedSegment = 0
     @State private var events: [EVENTOS] = []
-    @State private var retos: [RETOS] = []  // Estado para los retos
+    let retos: Array<RETOS> = getCompletedRETOSList(userID: myUser.ID_USUARIO)
     @State private var errorMessage: String?
 
     var body: some View {
