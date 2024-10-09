@@ -199,6 +199,99 @@ def sql_delete_where(table_name, d_where):
     except Exception as e:
         raise TypeError("sql_delete_where:%s" % e)
 
+def sql_read_where_attribute(table_name, d_where, attributes=None):
+    import pymssql
+    global cnx, mssql_params
+
+    # Use '*' if no attributes are provided
+    if attributes is None:
+        attributes_str = "*"
+    else:
+        # Join the attributes into a string for the SQL query
+        attributes_str = ", ".join(attributes)
+
+    conditions = []
+    params = []
+
+    for k, v in d_where.items():
+        if v is not None:
+            if isinstance(v, bool):
+                conditions.append(f"{k} = %s")
+                params.append(int(v == True))
+            else:
+                conditions.append(f"{k} = %s")
+                params.append(v)
+        else:
+            conditions.append(f"{k} IS NULL")
+
+    where_clause = " AND ".join(conditions)
+    query = f"SELECT {attributes_str} FROM {table_name} WHERE {where_clause}"
+
+    try:
+        try:
+            cursor = cnx.cursor(as_dict=True)
+            cursor.execute(query, params)
+        except pymssql._pymssql.InterfaceError:
+            print("Reconnecting...")
+            cnx = mssql_connect(mssql_params)
+            cursor = cnx.cursor(as_dict=True)
+            cursor.execute(query, params)
+        a = cursor.fetchall()
+        cursor.close()
+        return a
+    except Exception as e:
+        raise TypeError(f"sql_read_where: {e}")
+
+def obtener_puntos_usuario(usuario_id):
+    import pymssql
+    global cnx, mssql_params
+    
+    # Consulta para obtener la suma de puntos de retos
+    query_retos = """
+    SELECT COALESCE(SUM(r.PUNTAJE), 0) AS puntos_retos
+    FROM USUARIOS_RETOS ur
+    JOIN RETOS r ON ur.ID_RETO = r.ID_RETO
+    WHERE ur.ID_USUARIO = %s AND ur.COMPLETADO = 1;
+    """
+    
+    # Consulta para obtener la suma de puntos de eventos
+    query_eventos = """
+    SELECT COALESCE(SUM(e.PUNTAJE), 0) AS puntos_eventos
+    FROM USUARIOS_EVENTOS ue
+    JOIN EVENTOS e ON ue.EVENTO = e.ID_EVENTO
+    WHERE ue.USUARIO = %s AND ue.ASISTIO = 1;
+    """
+    
+    # Consulta para obtener la suma de puntos gastados en beneficios
+    query_beneficios = """
+    SELECT COALESCE(SUM(b.PUNTOS), 0) AS puntos_beneficios
+    FROM USUARIOS_BENEFICIOS ub
+    JOIN BENEFICIOS b ON ub.BENEFICIO = b.ID_BENEFICIO
+    WHERE ub.USUARIO = %s AND ub.CANJEADO = 1;
+    """
+    
+    try:
+        # Sumar puntos de retos
+        cursor = cnx.cursor(as_dict=True)
+        cursor.execute(query_retos, (usuario_id,))
+        puntos_retos = cursor.fetchone()['puntos_retos']
+
+        # Sumar puntos de eventos
+        cursor.execute(query_eventos, (usuario_id,))
+        puntos_eventos = cursor.fetchone()['puntos_eventos']
+
+        # Sumar puntos gastados en beneficios
+        cursor.execute(query_beneficios, (usuario_id,))
+        puntos_beneficios = cursor.fetchone()['puntos_beneficios']
+
+        # Calcular puntos totales
+        total_puntos = puntos_retos + puntos_eventos - puntos_beneficios
+        cursor.close()
+        return total_puntos
+
+    except Exception as e:
+        raise TypeError(f"obtener_puntos_usuario: {e}")
+
 
 if __name__ == '__main__':
     import json
