@@ -9,18 +9,20 @@ import SwiftUI
 
 struct RetosView: View {
     var body: some View {
-        // var retos: Array<Reto> = getAvailableRETOS(userID: myUser.ID_USUARIO)
-        let listaRETOS: Array<RETOS> = [
+        let retos: Array<RETOS> = getAvailableRETOS(userID: myUser.ID_USUARIO)
+        /*
+         let listaRETOS: Array<RETOS> = [
             RETOS(ID_RETO: 1, NOMBRE: "ENCUESTA", DESCRIPCION: "Contesta esta encuesta satisfactoriamente sobre salud mental para obtener un bono", PUNTAJE: 100),
             .init(ID_RETO: 2, NOMBRE: "SEGURIDAD", DESCRIPCION: "Completa el formulario de seguridad para obtener un bono", PUNTAJE: 100),
             .init(ID_RETO: 3, NOMBRE: "SEGURIDAD", DESCRIPCION: "Completa el formulario de seguridad para obtener un bono", PUNTAJE: 100)
             
         ]
+         */
         NavigationStack{
             VStack(alignment: .center) {
                 HStack {Spacer()}
                 Spacer()
-                Text("Eventos")
+                Text("Retos")
                     .font(.system(size: 35))
                     .bold()
                     .foregroundColor(darkBlueC)
@@ -28,7 +30,7 @@ struct RetosView: View {
                 ScrollView{
                     VStack{}
                     .padding()
-                    ForEach(listaRETOS){ reto in
+                    ForEach(retos){ reto in
                         NavigationLink{
                             RetoDetailView(retoX: reto)
                         } label: {

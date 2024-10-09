@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct PesoAlturaView: View {
-    
+    public var weightX: Float = 62.5
+    public var heightX: Float = 1.80
     var body: some View {
         
         HStack{
@@ -23,7 +24,7 @@ struct PesoAlturaView: View {
                         Text("Peso")
                             .foregroundStyle(.gray)
                             .font(.system(size: 19))
-                        Text("62.5 kg")
+                        Text(String(format: "%.1f", weightX) + " kg")
                             .bold()
                             .font(.system(size: 25))
                     }
@@ -44,10 +45,9 @@ struct PesoAlturaView: View {
                             .foregroundStyle(.gray)
                             .font(.system(size: 19))
 
-                        Text("172 cm")
+                        Text(String(Int(heightX*100)) + " cm")
                             .bold()
                             .font(.system(size: 25))
-
                     }
                     .padding()
                 }
@@ -59,5 +59,5 @@ struct PesoAlturaView: View {
 }
 
 #Preview {
-    PesoAlturaView()
+    PesoAlturaView(weightX: 62.5, heightX: 167.2)
 }

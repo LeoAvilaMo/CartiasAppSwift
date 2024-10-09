@@ -11,7 +11,7 @@ import Foundation
 // Decodify un solo item
 func getUsuario(email: String) -> USUARIOS {
     var localUsuario = USUARIOS(ID_USUARIO: 1, NOMBRE: "", A_PATERNO: "", A_MATERNO: "", ID_TIPO_USUARIO: 1, EMAIL: "", CONTRASENA: "")
-    guard let url = URL(string:"\(urlEndpoint)/\(email)") else{
+    guard let url = URL(string:"\(urlEndpoint)/usuario/\(email)") else{
         return localUsuario
        }
        

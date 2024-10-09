@@ -11,25 +11,34 @@ import Charts
 //User
 let myUser = USUARIOS(ID_USUARIO: 1, NOMBRE: "", A_PATERNO: "", A_MATERNO: "", ID_TIPO_USUARIO: 1, EMAIL: "", CONTRASENA: "")
 
-var graphData = [
-    PesoPorMes(month: "Mayo", weight: 55.5),
-    PesoPorMes(month: "Jun", weight: 80.5),
-    PesoPorMes(month: "Jul", weight: 57.1),
-    PesoPorMes(month: "Ago", weight: 62.5),
-]
+let miPerfil = getUsuario(email: "juan.perez@example.com")
 
 struct PerfilView: View {
-  //  let miPerfil = getUsuario(email: "juan.perez@example.com")
+    
     @State private var notification: Bool = false
-    @State private var progress: Double = 0.2 // Current progress (99%)
+    @State private var retosCompletados = getRetosCompletados(usuarioID: miPerfil.ID_USUARIO)
+    @State private var chartsData: Array<DATOS_FISICOS> = getDatosFisicos(userID: miPerfil.ID_USUARIO)
+    
+   
+          
     
     var body: some View {
+        let mensajeMotivador = randomMotivationalMessage()
+        let progress = Double(retosCompletados.CompletedRetos) / Double(retosCompletados.TotalRetos)
+        let recentWeight = chartsData.first?.PESO ?? 0
+        let recentHeight = chartsData.first?.ALTURA ?? 0
+        let pesos = chartsData.map { $0.PESO }
+        let fechas = chartsData.map { $0.FECHA_ACTUALIZACION }
+        let BMIs = chartsData.map { $0.IMC }
+        let inGlus = chartsData.map { $0.GLUCOSA }
+        let pesoColor = Color(red: 0, green: 112/255, blue: 66/255)
+        let bmiColor = chartC
+        let inGlusColor = Color(red: 206/255, green: 111/255, blue: 0)
         
         //Overlaping things
         ZStack{
-            
             //Green background
-            VStack {
+            VStack(alignment: .center) {
                 
                 // Notifications and rewards buttons
                 HStack {
@@ -66,108 +75,104 @@ struct PerfilView: View {
             
             //White card content
             ScrollView(.vertical,showsIndicators: false) {
+                
                 //Spacer to fill the screen
                 HStack {Spacer()}
                 
-                VStack{
-                    
+                VStack(alignment: .center){
                     //Content in the white card
-                  /*
+                  
                     Text(miPerfil.NOMBRE + " " + miPerfil.A_PATERNO + " " + miPerfil.A_MATERNO)
                         .foregroundStyle(blueC)
                         .font(.system(size: 40))
                         .bold()
-                    */
-                    
-                    //Progress Bar with Reto text
-                    VStack(spacing: 20) {
-                        
-                        ZStack(alignment: .leading) {
-                            // Background Progress View
-                            ProgressView(value: progress)
-                                .progressViewStyle(LinearProgressViewStyle(tint: orangeC))
-                                .scaleEffect(x: 1, y: 3, anchor: .center) // Make the progress bar thicker
-                                .padding(.horizontal)
-                            
-                            // Runner Icon and Percentage Overlay
-                            GeometryReader { geometry in
-                                let iconSize: CGFloat = 30
-                                let textWidth: CGFloat = 40 // Estimated width of the percentage text
-                                let progressOffset = CGFloat(progress) * (geometry.size.width - iconSize - textWidth)
+                    // Card de Retos
+                    VStack(alignment: .center){
+                        HStack{
+                            Image(systemName: "trophy.fill")
+                                .foregroundStyle(.yellow)
                                 
-                                HStack(spacing: 5) {
-                                    Spacer()
-                                        .frame(width: progressOffset) // Adjust the width to move the icon
+                                .font(.system(size: 20))
+                            
+                            Text("Retos completados")
+                                .font(.system(size: 20))
+                                .bold()
+                            Image(systemName: "trophy.fill")
+                                .foregroundStyle(.yellow)
+                                .font(.system(size: 20))
+                        }
+                        .padding(.bottom, 25)
+                        .padding(.top, 5)
+                        .padding(.horizontal, 15)
+                        
+                        //Progress Bar with Reto text
+                        VStack(alignment: .center, spacing: 20) {
+                            ZStack(alignment: .leading) {
+                                // Background Progress View
+                                ProgressView(value: progress)
+                                    .progressViewStyle(LinearProgressViewStyle(tint: orangeC))
+                                    .scaleEffect(x: 1, y: 3, anchor: .center) // Make the progress bar thicker
+                                    .padding(.horizontal)
+                                
+                                // Runner Icon and Percentage Overlay
+                                GeometryReader { geometry in
+                                    let iconSize: CGFloat = 30
+                                    let textWidth: CGFloat = 40 // Estimated width of the percentage text
+                                    let progressOffset = CGFloat(progress) * (geometry.size.width - iconSize - textWidth)
                                     
-                                    VStack(spacing: 0) {
-                                        Text("\(Int(progress * 100))%")
-                                            .font(.system(size: 18, weight: .bold))
-                                            .foregroundColor(blueC)
+                                    HStack(spacing: 5) {
+                                        Spacer()
+                                            .frame(width: progressOffset) // Adjust the width to move the icon
                                         
-                                        Image(systemName: "figure.run.circle.fill")
-                                            .resizable()
-                                            .frame(width: iconSize, height: iconSize)
-                                            .foregroundColor(blueC)
+                                        VStack(spacing: 0) {
+                                            Text("\(Int(progress * 100))%")
+                                                .font(.system(size: 18, weight: .bold))
+                                                .foregroundColor(blueC)
+                                            
+                                            Image(systemName: "figure.run.circle.fill")
+                                                .resizable()
+                                                .frame(width: iconSize, height: iconSize)
+                                                .foregroundColor(blueC)
+                                        }
+                                        .offset(y: -40) // Position icon and text above the progress bar
+                                        
+                                        Spacer() // Push the content to the start of the progress
                                     }
-                                    .offset(y: -40) // Position icon and text above the progress bar
                                     
-                                    Spacer() // Push the content to the start of the progress
                                 }
                                 
+                                .padding(.horizontal)
                             }
-                            
-                            .padding(.horizontal)
-                        }
-                        
-                        Text("Reto: ")
-                            .bold()
-                        + Text("Yoga mensual 🧘")
-                            .foregroundStyle(pinkC)
-                    }
-                    .frame(height: 50)
-                    .padding()
                     
-                    // Weight and height cards
-                    PesoAlturaView()
-                    
-                    //Charts
-                    VStack (alignment: .leading){
-                        Text("Tu progreso 🏃‍➡️")
-                            .font(.title)
-                            .bold()
-                            .foregroundStyle(chartC)
-                        Chart{
-                            ForEach(graphData) { d in
-                                BarMark(
-                                    x: PlottableValue.value("Mes",d.month), y: PlottableValue.value("Peso", d.weight))
-                                .foregroundStyle(chartC)
-                                .annotation{
-                                    Text(String("\(d.weight) kg"))
-                                        .foregroundStyle(chartC)
-                                }
-                            }
-                            
+                            Text(mensajeMotivador)
+                                .foregroundStyle(pinkC)
+                                .font(.system(size: 17, weight: .bold))
+                                
                         }
-                        .chartYAxis {
-                            AxisMarks(stroke: StrokeStyle(lineWidth: 0))
-                        }
-                        .chartYAxis(.hidden)
-                        .chartXAxis {
-                            AxisMarks(stroke: StrokeStyle(lineWidth: 0))
-                        }
-                        .frame(height: 200)
                         .padding()
                     }
                     .padding()
-                    .background(chartBackgroundC)
-                    .cornerRadius(10)
+                    .background(whiteC)
+                    .clipShape(RoundedRectangle(cornerRadius: 15))
+                    .shadow(color: .black.opacity(0.15), radius: 1, x: 0, y: 6)
                     
+                    
+                    // Weight and height cards
+                    PesoAlturaView(weightX: recentWeight, heightX: recentHeight)
+                    
+                    
+                    ChartView(graphDataX: pesos, graphDataY: fechas, unitsX: "kg", graphTitleX: "Peso 💪", chartColorX: pesoColor)
+                        .padding(.bottom, 10)
+                    ChartView(graphDataX: BMIs, graphDataY: fechas, unitsX: "kg/m²", graphTitleX: "IMC 🧩", chartColorX: bmiColor)
+                        .padding(.bottom, 10)
+                    ChartView(graphDataX: inGlus, graphDataY: fechas, unitsX: "mg/dl", graphTitleX: "Glucosa 🩸", chartColorX: inGlusColor)
+                        .padding(.bottom, 10)
                 }
                 .padding(.horizontal, 1)
                 .padding(.vertical, 85)
                 Spacer()
             }
-            .padding()
+            .padding(.horizontal)
             .background(lightTealC)
             .cornerRadius(50)
             .offset(y: 150)

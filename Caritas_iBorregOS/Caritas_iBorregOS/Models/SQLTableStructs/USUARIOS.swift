@@ -25,10 +25,6 @@ public struct USUARIOS: Codable {
     let ID_TIPO_USUARIO: Int
     let NOMBRE: String
 
-
-
-
-    
     //Inicializador manual
     init(ID_USUARIO: Int, NOMBRE: String, A_PATERNO: String, A_MATERNO: String, ID_TIPO_USUARIO: Int, EMAIL: String, CONTRASENA: String) {
         self.ID_USUARIO = ID_USUARIO
