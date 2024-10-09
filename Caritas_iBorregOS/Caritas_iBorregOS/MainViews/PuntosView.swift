@@ -8,10 +8,32 @@
 import SwiftUI
 
 struct PuntosView: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+    @State private var totalPoints: String?
+
+        var body: some View {
+            VStack {
+                if let points = totalPoints {
+                    Text("Total Points: \(points)")
+                } else {
+                    Text("Fetching points...")
+                }
+                Button("Fetch User Points") {
+                    Task {
+                        await fetchPoints()
+                    }
+                }
+            }
+        }
+
+        func fetchPoints() async {
+            do {
+                let userPoints = try await fetchUserTotalPoints(for: 1)
+                totalPoints = userPoints.totalPoints
+            } catch {
+                print("Failed to fetch user total points: \(error)")
+            }
+        }
     }
-}
 
 #Preview {
     PuntosView()

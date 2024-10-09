@@ -24,6 +24,7 @@
 		4D5960922C7F89B80056C298 /* TiendaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D5960912C7F89B80056C298 /* TiendaView.swift */; };
 		4D5960942C7F89D60056C298 /* RetosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D5960932C7F89D60056C298 /* RetosView.swift */; };
 		4D59914D2CB48B0600D57CB1 /* LogInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D59914C2CB48B0600D57CB1 /* LogInViewModel.swift */; };
+		4D73AF392CB6ECCB00B12337 /* PuntosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D73AF382CB6ECCA00B12337 /* PuntosView.swift */; };
 		4D90B03C2C800B0300470D91 /* PesoEnMesesData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D90B03B2C800B0300470D91 /* PesoEnMesesData.swift */; };
 		4D90B03E2C800B4A00470D91 /* PesoAlturaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D90B03D2C800B4A00470D91 /* PesoAlturaView.swift */; };
 		4D9F56792CA4A43900C41A4E /* TiendaViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9F56782CA4A43900C41A4E /* TiendaViewModel.swift */; };
@@ -96,6 +97,7 @@
 		4D5960912C7F89B80056C298 /* TiendaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TiendaView.swift; sourceTree = "<group>"; };
 		4D5960932C7F89D60056C298 /* RetosView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetosView.swift; sourceTree = "<group>"; };
 		4D59914C2CB48B0600D57CB1 /* LogInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewModel.swift; sourceTree = "<group>"; };
+		4D73AF382CB6ECCA00B12337 /* PuntosView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PuntosView.swift; sourceTree = "<group>"; };
 		4D90B03B2C800B0300470D91 /* PesoEnMesesData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PesoEnMesesData.swift; sourceTree = "<group>"; };
 		4D90B03D2C800B4A00470D91 /* PesoAlturaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PesoAlturaView.swift; sourceTree = "<group>"; };
 		4D9F56782CA4A43900C41A4E /* TiendaViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TiendaViewModel.swift; sourceTree = "<group>"; };
@@ -265,6 +267,7 @@
 				79C3BFBE2CB6C99900100285 /* PremiosView.swift */,
 				7930CF122C7E6B2E008A55C6 /* PerfilView.swift */,
 				4D5960422C7E7EBA0056C298 /* EventosView.swift */,
+				4D73AF382CB6ECCA00B12337 /* PuntosView.swift */,
 				798330D82C83A0F60054E21A /* ElementViews */,
 				798330D92C83A1620054E21A /* SubViews */,
 			);
@@ -451,6 +454,7 @@
 				79274E962C7E8950006A0E26 /* FotoView.swift in Sources */,
 				798330D42C839C3A0054E21A /* BENEFICIOS.swift in Sources */,
 				4D5960922C7F89B80056C298 /* TiendaView.swift in Sources */,
+				4D73AF392CB6ECCB00B12337 /* PuntosView.swift in Sources */,
 				4D5960942C7F89D60056C298 /* RetosView.swift in Sources */,
 				790C89232C83C52C0030828B /* obtenRetosTest.swift in Sources */,
 				4DF739212CA35DA400BF5788 /* EventosViewModel.swift in Sources */,
@@ -655,7 +659,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Caritas_iBorregOS/Preview Content\"";
-				DEVELOPMENT_TEAM = RGQ24KW7D9;
+				DEVELOPMENT_TEAM = DC23DTVX6A;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -668,7 +672,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "A00835641.Caritas-iBorregOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "A01571298.Caritas-iBorregOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -684,7 +688,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Caritas_iBorregOS/Preview Content\"";
-				DEVELOPMENT_TEAM = RGQ24KW7D9;
+				DEVELOPMENT_TEAM = DC23DTVX6A;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -697,7 +701,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "A00835641.Caritas-iBorregOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "A01571298.Caritas-iBorregOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
