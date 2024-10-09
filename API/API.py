@@ -782,6 +782,20 @@ def get_usuario_puntos():
 
         return make_response(jsonify({'puntos': puntos}), 200)
         
+@app.route('/premios/<int:id_premio>', methods=['GET'])
+def get_premio_by_id(id_premio):
+ 
+    premio = Premio.query.filter_by(id=id_premio).first()
+
+    if premio is None:
+        return jsonify({"error": "Premio no encontrado"}), 404
+
+    return jsonify({
+        "id": premio.id,
+        "nombre": premio.nombre,
+        "descripcion": premio.descripcion,
+        "puntos": premio.puntos
+    }), 200       
 
 if __name__ == '__main__':
     # SSL context setup
