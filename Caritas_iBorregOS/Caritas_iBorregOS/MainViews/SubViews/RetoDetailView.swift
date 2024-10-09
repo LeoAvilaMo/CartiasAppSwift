@@ -17,7 +17,7 @@ struct RetoDetailView: View {
             VStack(spacing: 0) {
                 // Top image with fade overlay
                 ZStack(alignment: .bottom) {
-                    Image(systemName: "star.fill")
+                    Image("placeHolderReto")
                         .resizable()
                         .scaledToFit()
                         .frame(maxHeight: 300)
@@ -69,7 +69,7 @@ struct RetoDetailView: View {
                             .foregroundColor(.white)
                             .shadow(color: Color.black.opacity(0.5), radius: 2, x: 1, y: 1)
                         Spacer()
-                        Button(action: { participa.toggle() }) {
+                        Link(destination: URL(string: "https://dailykitten.com/")!){
                             Text("Participar")
                                 .font(.title)
                                 .fontWeight(.heavy)

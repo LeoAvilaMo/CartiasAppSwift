@@ -47,15 +47,15 @@ struct PerfilView: View {
                         }label:{
                             Image(systemName: "clock.arrow.trianglehead.counterclockwise.rotate.90")
                                 .resizable()
-                                .frame(width: 45, height: 45)
+                                .frame(width: 50, height: 45)
                                 .foregroundStyle(orangeC)
                         }
                         .alert(isPresented: $notification, content: {
                             Alert( title: Text("¡Felicidades!"), message: Text("Completaste el reto: Caminata en Chipinque 🏃"), dismissButton: .default(Text("Volver")))
                         })
                         Spacer()
-                        Button{
-                            notification = true
+                        NavigationLink{
+                            PremiosView()
                         }label:{
                             Image(systemName: "gift")
                                 .resizable()

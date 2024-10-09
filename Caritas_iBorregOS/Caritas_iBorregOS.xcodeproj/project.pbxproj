@@ -51,6 +51,10 @@
 		798330D62C839CBC0054E21A /* RETOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798330D52C839CBC0054E21A /* RETOS.swift */; };
 		79A5C0392CA4BCF800271DEB /* UsuariosViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A5C0382CA4BCF800271DEB /* UsuariosViewModel.swift */; };
 		79AF2BFD2CB614A6001AF07E /* ChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79AF2BFC2CB614A6001AF07E /* ChartView.swift */; };
+		79C3BFBD2CB6C94C00100285 /* PremiosViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C3BFBC2CB6C94C00100285 /* PremiosViewModel.swift */; };
+		79C3BFBF2CB6C99900100285 /* PremiosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C3BFBE2CB6C99900100285 /* PremiosView.swift */; };
+		79C3BFC12CB6C9D600100285 /* PremioDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C3BFC02CB6C9D600100285 /* PremioDetailView.swift */; };
+		79C3BFC32CB6CA1200100285 /* PremioCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C3BFC22CB6CA1200100285 /* PremioCardView.swift */; };
 		79CCC70B2CAF67E5009FFCC3 /* RetoCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79CCC70A2CAF67E5009FFCC3 /* RetoCardView.swift */; };
 /* End PBXBuildFile section */
 
@@ -119,6 +123,10 @@
 		798330D52C839CBC0054E21A /* RETOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RETOS.swift; sourceTree = "<group>"; };
 		79A5C0382CA4BCF800271DEB /* UsuariosViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsuariosViewModel.swift; sourceTree = "<group>"; };
 		79AF2BFC2CB614A6001AF07E /* ChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartView.swift; sourceTree = "<group>"; };
+		79C3BFBC2CB6C94C00100285 /* PremiosViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PremiosViewModel.swift; sourceTree = "<group>"; };
+		79C3BFBE2CB6C99900100285 /* PremiosView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PremiosView.swift; sourceTree = "<group>"; };
+		79C3BFC02CB6C9D600100285 /* PremioDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PremioDetailView.swift; sourceTree = "<group>"; };
+		79C3BFC22CB6CA1200100285 /* PremioCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PremioCardView.swift; sourceTree = "<group>"; };
 		79CCC70A2CAF67E5009FFCC3 /* RetoCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetoCardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -223,6 +231,7 @@
 				4D59914C2CB48B0600D57CB1 /* LogInViewModel.swift */,
 				7982813C2CB5C8C20076DE89 /* RetosCompletadosViewModel.swift */,
 				796684862CB5E054007B4536 /* DatosFisicosViewModel.swift */,
+				79C3BFBC2CB6C94C00100285 /* PremiosViewModel.swift */,
 			);
 			name = ViewModels;
 			path = MainViews/ViewModels;
@@ -253,6 +262,7 @@
 			children = (
 				4D5960912C7F89B80056C298 /* TiendaView.swift */,
 				4D5960932C7F89D60056C298 /* RetosView.swift */,
+				79C3BFBE2CB6C99900100285 /* PremiosView.swift */,
 				7930CF122C7E6B2E008A55C6 /* PerfilView.swift */,
 				4D5960422C7E7EBA0056C298 /* EventosView.swift */,
 				798330D82C83A0F60054E21A /* ElementViews */,
@@ -271,6 +281,7 @@
 				79630D282C83BA60007E94AA /* BeneficioCardView.swift */,
 				79CCC70A2CAF67E5009FFCC3 /* RetoCardView.swift */,
 				79AF2BFC2CB614A6001AF07E /* ChartView.swift */,
+				79C3BFC22CB6CA1200100285 /* PremioCardView.swift */,
 			);
 			path = ElementViews;
 			sourceTree = "<group>";
@@ -281,6 +292,7 @@
 				4D9F567A2CA4A49100C41A4E /* BeneficioDetailView.swift */,
 				791992F62CB4A16300FC400A /* RetoDetailView.swift */,
 				4D2CDE052CB02BF500E2CC26 /* EventDetailView.swift */,
+				79C3BFC02CB6C9D600100285 /* PremioDetailView.swift */,
 			);
 			path = SubViews;
 			sourceTree = "<group>";
@@ -454,10 +466,12 @@
 				798281392CB5C8430076DE89 /* RetosCompletadosModel.swift in Sources */,
 				4D59914D2CB48B0600D57CB1 /* LogInViewModel.swift in Sources */,
 				4D9F567B2CA4A49100C41A4E /* BeneficioDetailView.swift in Sources */,
+				79C3BFC12CB6C9D600100285 /* PremioDetailView.swift in Sources */,
 				4D2CDE062CB02BF500E2CC26 /* EventDetailView.swift in Sources */,
 				4D59604D2C7F5AAC0056C298 /* TabView.swift in Sources */,
 				4D04A8602C7E070B007804E6 /* ContentView.swift in Sources */,
 				790C89252C83C7540030828B /* obtenBeneficiosTest.swift in Sources */,
+				79C3BFBF2CB6C99900100285 /* PremiosView.swift in Sources */,
 				79AF2BFD2CB614A6001AF07E /* ChartView.swift in Sources */,
 				797D0E4B2CB03BCE00450EE2 /* RetosViewModel.swift in Sources */,
 				4DF7EA482CB61FC200CADE7B /* HistorialEventosView.swift in Sources */,
@@ -469,10 +483,12 @@
 				4D9F56792CA4A43900C41A4E /* TiendaViewModel.swift in Sources */,
 				4D2CDE042CAF374800E2CC26 /* Environment.swift in Sources */,
 				796684872CB5E054007B4536 /* DatosFisicosViewModel.swift in Sources */,
+				79C3BFBD2CB6C94C00100285 /* PremiosViewModel.swift in Sources */,
 				7982813D2CB5C8C20076DE89 /* RetosCompletadosViewModel.swift in Sources */,
 				7938C29F2CB5CF7F00F4DE5B /* MensajesMotivadores.swift in Sources */,
 				4D04A85E2C7E070B007804E6 /* Caritas_iBorregOSApp.swift in Sources */,
 				4D59604F2C7F731E0056C298 /* ProgressView.swift in Sources */,
+				79C3BFC32CB6CA1200100285 /* PremioCardView.swift in Sources */,
 				79A5C0392CA4BCF800271DEB /* UsuariosViewModel.swift in Sources */,
 				4DF7EA4A2CB6299C00CADE7B /* HistorialretosView.swift in Sources */,
 				798330D62C839CBC0054E21A /* RETOS.swift in Sources */,
@@ -639,6 +655,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Caritas_iBorregOS/Preview Content\"";
+				DEVELOPMENT_TEAM = RGQ24KW7D9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -651,7 +668,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "A01571298.Caritas-iBorregOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "A00835641.Caritas-iBorregOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -667,6 +684,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Caritas_iBorregOS/Preview Content\"";
+				DEVELOPMENT_TEAM = RGQ24KW7D9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -679,7 +697,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "A01571298.Caritas-iBorregOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "A00835641.Caritas-iBorregOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

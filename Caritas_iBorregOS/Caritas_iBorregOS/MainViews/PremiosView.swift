@@ -56,7 +56,7 @@ struct PremiosView: View {
                 // Lista de premios
                 List(listaPremios, id: \.nombre) { premio in
                     NavigationLink(destination: PremiosDetailView(premio: premio)) {
-                        PremiosCardView(premio: premio)
+                        PremioCardView(premio: premio)
                     }
                 }
                 .listStyle(.inset)
