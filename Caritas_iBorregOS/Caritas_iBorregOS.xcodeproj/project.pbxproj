@@ -57,6 +57,7 @@
 		79C3BFC12CB6C9D600100285 /* PremioDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C3BFC02CB6C9D600100285 /* PremioDetailView.swift */; };
 		79C3BFC32CB6CA1200100285 /* PremioCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C3BFC22CB6CA1200100285 /* PremioCardView.swift */; };
 		79CCC70B2CAF67E5009FFCC3 /* RetoCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79CCC70A2CAF67E5009FFCC3 /* RetoCardView.swift */; };
+		FBF603EA2CB738DA00D6768D /* PREMIOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF603E92CB738D700D6768D /* PREMIOS.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -130,6 +131,7 @@
 		79C3BFC02CB6C9D600100285 /* PremioDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PremioDetailView.swift; sourceTree = "<group>"; };
 		79C3BFC22CB6CA1200100285 /* PremioCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PremioCardView.swift; sourceTree = "<group>"; };
 		79CCC70A2CAF67E5009FFCC3 /* RetoCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetoCardView.swift; sourceTree = "<group>"; };
+		FBF603E92CB738D700D6768D /* PREMIOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PREMIOS.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -305,6 +307,7 @@
 			children = (
 				798330CF2C839B790054E21A /* USUARIOS.swift */,
 				798330D12C839BA60054E21A /* EVENTOS.swift */,
+				FBF603E92CB738D700D6768D /* PREMIOS.swift */,
 				798330D32C839C3A0054E21A /* BENEFICIOS.swift */,
 				798330D52C839CBC0054E21A /* RETOS.swift */,
 				796684842CB5DE75007B4536 /* DATOS_FISICOS.swift */,
@@ -484,6 +487,7 @@
 				4DF7EA462CB61C6700CADE7B /* HistorialView.swift in Sources */,
 				796684852CB5DE75007B4536 /* DATOS_FISICOS.swift in Sources */,
 				7930CF132C7E6B2E008A55C6 /* PerfilView.swift in Sources */,
+				FBF603EA2CB738DA00D6768D /* PREMIOS.swift in Sources */,
 				4D9F56792CA4A43900C41A4E /* TiendaViewModel.swift in Sources */,
 				4D2CDE042CAF374800E2CC26 /* Environment.swift in Sources */,
 				796684872CB5E054007B4536 /* DatosFisicosViewModel.swift in Sources */,
