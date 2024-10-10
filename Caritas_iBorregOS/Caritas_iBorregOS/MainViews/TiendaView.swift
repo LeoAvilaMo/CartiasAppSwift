@@ -90,7 +90,7 @@ struct TiendaView: View {
                         let fetchedBeneficios = try await fetchBeneficios()
                         beneficios = fetchedBeneficios
                     } catch {
-                        errorMessage = "Failed to fetch events: \(error.localizedDescription)"
+                        errorMessage = "Failed to fetch beneficios: \(error.localizedDescription)"
                     }
                 }
             }
