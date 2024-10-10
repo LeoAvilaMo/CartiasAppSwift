@@ -21,11 +21,17 @@ struct ContentView: View {
     @State private var signIn = false
     @State private var logInAlert = false
     @State private var errorMessage = ""
-
+    
+    let exampleUserTotalPoints = UserTotalPoints(
+        totalBenefitPointsSpent: "150",
+        totalEventPoints: "300",
+        totalPoints: "450",
+        totalRetoPoints: "200")
     var body: some View {
         NavigationStack{
             if signIn {
-                TabViews()
+                TabViews(email: username)
+                // Set Userdefaults user to the one who signed in
             } else {
                 ZStack {
                     // Fondo azul fuerte

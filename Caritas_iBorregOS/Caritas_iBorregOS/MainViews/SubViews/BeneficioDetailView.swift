@@ -74,7 +74,7 @@ struct BeneficioDetailView: View {
                         Image(systemName: "star.fill")
                             .foregroundColor(.yellow)
                             .frame(width: 24, height: 24)
-                        Text("\(puntosUsuario)")
+                        Text("\(beneficioX.PUNTOS)")
                             .font(.system(size: 22, weight: .bold))
                             .foregroundColor(whiteC)
                     }
@@ -103,8 +103,9 @@ struct BeneficioDetailView: View {
                 
                 Button(action: {
                                 showAlert = true
+                    // Si la compra es exitosa, hace otraa vez un fect de los puntos y cambiar los puntos de userdefault
                             }) {
-                                Text("CANJEAR BENEFICIO")
+                                Text("Comprar Beneficio")
                                     .font(.title2)
                                     .bold()
                                     .foregroundColor(.white)
@@ -113,6 +114,7 @@ struct BeneficioDetailView: View {
                                     .background(Color.orange)
                                     .cornerRadius(20)
                             }
+                
                             .padding(.horizontal)
                             .padding(.bottom, 20)
                             .alert(isPresented: $showAlert) {

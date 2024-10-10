@@ -57,7 +57,7 @@ struct EventosView: View {
                             let fetchedEvents = try await fetchEvents()
                             events = fetchedEvents
                             
-                            /// Fetch the user total points
+                            // Set the Userdefaults points to this
                             let userPoints = try await fetchUserTotalPoints(for: 1)
                                print("User 1 Total Points: \(userPoints.totalPoints)")
                         } catch {

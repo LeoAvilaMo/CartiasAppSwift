@@ -8,16 +8,9 @@
 import SwiftUI
 
 struct RetosView: View {
+    @State private var retos: [RETOS] = []
+    @State private var errorMessage: String?
     var body: some View {
-        let retos: Array<RETOS> = getAvailableRETOS(userID: myUser.ID_USUARIO)
-        /*
-         let listaRETOS: Array<RETOS> = [
-            RETOS(ID_RETO: 1, NOMBRE: "ENCUESTA", DESCRIPCION: "Contesta esta encuesta satisfactoriamente sobre salud mental para obtener un bono", PUNTAJE: 100),
-            .init(ID_RETO: 2, NOMBRE: "SEGURIDAD", DESCRIPCION: "Completa el formulario de seguridad para obtener un bono", PUNTAJE: 100),
-            .init(ID_RETO: 3, NOMBRE: "SEGURIDAD", DESCRIPCION: "Completa el formulario de seguridad para obtener un bono", PUNTAJE: 100)
-            
-        ]
-         */
         NavigationStack{
             VStack(alignment: .center) {
                 HStack {Spacer()}
@@ -48,6 +41,11 @@ struct RetosView: View {
                 
             }
             .background(lightGreenC)
+            .onAppear{
+                    let fetchedRetos =  getAvailableRETOS(userID: myUser.ID_USUARIO)
+                    retos = fetchedRetos
+                    print("retos")
+            }
         }
     }
 }
@@ -67,3 +65,12 @@ struct RoundedCornerShape: Shape {
 #Preview {
     RetosView()
 }
+
+/*
+ let listaRETOS: Array<RETOS> = [
+    RETOS(ID_RETO: 1, NOMBRE: "ENCUESTA", DESCRIPCION: "Contesta esta encuesta satisfactoriamente sobre salud mental para obtener un bono", PUNTAJE: 100),
+    .init(ID_RETO: 2, NOMBRE: "SEGURIDAD", DESCRIPCION: "Completa el formulario de seguridad para obtener un bono", PUNTAJE: 100),
+    .init(ID_RETO: 3, NOMBRE: "SEGURIDAD", DESCRIPCION: "Completa el formulario de seguridad para obtener un bono", PUNTAJE: 100)
+    
+]
+ */
