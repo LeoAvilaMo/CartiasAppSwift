@@ -51,6 +51,7 @@
 		798330D62C839CBC0054E21A /* RETOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798330D52C839CBC0054E21A /* RETOS.swift */; };
 		79A5C0392CA4BCF800271DEB /* UsuariosViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A5C0382CA4BCF800271DEB /* UsuariosViewModel.swift */; };
 		79AF2BFD2CB614A6001AF07E /* ChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79AF2BFC2CB614A6001AF07E /* ChartView.swift */; };
+		79B27CD42CB82331002584AF /* PremioModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B27CD32CB82331002584AF /* PremioModel.swift */; };
 		79C3BFBD2CB6C94C00100285 /* PremiosViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C3BFBC2CB6C94C00100285 /* PremiosViewModel.swift */; };
 		79C3BFBF2CB6C99900100285 /* PremiosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C3BFBE2CB6C99900100285 /* PremiosView.swift */; };
 		79C3BFC12CB6C9D600100285 /* PremioDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C3BFC02CB6C9D600100285 /* PremioDetailView.swift */; };
@@ -123,6 +124,7 @@
 		798330D52C839CBC0054E21A /* RETOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RETOS.swift; sourceTree = "<group>"; };
 		79A5C0382CA4BCF800271DEB /* UsuariosViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsuariosViewModel.swift; sourceTree = "<group>"; };
 		79AF2BFC2CB614A6001AF07E /* ChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartView.swift; sourceTree = "<group>"; };
+		79B27CD32CB82331002584AF /* PremioModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PremioModel.swift; sourceTree = "<group>"; };
 		79C3BFBC2CB6C94C00100285 /* PremiosViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PremiosViewModel.swift; sourceTree = "<group>"; };
 		79C3BFBE2CB6C99900100285 /* PremiosView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PremiosView.swift; sourceTree = "<group>"; };
 		79C3BFC02CB6C9D600100285 /* PremioDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PremioDetailView.swift; sourceTree = "<group>"; };
@@ -253,6 +255,7 @@
 				7938C29E2CB5CF7F00F4DE5B /* MensajesMotivadores.swift */,
 				798281382CB5C8430076DE89 /* RetosCompletadosModel.swift */,
 				4D90B03B2C800B0300470D91 /* PesoEnMesesData.swift */,
+				79B27CD32CB82331002584AF /* PremioModel.swift */,
 			);
 			path = ListsData;
 			sourceTree = "<group>";
@@ -486,6 +489,7 @@
 				79C3BFBD2CB6C94C00100285 /* PremiosViewModel.swift in Sources */,
 				7982813D2CB5C8C20076DE89 /* RetosCompletadosViewModel.swift in Sources */,
 				7938C29F2CB5CF7F00F4DE5B /* MensajesMotivadores.swift in Sources */,
+				79B27CD42CB82331002584AF /* PremioModel.swift in Sources */,
 				4D04A85E2C7E070B007804E6 /* Caritas_iBorregOSApp.swift in Sources */,
 				4D59604F2C7F731E0056C298 /* ProgressView.swift in Sources */,
 				79C3BFC32CB6CA1200100285 /* PremioCardView.swift in Sources */,
