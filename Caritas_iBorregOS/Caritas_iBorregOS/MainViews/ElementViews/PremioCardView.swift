@@ -8,24 +8,18 @@
 import SwiftUI
 
 struct PremioCardView: View {
-    let premio: Premio
+    let premio: PREMIOS
     
     var body: some View {
         VStack(alignment: .leading) {
-            // Imagen del ícono del premio
-            Image(premio.icono)
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .frame(width: 100, height: 100)
-                .padding()
             
             // Nombre del premio
-            Text(premio.nombre)
+            Text(premio.NOMBRE)
                 .font(.headline)
                 .padding([.leading, .trailing, .bottom], 10)
             
             // Descripción del premio
-            Text(premio.descripcion)
+            Text(premio.DESCRIPCION)
                 .font(.subheadline)
                 .foregroundColor(.gray)
                 .padding([.leading, .trailing, .bottom], 10)
@@ -39,6 +33,7 @@ struct PremioCardView: View {
 
 struct PremioCardView_Previews: PreviewProvider {
     static var previews: some View {
-        PremioCardView(premio: Premio(nombre: "Premio 1", icono: "icono_premio", descripcion: "Descripción del premio."))
+        PremioCardView(premio: PREMIOS(ID_PREMIOS: 1, NOMBRE: "Premio 1", DESCRIPCION: "Descripción del premio."))
     }
 }
+

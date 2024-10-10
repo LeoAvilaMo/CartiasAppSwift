@@ -30,6 +30,7 @@ struct BeneficioCardView: View {
 
                 Text(beneficioX.NOMBRE)
                     .font(.system(size: 25))
+                    .foregroundColor(Color.black)
                 Spacer()
             }
             

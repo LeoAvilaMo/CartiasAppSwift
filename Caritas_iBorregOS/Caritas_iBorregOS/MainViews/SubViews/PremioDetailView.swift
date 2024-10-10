@@ -7,7 +7,7 @@
 import SwiftUI
 
 struct PremiosDetailView: View {
-    var premio: Premio
+    var premio: PREMIOS
     let blueC = Color(red: 0/255, green: 156/255, blue: 166/255)
     let darkBlueC = Color(red: 0/255, green: 59/255, blue: 92/255)
     let lightGreenC = Color(red: 209/255, green: 224/255, blue: 215/255)
@@ -48,23 +48,15 @@ struct PremiosDetailView: View {
             .edgesIgnoringSafeArea(.bottom)
             
             VStack(spacing: 20) {
-              
-                Image(systemName: premio.icono)
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 100, height: 100)
-                    .foregroundColor(blueC)
-                
                
-                Text(premio.nombre)
+                Text(premio.NOMBRE)
                     .font(.system(size: 28))
                     .bold()
                     .foregroundColor(darkBlueC)
                     .multilineTextAlignment(.center)
                     .padding(.horizontal)
-                
                
-                Text(premio.descripcion)
+                Text(premio.DESCRIPCION)
                     .font(.system(size: 18))
                     .foregroundColor(.gray)
                     .multilineTextAlignment(.leading)
@@ -79,5 +71,5 @@ struct PremiosDetailView: View {
 }
 
 #Preview {
-    PremiosDetailView(premio: Premio(nombre: "Café gratis en Oxxo", icono: "cup.and.saucer.fill", descripcion: "Disfruta de un café gratis en cualquier tienda Oxxo participante."))
+    PremiosDetailView(premio: PREMIOS(ID_PREMIOS: 1, NOMBRE: "Café gratis en Oxxo", DESCRIPCION: "Disfruta de un café gratis en cualquier tienda Oxxo participante."))
 }

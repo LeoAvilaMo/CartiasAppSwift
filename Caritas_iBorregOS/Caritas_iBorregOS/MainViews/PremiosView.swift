@@ -8,21 +8,12 @@ import SwiftUI
 
 struct PremiosView: View {
     
-    @StateObject private var premioService = PremioService()
-    
+    @State private var premios: [PREMIOS] = []
     
     let blueC = Color(red: 0/255, green: 156/255, blue: 166/255)
     let darkBlueC = Color(red: 0/255, green: 59/255, blue: 92/255)
     let lightGreenC = Color(red: 209/255, green: 224/255, blue: 215/255)
     let whiteC = Color(red: 255/255, green: 255/255, blue: 255/255)
-    
-    // Lista de premios
-    let listaPremios = [
-        Premio(nombre: "Sesión de masaje en centro de rehabilitación", icono: "gift.fill", descripcion: "Disfruta de una relajante sesión de masaje en un centro especializado en rehabilitación."),
-        Premio(nombre: "Cupones 2x1 Cinemex", icono: "film.fill", descripcion: "Obtén cupones 2x1 para disfrutar de tus películas favoritas en Cinemex."),
-        Premio(nombre: "Café gratis en Oxxo", icono: "cup.and.saucer.fill", descripcion: "Disfruta de un café gratis en cualquier tienda Oxxo participante."),
-        Premio(nombre: "Feria del libro - 2 entradas gratis", icono: "book.fill", descripcion: "Accede a la Feria del Libro con 2 entradas gratuitas y disfruta de los mejores libros.")
-    ]
     
     var body: some View {
         NavigationStack {
@@ -54,7 +45,7 @@ struct PremiosView: View {
                     .padding(.bottom, 20)
                 
                 // Lista de premios
-                List(listaPremios, id: \.nombre) { premio in
+                List(premios, id: \.id) { premio in
                     NavigationLink(destination: PremiosDetailView(premio: premio)) {
                         PremioCardView(premio: premio)
                     }
@@ -65,14 +56,22 @@ struct PremiosView: View {
                 .padding()
             }
             .background(lightGreenC)
+            .onAppear {
+                // Cargar premios simulados cuando la vista aparece
+                self.premios = obtenerPremiosSimulados()
+            }
         }
     }
-}
-
-struct Premio:  Codable {
-    let nombre: String
-    let icono: String
-    let descripcion: String
+    
+    // Función para obtener datos simulados
+    func obtenerPremiosSimulados() -> [PREMIOS] {
+        return [
+            PREMIOS(ID_PREMIOS: 1, NOMBRE: "Sesión de masaje en centro de rehabilitación", DESCRIPCION: "Disfruta de una relajante sesión de masaje en un centro especializado en rehabilitación."),
+            PREMIOS(ID_PREMIOS: 2, NOMBRE: "Cupones 2x1 Cinemex", DESCRIPCION: "Obtén cupones 2x1 para disfrutar de tus películas favoritas en Cinemex."),
+            PREMIOS(ID_PREMIOS: 3, NOMBRE: "Café gratis en Oxxo", DESCRIPCION: "Disfruta de un café gratis en cualquier tienda Oxxo participante."),
+            PREMIOS(ID_PREMIOS: 4, NOMBRE: "Feria del libro - 2 entradas gratis", DESCRIPCION: "Accede a la Feria del Libro con 2 entradas gratuitas y disfruta de los mejores libros.")
+        ]
+    }
 }
 
 struct PremiosView_Previews: PreviewProvider {
