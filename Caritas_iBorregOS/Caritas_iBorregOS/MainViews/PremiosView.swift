@@ -74,6 +74,12 @@ struct PremiosView: View {
     }
 }
 
+struct Premio:  Codable {
+    let nombre: String
+    let icono: String
+    let descripcion: String
+}
+
 struct PremiosView_Previews: PreviewProvider {
     static var previews: some View {
         PremiosView()
