@@ -17,37 +17,36 @@ struct PremiosView: View {
     
     var body: some View {
         NavigationStack {
-            VStack {
-                
-                // Stack con logo y puntos
-                HStack {
-                    Spacer()
-                    // Stack de puntos
+            ScrollView {
+                    // Stack con logo y puntos
                     HStack {
-                        Image(systemName: "star.fill")
-                            .foregroundColor(.yellow)
-                        Text("135")
-                            .font(.system(size: 18, weight: .bold))
-                            .foregroundColor(whiteC)
+                        Spacer()
+                        // Stack de puntos
+                        HStack {
+                            Image(systemName: "star.fill")
+                                .foregroundColor(.yellow)
+                            Text("135")
+                                .font(.system(size: 18, weight: .bold))
+                                .foregroundColor(whiteC)
+                        }
+                        .padding(.vertical, 6)
+                        .padding(.horizontal, 10)
+                        .background(darkBlueC)
+                        .cornerRadius(20)
                     }
-                    .padding(.vertical, 6)
-                    .padding(.horizontal, 10)
-                    .background(darkBlueC)
-                    .cornerRadius(20)
-                }
-                .padding(.horizontal)
-                
-                // Título
-                Text("Mis Premios")
-                    .font(.system(size: 35))
-                    .font(.title)
-                    .bold()
-                    .foregroundColor(darkBlueC)
-                    .padding(.bottom, 20)
-                ForEach(Array(premiosList.enumerated()), id: \.offset){ i, premio in
-                    PREMIOSSCardView(premioX: premio)
-                }
-                Spacer()
+                    .padding(.horizontal)
+                    
+                    // Título
+                    Text("Mis Premios")
+                        .font(.system(size: 35))
+                        .font(.title)
+                        .bold()
+                        .foregroundColor(darkBlueC)
+                        .padding(.bottom, 20)
+                    ForEach(Array(premiosList.enumerated()), id: \.offset){ i, premio in
+                        PREMIOSSCardView(premioX: premio)
+                    }
+                    Spacer()
             }
             .background(lightGreenC)
         }
