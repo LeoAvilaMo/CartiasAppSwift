@@ -1,10 +1,3 @@
-//
-//  TiendaView.swift
-//  Caritas_iBorregOS
-//
-//  Created by Diego Torre on 28/08/24.
-//
-
 import SwiftUI
 
 struct TiendaView: View {
@@ -22,6 +15,7 @@ struct TiendaView: View {
     @State private var beneficios: [BENEFICIOS] = []
     @State private var errorMessage: String?
     @State private var path = NavigationPath()
+    @StateObject private var viewModel = VMTienda()
     
     struct AlertItem: Identifiable {
         let id = UUID()
@@ -41,7 +35,7 @@ struct TiendaView: View {
                     HStack {
                         Image(systemName: "star.fill")
                             .foregroundColor(.yellow)
-                        Text("135")
+                        Text("\(puntosDeUser)")
                             .font(.system(size: 18, weight: .bold))
                             .foregroundColor(whiteC)
                     }
@@ -87,10 +81,10 @@ struct TiendaView: View {
             .onAppear {
                 Task {
                     do {
-                        let fetchedBeneficios = try await fetchBeneficios()
+                        let fetchedBeneficios = try await viewModel.fetchBeneficios()
                         beneficios = fetchedBeneficios
                     } catch {
-                        errorMessage = "Failed to fetch beneficios: \(error.localizedDescription)"
+                        errorMessage = "Failed to fetch events: \(error.localizedDescription)"
                     }
                 }
             }
@@ -100,7 +94,6 @@ struct TiendaView: View {
         }
     }
 }
-
 #Preview {
     TiendaView()
 }

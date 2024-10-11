@@ -1,18 +1,20 @@
-USE icaritasborregos;
-GO CREATE PROCEDURE sp_AddUsuarioEvento @UsuarioID numeric(18, 0),
+
+CREATE PROCEDURE sp_AddUsuarioEvento @UsuarioID numeric(18, 0),
     @EventoID numeric(18, 0) AS BEGIN
 INSERT INTO USUARIOS_EVENTOS (USUARIO, EVENTO)
 VALUES (@UsuarioID, @EventoID)
 END
-GO USE iborregos;
+GO 
+
 GO CREATE PROCEDURE sp_DeleteUsuarioEvento @UsuarioID numeric(18, 0),
     @EventoID numeric(18, 0) AS BEGIN
 DELETE FROM USUARIOS_EVENTOS
 WHERE USUARIO = @UsuarioID
     AND EVENTO = @EventoID
 END
-GO USE iborregos;
-GO CREATE PROCEDURE sp_SelectEvento @EventoID numeric(18, 0) AS BEGIN
+GO 
+
+CREATE PROCEDURE sp_SelectEvento @EventoID numeric(18, 0) AS BEGIN
 SELECT *
 FROM EVENTOS
 WHERE ID_EVENTO = @EventoID;
@@ -26,7 +28,9 @@ GO -- Adding extended properties
     @level1name = 'USUARIOS',
     @level2type = N'Column',
     @level2name = 'ID_TIPO_USUARIO';
-GO CREATE PROCEDURE GetPendingUserChallenges @ID_USUARIO NUMERIC(18, 0) AS BEGIN
+GO 
+
+CREATE PROCEDURE GetPendingUserChallenges @ID_USUARIO NUMERIC(18, 0) AS BEGIN
 SELECT R.ID_RETO,
     R.NOMBRE,
     R.DESCRIPCION,
@@ -37,8 +41,7 @@ WHERE UR.ID_USUARIO = @ID_USUARIO
     AND UR.COMPLETADO = 0;
 -- 0 represents 'false' for the bit field
 END;
-SELECT *
-FROM USUARIOS_EVENTOS;
+
 USE icaritasborregos;
 GO 
 
@@ -82,3 +85,36 @@ BEGIN
     -- Optionally, you can add error handling or checks before the insert if needed
 END;
 GO
+
+-- Obtener puntos
+CREATE PROCEDURE GetUserTotalPoints
+    @usuario_id NUMERIC(18,0)
+AS
+BEGIN
+    -- Declare variables to store the total points
+    DECLARE @TotalRetoPoints NUMERIC(18,0);
+    DECLARE @TotalBeneficioPoints NUMERIC(18,0);
+    DECLARE @TotalPoints NUMERIC(18,0);
+
+    -- Calculate the sum of points from retos (completed challenges)
+    SELECT @TotalRetoPoints = COALESCE(SUM(r.PUNTAJE), 0)
+    FROM USUARIOS_RETOS ur
+    JOIN RETOS r ON ur.ID_RETO = r.ID_RETO
+    WHERE ur.ID_USUARIO = @UserId AND ur.COMPLETADO = 1;
+
+    -- Calculate the sum of points from beneficios (all records, ignoring CANJEADO)
+    SELECT @TotalBeneficioPoints = COALESCE(SUM(b.PUNTOS), 0)
+    FROM USUARIOS_BENEFICIOS ub
+    JOIN BENEFICIOS b ON ub.BENEFICIO = b.ID_BENEFICIO
+    WHERE ub.USUARIO = @UserId;
+
+    -- Calculate the total points
+    SET @TotalPoints = @TotalRetoPoints + @TotalBeneficioPoints;
+
+    -- Return the total points
+    SELECT @TotalPoints AS TotalPoints;
+END;
+GO
+EXEC GetUserTotalPoints @usuario_id = 1;
+
+EXEC sp_helptext 'GetUserTotalPoints';

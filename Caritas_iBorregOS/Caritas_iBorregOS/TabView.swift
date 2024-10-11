@@ -10,7 +10,7 @@ import SwiftUI
 struct TabViews: View {
     var email: String
     @State private var errorMessage = ""
-    @State private var userID: Int = 0
+    @State private var userID: Int = 1
     @State private var userPoints: UserTotalPoints?
     
     func setUser() async{
@@ -20,14 +20,14 @@ struct TabViews: View {
             userID = usuario.ID_USUARIO
             // Obtener los puntos y id con el mail y settear en defaults
             let userPoints = try await fetchUserTotalPoints(for: userID)
-               print("User 1 Total Points: \(userPoints.totalPoints)")
+            print("User 1 Total Points")
+            print("User 1 Total Points: \(userPoints.totalPoints)")
             UserDefaults.standard.setValue(userPoints.totalPoints, forKey: "puntos")
             print("puntos del usuario")
             print(UserDefaults.standard.integer(forKey: "puntos"))
         } catch {
             errorMessage = "Failed to fetch events: \(error.localizedDescription)"
         }
-        
         
     }
     // Colores

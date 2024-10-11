@@ -102,7 +102,6 @@ func fetchUserTotalPoints(for userID: Int) async throws -> UserTotalPoints {
 }
 
 
-
 let exampleUsuario = USUARIOS(
     ID_USUARIO: 1,
     NOMBRE: "Trysha",
