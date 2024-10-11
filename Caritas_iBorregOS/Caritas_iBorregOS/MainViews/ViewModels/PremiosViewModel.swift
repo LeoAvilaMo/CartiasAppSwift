@@ -36,7 +36,7 @@ class PremioService: ObservableObject {
 
 func getPremiosNoUsados(userID: Int) -> Array<PREMIO>{
     var listPREMIOS: Array<PREMIO> = []
-    guard let url = URL(string:"\(urlEndpoint)/user-challenges/\(userID)") else{ // Cambiar el link por el indicado
+    guard let url = URL(string:"\(urlEndpoint)/user/\(userID)/unclaimedpremios") else{ // Cambiar el link por el indicado
         return listPREMIOS
     }
     

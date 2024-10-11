@@ -58,6 +58,7 @@
 		79C3BFC12CB6C9D600100285 /* PremioDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C3BFC02CB6C9D600100285 /* PremioDetailView.swift */; };
 		79C3BFC32CB6CA1200100285 /* PremioCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C3BFC22CB6CA1200100285 /* PremioCardView.swift */; };
 		79CCC70B2CAF67E5009FFCC3 /* RetoCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79CCC70A2CAF67E5009FFCC3 /* RetoCardView.swift */; };
+		79E8FC502CB8376400DD905D /* PREMIOSSCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E8FC4F2CB8376400DD905D /* PREMIOSSCardView.swift */; };
 		FBF603EA2CB738DA00D6768D /* PREMIOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF603E92CB738D700D6768D /* PREMIOS.swift */; };
 /* End PBXBuildFile section */
 
@@ -133,6 +134,7 @@
 		79C3BFC02CB6C9D600100285 /* PremioDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PremioDetailView.swift; sourceTree = "<group>"; };
 		79C3BFC22CB6CA1200100285 /* PremioCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PremioCardView.swift; sourceTree = "<group>"; };
 		79CCC70A2CAF67E5009FFCC3 /* RetoCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetoCardView.swift; sourceTree = "<group>"; };
+		79E8FC4F2CB8376400DD905D /* PREMIOSSCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PREMIOSSCardView.swift; sourceTree = "<group>"; };
 		FBF603E92CB738D700D6768D /* PREMIOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PREMIOS.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -290,6 +292,7 @@
 				79CCC70A2CAF67E5009FFCC3 /* RetoCardView.swift */,
 				79AF2BFC2CB614A6001AF07E /* ChartView.swift */,
 				79C3BFC22CB6CA1200100285 /* PremioCardView.swift */,
+				79E8FC4F2CB8376400DD905D /* PREMIOSSCardView.swift */,
 			);
 			path = ElementViews;
 			sourceTree = "<group>";
@@ -465,6 +468,7 @@
 				790C89232C83C52C0030828B /* obtenRetosTest.swift in Sources */,
 				4DF739212CA35DA400BF5788 /* EventosViewModel.swift in Sources */,
 				4D5960432C7E7EBA0056C298 /* EventosView.swift in Sources */,
+				79E8FC502CB8376400DD905D /* PREMIOSSCardView.swift in Sources */,
 				798330D02C839B790054E21A /* USUARIOS.swift in Sources */,
 				79630D292C83BA60007E94AA /* BeneficioCardView.swift in Sources */,
 				4D90B03E2C800B4A00470D91 /* PesoAlturaView.swift in Sources */,

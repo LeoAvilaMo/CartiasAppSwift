@@ -8,7 +8,7 @@ import SwiftUI
 
 struct PremiosView: View {
     
-    @State private var premios: [PREMIOS] = []
+    @State private var premiosList: [PREMIO] = getPremiosNoUsados(userID: 1)
     
     let blueC = Color(red: 0/255, green: 156/255, blue: 166/255)
     let darkBlueC = Color(red: 0/255, green: 59/255, blue: 92/255)
@@ -17,49 +17,38 @@ struct PremiosView: View {
     
     var body: some View {
         NavigationStack {
-            VStack {
-                // Stack con logo y puntos
-                HStack {
-                    Spacer()
-                    // Stack de puntos
+            ScrollView {
+                    // Stack con logo y puntos
                     HStack {
-                        Image(systemName: "star.fill")
-                            .foregroundColor(.yellow)
-                        Text("135")
-                            .font(.system(size: 18, weight: .bold))
-                            .foregroundColor(whiteC)
+                        Spacer()
+                        // Stack de puntos
+                        HStack {
+                            Image(systemName: "star.fill")
+                                .foregroundColor(.yellow)
+                            Text("135")
+                                .font(.system(size: 18, weight: .bold))
+                                .foregroundColor(whiteC)
+                        }
+                        .padding(.vertical, 6)
+                        .padding(.horizontal, 10)
+                        .background(darkBlueC)
+                        .cornerRadius(20)
                     }
-                    .padding(.vertical, 6)
-                    .padding(.horizontal, 10)
-                    .background(darkBlueC)
-                    .cornerRadius(20)
-                }
-                .padding(.horizontal)
-                
-                // Título
-                Text("Premios")
-                    .font(.system(size: 35))
-                    .font(.title)
-                    .bold()
-                    .foregroundColor(darkBlueC)
-                    .padding(.bottom, 20)
-                
-                // Lista de premios
-                List(premios, id: \.id) { premio in
-                    NavigationLink(destination: PremiosDetailView(premio: premio)) {
-                        PremioCardView(premio: premio)
+                    .padding(.horizontal)
+                    
+                    // Título
+                    Text("Mis Premios")
+                        .font(.system(size: 35))
+                        .font(.title)
+                        .bold()
+                        .foregroundColor(darkBlueC)
+                        .padding(.bottom, 20)
+                    ForEach(Array(premiosList.enumerated()), id: \.offset){ i, premio in
+                        PREMIOSSCardView(premioX: premio)
                     }
-                }
-                .listStyle(.inset)
-                .scrollIndicators(.hidden)
-                .cornerRadius(10)
-                .padding()
+                    Spacer()
             }
             .background(lightGreenC)
-            .onAppear {
-                // Cargar premios simulados cuando la vista aparece
-                self.premios = obtenerPremiosSimulados()
-            }
         }
     }
     
