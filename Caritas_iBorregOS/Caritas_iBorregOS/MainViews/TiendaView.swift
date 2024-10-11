@@ -14,6 +14,7 @@ struct TiendaView: View {
 
     @State private var beneficios: [BENEFICIOS] = []
     @State private var errorMessage: String?
+    @State private var puntos: Int = UserDefaults.standard.integer(forKey: "puntos")
     @State private var path = NavigationPath()
     @StateObject private var viewModel = VMTienda()
     
@@ -33,9 +34,11 @@ struct TiendaView: View {
                 HStack {
                     Spacer()
                     HStack {
+                        Text(String(puntos))
+                            .foregroundColor(Color.white)
+                            .font(.system(size: 18, weight: .bold))
                         Image(systemName: "star.fill")
                             .foregroundColor(.yellow)
-                        Text("\(puntosDeUser)")
                             .font(.system(size: 18, weight: .bold))
                             .foregroundColor(whiteC)
                     }
