@@ -84,34 +84,40 @@ GO
 
 -- Obtener puntos
 CREATE PROCEDURE GetUserTotalPoints
-    @usuario_id NUMERIC(18,0)
+    @usuario_id NUMERIC(18, 0)
 AS
 BEGIN
-    -- Declare variables to store the total points
-    DECLARE @TotalRetoPoints NUMERIC(18,0);
-    DECLARE @TotalBeneficioPoints NUMERIC(18,0);
-    DECLARE @TotalPoints NUMERIC(18,0);
-
-    -- Calculate the sum of points from retos (completed challenges)
-    SELECT @TotalRetoPoints = COALESCE(SUM(r.PUNTAJE), 0)
-    FROM USUARIOS_RETOS ur
-    JOIN RETOS r ON ur.ID_RETO = r.ID_RETO
-    WHERE ur.ID_USUARIO = @usuario_id AND ur.COMPLETADO = 1;
-
-    -- Calculate the sum of points from beneficios (all records, ignoring CANJEADO)
-    SELECT @TotalBeneficioPoints = COALESCE(SUM(b.PUNTOS), 0)
-    FROM USUARIOS_BENEFICIOS ub
-    JOIN BENEFICIOS b ON ub.BENEFICIO = b.ID_BENEFICIO
-    WHERE ub.USUARIO = @usuario_id;
-
-    -- Calculate the total points
-    SET @TotalPoints = @TotalRetoPoints + @TotalBeneficioPoints;
-
-    -- Return the total points
-    SELECT @TotalPoints AS TotalPoints;
+    -- CTE for total points from completed challenges (retos)
+    WITH TotalRetoPoints AS (
+        SELECT SUM(R.PUNTAJE) AS RetoPoints
+        FROM USUARIOS_RETOS UR
+        JOIN RETOS R ON UR.ID_RETO = R.ID_RETO
+        WHERE UR.ID_USUARIO = @usuario_id AND UR.COMPLETADO = 1
+    ),
+    -- CTE for total points from attended events
+    TotalEventPoints AS (
+        SELECT SUM(E.PUNTAJE) AS EventPoints
+        FROM USUARIOS_EVENTOS UE
+        JOIN EVENTOS E ON UE.EVENTO = E.ID_EVENTO
+        WHERE UE.USUARIO = @usuario_id AND UE.ASISTIO = 1
+    ),
+    -- CTE for total points from redeemed benefits (premios)
+    TotalPremiosPoints AS (
+        SELECT SUM(B.PUNTOS) AS PremiosPoints
+        FROM USUARIOS_BENEFICIOS UB
+        JOIN BENEFICIOS B ON UB.BENEFICIO = B.ID_BENEFICIO
+        WHERE UB.USUARIO = @usuario_id
+    )
+    -- Final SELECT to return the calculated total points
+    SELECT 
+        COALESCE(RetoPoints, 0) + COALESCE(EventPoints, 0) - COALESCE(PremiosPoints, 0) AS TotalPoints
+    FROM TotalRetoPoints, TotalEventPoints, TotalPremiosPoints;
 END;
 GO
+
+
 EXEC GetUserTotalPoints @usuario_id = 1;
 
 EXEC sp_helptext 'GetUserTotalPoints';
 
+SELECT * FROM USUARIOS;

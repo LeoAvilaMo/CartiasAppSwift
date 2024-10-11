@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct PuntosView: View {
-    @State private var totalPoints: String?
+    @State private var totalPoints: Int?
 
         var body: some View {
             VStack {
@@ -28,7 +28,7 @@ struct PuntosView: View {
         func fetchPoints() async {
             do {
                 let userPoints = try await fetchUserTotalPoints(for: 1)
-                totalPoints = userPoints.totalPoints
+                totalPoints = userPoints
             } catch {
                 print("Failed to fetch user total points: \(error)")
             }

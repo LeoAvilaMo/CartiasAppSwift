@@ -11,7 +11,7 @@ struct TabViews: View {
     var email: String
     @State private var errorMessage = ""
     @State private var userID: Int = 1
-    @State private var userPoints: UserTotalPoints?
+    @State private var userPoints: Int = 0
     
     func setUser() async{
         do {
@@ -19,10 +19,11 @@ struct TabViews: View {
             let usuario: USUARIOS = getUsuario(email: email)
             userID = usuario.ID_USUARIO
             // Obtener los puntos y id con el mail y settear en defaults
+            UserDefaults.standard.setValue(usuario.ID_USUARIO, forKey: "usuario_id")
             let userPoints = try await fetchUserTotalPoints(for: userID)
             print("User 1 Total Points")
-            print("User 1 Total Points: \(userPoints.totalPoints)")
-            UserDefaults.standard.setValue(userPoints.totalPoints, forKey: "puntos")
+            print("User 1 Total Points: \(userPoints)")
+            UserDefaults.standard.setValue(userPoints, forKey: "puntos")
             print("puntos del usuario")
             print(UserDefaults.standard.integer(forKey: "puntos"))
         } catch {
@@ -78,10 +79,5 @@ struct TabViews: View {
 
     
 #Preview {
-    let exampleUserTotalPoints = UserTotalPoints(
-        totalBenefitPointsSpent: "150",
-        totalEventPoints: "300",
-        totalPoints: "450",
-        totalRetoPoints: "200")
     TabViews(email: "juan.perez@example.com")
 }

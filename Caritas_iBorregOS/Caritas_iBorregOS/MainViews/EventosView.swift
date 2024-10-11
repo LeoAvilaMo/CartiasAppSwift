@@ -6,7 +6,6 @@ struct EventosView: View {
     let lightGreenC = Color(red: 209/255, green: 224/255, blue: 215/255)
     let whiteC = Color(red: 255/255, green: 255/255, blue: 255/255)
     
-    @State private var userPoints: UserTotalPoints?
     @State private var events: [EVENTOS] = []
     @State private var errorMessage: String?   
     @State private var path = NavigationPath()
@@ -22,9 +21,6 @@ struct EventosView: View {
                         .bold()
                         .foregroundColor(darkBlueC)
                         .padding(.bottom, 20)
-                    if let userPoints = userPoints {
-                                    Text("Total Points: \(userPoints.totalPoints)")
-                                }
                     // Si se obtuvieron los eventos, renderizar cartas
                     if !events.isEmpty {
                         VStack(spacing: 15) {
@@ -56,10 +52,6 @@ struct EventosView: View {
                         do {
                             let fetchedEvents = try await fetchEvents()
                             events = fetchedEvents
-                            
-                            // Set the Userdefaults points to this
-                            let userPoints = try await fetchUserTotalPoints(for: 1)
-                               print("User 1 Total Points: \(userPoints.totalPoints)")
                         } catch {
                             errorMessage = "Failed to fetch events: \(error.localizedDescription)"
                         }

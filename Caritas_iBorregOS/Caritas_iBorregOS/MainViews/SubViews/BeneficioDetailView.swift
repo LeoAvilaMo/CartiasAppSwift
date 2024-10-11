@@ -18,6 +18,7 @@ struct BeneficioDetailView: View {
     @State private var idUsuario: Int = 1
     
     
+    
     enum AlertType {
         case confirmation
         case response
@@ -104,6 +105,12 @@ struct BeneficioDetailView: View {
                                     do {
                                         // Llama a la función para canjear el beneficio
                                         let result = try await viewModel.redeemBenefit(usuarioID: idUsuario, beneficioID: beneficioX.ID_BENEFICIO)
+                                        if result != ""{
+                                            let userID = UserDefaults.standard.integer(forKey: "usuario_id")
+                                            let userPoints: Int = try await (fetchUserTotalPoints(for: userID))
+                                            print("User \(userID) Total Points: \(userPoints)")
+                                            UserDefaults.standard.setValue(userPoints, forKey: "puntos")
+                                        }
                                         
                                         DispatchQueue.main.async {
                                             message = result // Mensaje de la respuesta

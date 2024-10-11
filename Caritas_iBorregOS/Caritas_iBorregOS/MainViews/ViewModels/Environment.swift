@@ -20,6 +20,6 @@ let HttpsDevEndpoint = "https://10.14.255.62:10206"
 let ProdEndpoint = "https://iborregos.tc2007b.tec.mx:10206"
 
 // Endpoint usado en todas las views
-let urlEndpoint = ProdEndpoint
+let urlEndpoint = HttpDevEndpoint
 
 var puntosDeUser = UserDefaults.standard.integer(forKey: "puntos")

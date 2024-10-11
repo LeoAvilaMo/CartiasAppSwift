@@ -53,7 +53,7 @@ struct UserTotalPoints: Codable {
 }
 
 // Asynchronous function to fetch user total points from the API
-func fetchUserTotalPoints(for userID: Int) async throws -> UserTotalPoints {
+func fetchUserTotalPoints(for userID: Int) async throws -> Int {
     // Construct the API URL dynamically with userID
     guard let url = URL(string: "\(urlEndpoint)/user/\(userID)/total-points") else {
         throw URLError(.badURL)
@@ -82,17 +82,19 @@ func fetchUserTotalPoints(for userID: Int) async throws -> UserTotalPoints {
             throw URLError(.badServerResponse)
         }
 
-        // Decode the JSON response into UserTotalPoints model
-        let decoder = JSONDecoder()
-        let userPoints = try decoder.decode(UserTotalPoints.self, from: data)
+        // Decode the JSON response into a dictionary with a String value for "TotalPoints"
+        let decodedData = try JSONDecoder().decode([String: String].self, from: data)
+
+        // Ensure the key "TotalPoints" exists in the response and convert it to Int
+        guard let totalPointsString = decodedData["TotalPoints"],
+              let totalPoints = Int(totalPointsString) else {
+            throw URLError(.cannotDecodeRawData)
+        }
         
         // Print the user's total points
-        print("Total Event Points: \(userPoints.totalEventPoints)")
-        print("Total Reto Points: \(userPoints.totalRetoPoints)")
-        print("Total Benefit Points Spent: \(userPoints.totalBenefitPointsSpent)")
-        print("Total Points: \(userPoints.totalPoints)")
+        print("Total Points: \(totalPoints)")
 
-        return userPoints
+        return totalPoints
 
     } catch {
         // Handle decoding errors
@@ -100,6 +102,7 @@ func fetchUserTotalPoints(for userID: Int) async throws -> UserTotalPoints {
         throw error
     }
 }
+
 
 
 let exampleUsuario = USUARIOS(

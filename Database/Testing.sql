@@ -6,5 +6,16 @@ SET [COMPLETADO] = 1
 WHERE [ID_USUARIO] = 1;
 
 SELECT * FROM BENEFICIOS;
+SELECT * FROM RETOS;
 
 EXEC GetUserTotalPoints @usuario_id = 1;
+
+INSERT INTO [RETOS] ([NOMBRE], [DESCRIPCION], [PUNTAJE])
+VALUES (
+        'Reto de Pasos',
+        'Completar 10,000 pasos diarios por una semana',
+        100
+    );
+
+INSERT INTO USUARIOS_RETOS (ID_USUARIO, ID_RETO, COMPLETADO)
+VALUES (1, 1, 1);
