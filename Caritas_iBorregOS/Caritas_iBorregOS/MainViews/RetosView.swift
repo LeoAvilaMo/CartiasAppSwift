@@ -12,7 +12,7 @@ struct RetosView: View {
     @State private var errorMessage: String?
     var body: some View {
         NavigationStack{
-            VStack(alignment: .center) {
+            ScrollView {
                 HStack {Spacer()}
                 Spacer()
                 Text("Retos")
@@ -23,6 +23,12 @@ struct RetosView: View {
                 ScrollView{
                     VStack{}
                     .padding()
+                    if retos.isEmpty {
+                        Text("No hay retos disponibles")
+                            .bold()
+                            .font(.system(size: 25))
+                            .foregroundStyle(pinkC)
+                    }
                     ForEach(retos){ reto in
                         NavigationLink{
                             RetoDetailView(retoX: reto)

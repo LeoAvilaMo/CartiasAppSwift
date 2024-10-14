@@ -33,7 +33,7 @@ struct TiendaView: View {
     
     var body: some View {
         NavigationStack {
-            VStack {
+            ScrollView {
                 HStack { Spacer() }
                 
                 HStack {
@@ -58,7 +58,7 @@ struct TiendaView: View {
                     .foregroundColor(darkBlueC)
                     .padding(.bottom, 20)
 
-                ScrollView {
+                VStack {
                     VStack(spacing: 15) {
                         if !beneficios.isEmpty {
                             ForEach(beneficios) { beneficio in
