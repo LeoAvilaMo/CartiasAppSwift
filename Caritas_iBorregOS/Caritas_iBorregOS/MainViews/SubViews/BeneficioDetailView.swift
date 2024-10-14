@@ -13,10 +13,13 @@ struct BeneficioDetailView: View {
     @State private var showAlert = false
     @State private var showResponseAlert = false
     @State private var showMessage: Bool = false
-    @State private var message: String = ""
+    @State private var message1: String = ""
+    @State private var message2: String = ""
     @State private var alertType: AlertType?
     @State private var idUsuario: Int = 1
-    
+    @State private var puntos: Int?
+    @State private var beneficios: [BENEFICIOS] = []
+    @State private var errorMessage: String?
     
     
     enum AlertType {
@@ -98,24 +101,31 @@ struct BeneficioDetailView: View {
                     
                     Button(action: {
                         showAlert = true
-                        Task{
-                            do{
-                                // Llama a la función para canjear el beneficio
-                                let result = try await viewModel.redeemBenefit(usuarioID: idUsuario, beneficioID: beneficioX.ID_BENEFICIO)
-                                DispatchQueue.main.async {
-                                    message = result // Mensaje de la respuesta
-                                    showMessage = true // Mostrar mensaje en la vista
-                                }
-                                
-                            }catch {
+                        if (puntos ?? 0 >= beneficioX.PUNTOS){
+                            Task {
+                                do {
+                                    // Llama a la función para canjear el beneficio
+                                    let result = try await viewModel.redeemBenefit(usuarioID: idUsuario, beneficioID: beneficioX.ID_BENEFICIO)
+                                    
+                                    DispatchQueue.main.async {
+                                        message1 = result // Mensaje de la respuesta
+                                        showMessage = true // Mostrar mensaje en la vista
+                                    }
+                                    
+                                } catch {
                                     // Manejar el error si algo falla
                                     DispatchQueue.main.async {
-                                        message = "Ocurrió un error al intentar canjear el beneficio."
+                                        message1 = "Ocurrió un error al intentar canjear el beneficio."
                                         showMessage = true
                                     }
                                     print("Error: \(error)")
                                 }
                             }
+                        } else{
+                            message1 = "Ha ocurrido un error"
+                            message1 = "Puntos insuficientes"
+                            showMessage = true
+                        }
                         
                             }) {
                         Text("CANJEAR BENEFICIO")
@@ -135,33 +145,37 @@ struct BeneficioDetailView: View {
                             message: Text("¿Deseas canjear tus puntos por este beneficio?"),
                             primaryButton: .default(Text("Sí")) {
                                 // Llamada a la función async en un Task
-                                Task {
-                                    do {
-                                        // Llama a la función para canjear el beneficio
-                                        let result = try await viewModel.redeemBenefit(usuarioID: idUsuario, beneficioID: beneficioX.ID_BENEFICIO)
-                                        
-                                        DispatchQueue.main.async {
-                                            message = result // Mensaje de la respuesta
-                                            showMessage = true // Mostrar mensaje en la vista
+                                if (puntos ?? 0 >= beneficioX.PUNTOS){
+                                    Task {
+                                        do {
+                                            // Llama a la función para canjear el beneficio
+                                            let result = try await viewModel.redeemBenefit(usuarioID: idUsuario, beneficioID: beneficioX.ID_BENEFICIO)
+                                            
+                                            DispatchQueue.main.async {
+                                                message1 = "Exito" // Mensaje de la respuesta
+                                                message2 = "Se canjeo la recompensa con exito"
+                                                showMessage = true // Mostrar mensaje en la vista
+                                            }
+                                            
+                                        } catch {
+                                            // Manejar el error si algo falla
+                                            DispatchQueue.main.async {
+                                                message1 = "Ocurrió un error al intentar canjear el beneficio."
+                                                showMessage = true
+                                            }
+                                            print("Error: \(error)")
                                         }
-                                        
-                                    } catch {
-                                        // Manejar el error si algo falla
-                                        DispatchQueue.main.async {
-                                            message = "Ocurrió un error al intentar canjear el beneficio."
-                                            showMessage = true
-                                        }
-                                        print("Error: \(error)")
                                     }
                                 }
+                                
                             },
                             secondaryButton: .cancel()
                         )
                     }
                     .alert(isPresented: $showMessage) {
                         Alert(
-                            title: Text("Respuesta"),
-                            message: Text(message),
+                            title: Text(message1),
+                            message: Text(message2),
                             dismissButton: .default(Text("Aceptar")) {
                                 // Cerrar la vista después de mostrar el mensaje
                                 presentationMode.wrappedValue.dismiss()
@@ -170,6 +184,21 @@ struct BeneficioDetailView: View {
                     }
                 }
             }
+            .onAppear{
+                Task {
+                    do {
+                        let fetchedBeneficios = try await viewModel.fetchBeneficios()
+                        beneficios = fetchedBeneficios
+                        let userID = UserDefaults.standard.integer(forKey: "usuario_id")
+                        let userPoints: Int = try await (fetchUserTotalPoints(for: userID))
+                        print("User \(userID) Total Points: \(userPoints)")
+                        puntos = userPoints
+                    } catch {
+                        errorMessage = "Failed to fetch beneficios: \(error.localizedDescription)"
+                    }
+                }
+                }
+            
         }.navigationBarBackButtonHidden(true) // Ocultar el botón de regreso predeterminado
         .navigationBarItems(leading: Button(action: {
                 presentationMode.wrappedValue.dismiss()
