@@ -3,7 +3,7 @@ import SwiftUI
 struct HistorialView: View {
     @State private var selectedSegment = 0
     @State private var events: [EVENTOS] = []
-    let retos: Array<RETOS> = getCompletedRETOSList(userID: myUser.ID_USUARIO)
+    @State private var retos: Array<RETOS> = []
     @State private var errorMessage: String?
 
     var body: some View {
@@ -85,6 +85,8 @@ struct HistorialView: View {
                     do {
                         let fetchedEvents = try await fetchUserCompletedEvents(usuarioID: 1)
                         events = fetchedEvents
+                        let fetchedRetos = getCompletedRETOSList(userID: myUser.ID_USUARIO)
+                        retos = fetchedRetos
                     } catch {
                         errorMessage = "Failed to fetch events: \(error.localizedDescription)"
                     }
