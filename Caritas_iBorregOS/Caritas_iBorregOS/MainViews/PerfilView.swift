@@ -15,8 +15,9 @@ let myUser = USUARIOS(ID_USUARIO: 1, NOMBRE: "", A_PATERNO: "", A_MATERNO: "", I
 var miPerfil = USUARIOS(ID_USUARIO: 1, NOMBRE: "", A_PATERNO: "", A_MATERNO: "", ID_TIPO_USUARIO: 1, EMAIL: "", CONTRASENA: "")
 
 struct PerfilView: View {
+    let userID = UserDefaults.standard.integer(forKey: "usuario_id")
     @State private var notification: Bool = false
-    @State private var retosCompletados = getRetosCompletados(usuarioID: miPerfil.ID_USUARIO)
+    @State private var retosCompletados: RetosCompletados =  RetosCompletados(CompletedRetos: 1, TotalRetos: 1)
     @State private var chartsData: Array<DATOS_FISICOS> = getDatosFisicos(userID: miPerfil.ID_USUARIO)
     @State private var errorMessage: String?
     var body: some View {
@@ -119,6 +120,7 @@ struct PerfilView: View {
                 .onAppear {
                     let usuarioEmail = UserDefaults.standard.string(forKey: "email")
                     miPerfil = getUsuario(email: usuarioEmail ?? "sin email")
+                    retosCompletados = getRetosCompletados(usuarioID: userID)
                     
                 }
             }

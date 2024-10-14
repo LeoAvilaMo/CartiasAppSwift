@@ -50,12 +50,12 @@ struct HistorialView: View {
                         } else {
                             // Display loading or error message
                             if let errorMessage = errorMessage {
-                                Text("No haz completado ningún evento")
+                                Text("No has completado ningún evento")
                                     .foregroundStyle(pinkC)
                                     .bold()
                                     .font(.system(size: 20))
                             } else {
-                                Text("No haz completado ningún evento")
+                                Text("No has completado ningún evento")
                                     .foregroundStyle(pinkC)
                                     .bold()
                                     .font(.system(size: 20))
@@ -78,12 +78,12 @@ struct HistorialView: View {
                         } else {
                             // Display loading or error message for retos
                             if let errorMessage = errorMessage {
-                                Text("No haz completado ningún reto")
+                                Text("No has completado ningún reto")
                                     .foregroundStyle(pinkC)
                                     .bold()
                                     .font(.system(size: 20))
                             } else {
-                                Text("No haz completado ningún reto")
+                                Text("No has completado ningún reto")
                                     .foregroundColor(darkBlueC)
                             }
                         }

@@ -25,8 +25,15 @@ struct PremiosView: View {
                 .bold()
                 .foregroundColor(darkBlueC)
                 .padding(.bottom, 20)
-            ForEach(Array(premiosList.enumerated()), id: \.offset){ i, premio in
-                PREMIOSSCardView(premioX: premio)
+            if premiosList.isEmpty {
+                Text("No cuentas con ningun premio")
+                    .foregroundStyle(pinkC)
+                    .bold()
+                    .font(.system(size: 20))
+            } else{
+                ForEach(Array(premiosList.enumerated()), id: \.offset){ i, premio in
+                    PREMIOSSCardView(premioX: premio)
+                }
             }
             Spacer()
         }
