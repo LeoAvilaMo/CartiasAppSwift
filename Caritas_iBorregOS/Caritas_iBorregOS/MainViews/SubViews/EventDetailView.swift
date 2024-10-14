@@ -242,7 +242,7 @@ struct RegistrarAsistenciaModalView: View {
                 
                 // Input for validation code
                 TextField("Código de validación", text: $codigoValidacion)
-                    .keyboardType(.numberPad)  // Keyboard suited for number input
+                    .keyboardType(.default)  // Keyboard suited for number input
                     .font(.system(size: 15))
                     .frame(width: 200)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
