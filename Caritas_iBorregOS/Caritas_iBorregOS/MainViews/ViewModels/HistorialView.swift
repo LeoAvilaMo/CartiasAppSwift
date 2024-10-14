@@ -25,8 +25,14 @@ struct HistorialView: View {
                 }
                 .pickerStyle(SegmentedPickerStyle())
                 .padding()
+                Divider()
+                    .padding(.horizontal)
                 
                 ScrollView {
+                    VStack {
+                        
+                    }
+                    .padding()
                     if selectedSegment == 0 {
                         // Dynamically fetch and display events
                         if !events.isEmpty {
@@ -44,11 +50,15 @@ struct HistorialView: View {
                         } else {
                             // Display loading or error message
                             if let errorMessage = errorMessage {
-                                Text("Error: \(errorMessage)")
-                                    .foregroundColor(.red)
+                                Text("No haz completado ningún evento")
+                                    .foregroundStyle(pinkC)
+                                    .bold()
+                                    .font(.system(size: 20))
                             } else {
-                                Text("Fetching events...")
-                                    .foregroundColor(darkBlueC)
+                                Text("No haz completado ningún evento")
+                                    .foregroundStyle(pinkC)
+                                    .bold()
+                                    .font(.system(size: 20))
                             }
                         }
                     } else {
@@ -68,10 +78,12 @@ struct HistorialView: View {
                         } else {
                             // Display loading or error message for retos
                             if let errorMessage = errorMessage {
-                                Text("Error: \(errorMessage)")
-                                    .foregroundColor(.red)
+                                Text("No haz completado ningún reto")
+                                    .foregroundStyle(pinkC)
+                                    .bold()
+                                    .font(.system(size: 20))
                             } else {
-                                Text("Fetching retos...")
+                                Text("No haz completado ningún reto")
                                     .foregroundColor(darkBlueC)
                             }
                         }
