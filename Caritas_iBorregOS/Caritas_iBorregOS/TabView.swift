@@ -20,6 +20,7 @@ struct TabViews: View {
             userID = usuario.ID_USUARIO
             // Obtener los puntos y id con el mail y settear en defaults
             UserDefaults.standard.setValue(usuario.ID_USUARIO, forKey: "usuario_id")
+            UserDefaults.standard.setValue(email, forKey: "email")
             let userPoints = try await fetchUserTotalPoints(for: userID)
             print("User 1 Total Points")
             print("User 1 Total Points: \(userPoints)")

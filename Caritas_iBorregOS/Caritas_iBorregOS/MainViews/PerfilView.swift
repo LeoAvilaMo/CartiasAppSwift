@@ -11,17 +11,14 @@ import Charts
 //User
 let myUser = USUARIOS(ID_USUARIO: 1, NOMBRE: "", A_PATERNO: "", A_MATERNO: "", ID_TIPO_USUARIO: 1, EMAIL: "", CONTRASENA: "")
 
-let miPerfil = getUsuario(email: "juan.perez@example.com")
+// let miPerfil = getUsuario(email: "juan.perez@example.com")
+var miPerfil = USUARIOS(ID_USUARIO: 1, NOMBRE: "", A_PATERNO: "", A_MATERNO: "", ID_TIPO_USUARIO: 1, EMAIL: "", CONTRASENA: "")
 
 struct PerfilView: View {
-    
     @State private var notification: Bool = false
     @State private var retosCompletados = getRetosCompletados(usuarioID: miPerfil.ID_USUARIO)
     @State private var chartsData: Array<DATOS_FISICOS> = getDatosFisicos(userID: miPerfil.ID_USUARIO)
-    
-   
-          
-    
+    @State private var errorMessage: String?
     var body: some View {
         let progress = Double(retosCompletados.CompletedRetos) / Double(retosCompletados.TotalRetos)
         let recentWeight = chartsData.first?.PESO ?? 0
@@ -118,6 +115,11 @@ struct PerfilView: View {
                             .shadow(color: blueC,radius: 10)
                         Spacer()
                     }
+                }
+                .onAppear {
+                    let usuarioEmail = UserDefaults.standard.string(forKey: "email")
+                    miPerfil = getUsuario(email: usuarioEmail ?? "sin email")
+                    
                 }
             }
         }
