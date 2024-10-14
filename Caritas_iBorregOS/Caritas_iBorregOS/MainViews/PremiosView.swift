@@ -9,7 +9,7 @@ import SwiftUI
 struct PremiosView: View {
     
     @State private var premiosList: [PREMIO] = getPremiosNoUsados(userID: 1)
-    
+    @Environment(\.presentationMode) var presentationMode
     let blueC = Color(red: 0/255, green: 156/255, blue: 166/255)
     let darkBlueC = Color(red: 0/255, green: 59/255, blue: 92/255)
     let lightGreenC = Color(red: 209/255, green: 224/255, blue: 215/255)
@@ -37,6 +37,19 @@ struct PremiosView: View {
             }
             Spacer()
         }
+        .navigationBarBackButtonHidden(true) // Ocultar el botón de regreso predeterminado
+        .navigationBarItems(leading: Button(action: {
+                presentationMode.wrappedValue.dismiss()
+            }) {
+                HStack {
+                    Image(systemName: "chevron.backward") // Cambia esto por el ícono que desees
+                        .font(.system(size: 20))
+                        .foregroundColor(blueC)// Ajusta el tamaño del ícono según sea necesario
+                    Text("Volver")
+                        .font(.headline)
+                    .foregroundColor(blueC)// Puedes ajustar la fuente según tus preferencias
+                }
+            })
         .padding(.horizontal)
         .background(lightGreenC)
     }

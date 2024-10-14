@@ -5,7 +5,8 @@ struct HistorialView: View {
     @State private var events: [EVENTOS] = []
     @State private var retos: Array<RETOS> = []
     @State private var errorMessage: String?
-
+    @Environment(\.presentationMode) var presentationMode
+    
     var body: some View {
         NavigationStack {
             VStack(alignment: .center) {
@@ -91,6 +92,19 @@ struct HistorialView: View {
                 }
                 .background(lightGreenC)
             }
+            .navigationBarBackButtonHidden(true) // Ocultar el botón de regreso predeterminado
+            .navigationBarItems(leading: Button(action: {
+                    presentationMode.wrappedValue.dismiss()
+                }) {
+                    HStack {
+                        Image(systemName: "chevron.backward") // Cambia esto por el ícono que desees
+                            .font(.system(size: 20))
+                            .foregroundColor(blueC)// Ajusta el tamaño del ícono según sea necesario
+                        Text("Volver")
+                            .font(.headline)
+                        .foregroundColor(blueC)// Puedes ajustar la fuente según tus preferencias
+                    }
+                })
             .background(lightGreenC)
             .onAppear {
                 Task {

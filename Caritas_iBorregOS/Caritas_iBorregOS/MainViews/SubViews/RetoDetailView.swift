@@ -9,6 +9,7 @@ import SwiftUI
 
 struct RetoDetailView: View {
     public var retoX: RETOS
+    @Environment(\.presentationMode) var presentationMode
     @State var participa: Bool = true
     var body: some View {
         ZStack {
@@ -90,6 +91,19 @@ struct RetoDetailView: View {
                 Spacer()
             }
         }
+        .navigationBarBackButtonHidden(true) // Ocultar el botón de regreso predeterminado
+        .navigationBarItems(leading: Button(action: {
+                presentationMode.wrappedValue.dismiss()
+            }) {
+                HStack {
+                    Image(systemName: "chevron.backward") // Cambia esto por el ícono que desees
+                        .font(.system(size: 20))
+                        .foregroundColor(whiteC)// Ajusta el tamaño del ícono según sea necesario
+                    Text("Volver")
+                        .font(.headline)
+                    .foregroundColor(whiteC)// Puedes ajustar la fuente según tus preferencias
+                }
+            })
     }
 }
 
