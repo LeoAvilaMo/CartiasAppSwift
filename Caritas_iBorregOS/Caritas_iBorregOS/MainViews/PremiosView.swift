@@ -18,24 +18,7 @@ struct PremiosView: View {
     var body: some View {
         NavigationStack {
             ScrollView {
-                    // Stack con logo y puntos
-                    HStack {
-                        Spacer()
-                        // Stack de puntos
-                        HStack {
-                            Image(systemName: "star.fill")
-                                .foregroundColor(.yellow)
-                            Text("135")
-                                .font(.system(size: 18, weight: .bold))
-                                .foregroundColor(whiteC)
-                        }
-                        .padding(.vertical, 6)
-                        .padding(.horizontal, 10)
-                        .background(darkBlueC)
-                        .cornerRadius(20)
-                    }
-                    .padding(.horizontal)
-                    
+                VStack{
                     // Título
                     Text("Mis Premios")
                         .font(.system(size: 35))
@@ -47,6 +30,9 @@ struct PremiosView: View {
                         PREMIOSSCardView(premioX: premio)
                     }
                     Spacer()
+                }
+                .padding()
+                    
             }
             .background(lightGreenC)
         }

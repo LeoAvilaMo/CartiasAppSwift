@@ -14,7 +14,7 @@ struct TiendaView: View {
 
     @State private var beneficios: [BENEFICIOS] = []
     @State private var errorMessage: String?
-    @State private var puntos: Int = UserDefaults.standard.integer(forKey: "puntos")
+    @State private var puntos: Int?
     @State private var path = NavigationPath()
     @StateObject private var viewModel = VMTienda()
     
@@ -34,9 +34,16 @@ struct TiendaView: View {
                 HStack {
                     Spacer()
                     HStack {
-                        Text(String(puntos))
-                            .foregroundColor(Color.white)
-                            .font(.system(size: 18, weight: .bold))
+                        if puntos != nil{
+                            Text(String(puntos ?? 0))
+                                .foregroundColor(Color.white)
+                                .font(.system(size: 18, weight: .bold))
+                        } else {
+                            Text("...")
+                                .foregroundColor(Color.white)
+                                .font(.system(size: 18, weight: .bold))
+                        }
+                        
                         Image(systemName: "star.fill")
                             .foregroundColor(.yellow)
                             .font(.system(size: 18, weight: .bold))
@@ -86,8 +93,12 @@ struct TiendaView: View {
                     do {
                         let fetchedBeneficios = try await viewModel.fetchBeneficios()
                         beneficios = fetchedBeneficios
+                        let userID = UserDefaults.standard.integer(forKey: "usuario_id")
+                        let userPoints: Int = try await (fetchUserTotalPoints(for: userID))
+                        print("User \(userID) Total Points: \(userPoints)")
+                        puntos = userPoints
                     } catch {
-                        errorMessage = "Failed to fetch events: \(error.localizedDescription)"
+                        errorMessage = "Failed to fetch beneficios: \(error.localizedDescription)"
                     }
                 }
             }

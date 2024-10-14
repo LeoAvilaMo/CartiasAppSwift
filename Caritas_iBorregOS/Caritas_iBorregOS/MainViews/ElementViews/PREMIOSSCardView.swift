@@ -41,16 +41,7 @@ struct PREMIOSSCardView: View {
                 }
                 
                 Spacer()
-                Button(action: {
-                }) {
-                    HStack {
-                        Image(systemName: "arrow.down.right.square.fill")
-                            .font(.system(size: 30))
-                            .foregroundStyle(orangeC)
-                    }
-                    .padding(.horizontal, 25)
-                    .padding(.vertical, 8)
-                }
+                .padding()
             }
         }.background(.white)
             .cornerRadius(20)

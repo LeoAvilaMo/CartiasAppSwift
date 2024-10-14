@@ -47,16 +47,10 @@ struct BeneficioCardView: View {
                 }
                 
                 Spacer()
+                .padding()
                 
                 // NavigationLink wrapping the button
                 NavigationLink(destination: BeneficioDetailView(beneficioX: beneficioX)) {
-                    HStack {
-                        Image(systemName: "arrow.down.right.square.fill")
-                            .font(.system(size: 30))
-                            .foregroundStyle(orangeC)
-                    }
-                    .padding(.horizontal, 25)
-                    .padding(.bottom, 8)
                 }
             }
         }

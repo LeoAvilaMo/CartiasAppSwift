@@ -100,33 +100,23 @@ struct BeneficioDetailView: View {
                         showAlert = true
                         Task{
                             do{
-                                if (UserDefaults.standard.integer(forKey: "puntos") >= beneficioX.PUNTOS)
-                                {
-                                    do {
-                                        // Llama a la función para canjear el beneficio
-                                        let result = try await viewModel.redeemBenefit(usuarioID: idUsuario, beneficioID: beneficioX.ID_BENEFICIO)
-                                            let userID = UserDefaults.standard.integer(forKey: "usuario_id")
-                                            let userPoints: Int = try await (fetchUserTotalPoints(for: userID))
-                                            print("User \(userID) Total Points: \(userPoints)")
-                                            UserDefaults.standard.setValue(userPoints, forKey: "puntos")
-                                        
-                                        
-                                        DispatchQueue.main.async {
-                                            message = result // Mensaje de la respuesta
-                                            showMessage = true // Mostrar mensaje en la vista
-                                        }
-                                        
-                                    } catch {
-                                        // Manejar el error si algo falla
-                                        DispatchQueue.main.async {
-                                            message = "Ocurrió un error al intentar canjear el beneficio."
-                                            showMessage = true
-                                        }
-                                        print("Error: \(error)")
+                                // Llama a la función para canjear el beneficio
+                                let result = try await viewModel.redeemBenefit(usuarioID: idUsuario, beneficioID: beneficioX.ID_BENEFICIO)
+                                DispatchQueue.main.async {
+                                    message = result // Mensaje de la respuesta
+                                    showMessage = true // Mostrar mensaje en la vista
+                                }
+                                
+                            }catch {
+                                    // Manejar el error si algo falla
+                                    DispatchQueue.main.async {
+                                        message = "Ocurrió un error al intentar canjear el beneficio."
+                                        showMessage = true
                                     }
+                                    print("Error: \(error)")
                                 }
                             }
-                        }
+                        
                             }) {
                         Text("CANJEAR BENEFICIO")
                             .font(.title2)
