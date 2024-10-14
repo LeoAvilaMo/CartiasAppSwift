@@ -31,6 +31,7 @@ struct ChartView: View {
                     .annotation(position: .top) {
                         Text("\(graphDataX[i], specifier: "%.1f") \(unitsX)")
                             .foregroundStyle(chartColorX)
+                            .font(.system(size: 10))
                     }
                 }
             }

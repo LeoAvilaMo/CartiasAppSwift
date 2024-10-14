@@ -39,6 +39,7 @@
 		79274E962C7E8950006A0E26 /* FotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79274E952C7E8950006A0E26 /* FotoView.swift */; };
 		7930CF132C7E6B2E008A55C6 /* PerfilView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7930CF122C7E6B2E008A55C6 /* PerfilView.swift */; };
 		7938C29F2CB5CF7F00F4DE5B /* MensajesMotivadores.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7938C29E2CB5CF7F00F4DE5B /* MensajesMotivadores.swift */; };
+		793980512CBDA58700F14986 /* RetosProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793980502CBDA58700F14986 /* RetosProgressView.swift */; };
 		794C01512CA52716005108C5 /* VMTienda.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794C01502CA52716005108C5 /* VMTienda.swift */; };
 		79630D292C83BA60007E94AA /* BeneficioCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79630D282C83BA60007E94AA /* BeneficioCardView.swift */; };
 		796684852CB5DE75007B4536 /* DATOS_FISICOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 796684842CB5DE75007B4536 /* DATOS_FISICOS.swift */; };
@@ -56,7 +57,6 @@
 		79C3BFBD2CB6C94C00100285 /* PremiosViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C3BFBC2CB6C94C00100285 /* PremiosViewModel.swift */; };
 		79C3BFBF2CB6C99900100285 /* PremiosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C3BFBE2CB6C99900100285 /* PremiosView.swift */; };
 		79C3BFC12CB6C9D600100285 /* PremioDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C3BFC02CB6C9D600100285 /* PremioDetailView.swift */; };
-		79C3BFC32CB6CA1200100285 /* PremioCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C3BFC22CB6CA1200100285 /* PremioCardView.swift */; };
 		79CCC70B2CAF67E5009FFCC3 /* RetoCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79CCC70A2CAF67E5009FFCC3 /* RetoCardView.swift */; };
 		79E8FC502CB8376400DD905D /* PREMIOSSCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E8FC4F2CB8376400DD905D /* PREMIOSSCardView.swift */; };
 		FBF603EA2CB738DA00D6768D /* PREMIOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF603E92CB738D700D6768D /* PREMIOS.swift */; };
@@ -115,6 +115,7 @@
 		79274E952C7E8950006A0E26 /* FotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FotoView.swift; sourceTree = "<group>"; };
 		7930CF122C7E6B2E008A55C6 /* PerfilView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerfilView.swift; sourceTree = "<group>"; };
 		7938C29E2CB5CF7F00F4DE5B /* MensajesMotivadores.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MensajesMotivadores.swift; sourceTree = "<group>"; };
+		793980502CBDA58700F14986 /* RetosProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetosProgressView.swift; sourceTree = "<group>"; };
 		794C01502CA52716005108C5 /* VMTienda.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VMTienda.swift; sourceTree = "<group>"; };
 		79630D282C83BA60007E94AA /* BeneficioCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeneficioCardView.swift; sourceTree = "<group>"; };
 		796684842CB5DE75007B4536 /* DATOS_FISICOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DATOS_FISICOS.swift; sourceTree = "<group>"; };
@@ -132,7 +133,6 @@
 		79C3BFBC2CB6C94C00100285 /* PremiosViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PremiosViewModel.swift; sourceTree = "<group>"; };
 		79C3BFBE2CB6C99900100285 /* PremiosView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PremiosView.swift; sourceTree = "<group>"; };
 		79C3BFC02CB6C9D600100285 /* PremioDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PremioDetailView.swift; sourceTree = "<group>"; };
-		79C3BFC22CB6CA1200100285 /* PremioCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PremioCardView.swift; sourceTree = "<group>"; };
 		79CCC70A2CAF67E5009FFCC3 /* RetoCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetoCardView.swift; sourceTree = "<group>"; };
 		79E8FC4F2CB8376400DD905D /* PREMIOSSCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PREMIOSSCardView.swift; sourceTree = "<group>"; };
 		FBF603E92CB738D700D6768D /* PREMIOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PREMIOS.swift; sourceTree = "<group>"; };
@@ -291,8 +291,8 @@
 				79630D282C83BA60007E94AA /* BeneficioCardView.swift */,
 				79CCC70A2CAF67E5009FFCC3 /* RetoCardView.swift */,
 				79AF2BFC2CB614A6001AF07E /* ChartView.swift */,
-				79C3BFC22CB6CA1200100285 /* PremioCardView.swift */,
 				79E8FC4F2CB8376400DD905D /* PREMIOSSCardView.swift */,
+				793980502CBDA58700F14986 /* RetosProgressView.swift */,
 			);
 			path = ElementViews;
 			sourceTree = "<group>";
@@ -496,6 +496,7 @@
 				7930CF132C7E6B2E008A55C6 /* PerfilView.swift in Sources */,
 				FBF603EA2CB738DA00D6768D /* PREMIOS.swift in Sources */,
 				4D9F56792CA4A43900C41A4E /* TiendaViewModel.swift in Sources */,
+				793980512CBDA58700F14986 /* RetosProgressView.swift in Sources */,
 				4D2CDE042CAF374800E2CC26 /* Environment.swift in Sources */,
 				796684872CB5E054007B4536 /* DatosFisicosViewModel.swift in Sources */,
 				79C3BFBD2CB6C94C00100285 /* PremiosViewModel.swift in Sources */,
@@ -504,7 +505,6 @@
 				79B27CD42CB82331002584AF /* PremioModel.swift in Sources */,
 				4D04A85E2C7E070B007804E6 /* Caritas_iBorregOSApp.swift in Sources */,
 				4D59604F2C7F731E0056C298 /* ProgressView.swift in Sources */,
-				79C3BFC32CB6CA1200100285 /* PremioCardView.swift in Sources */,
 				79A5C0392CA4BCF800271DEB /* UsuariosViewModel.swift in Sources */,
 				4DF7EA4A2CB6299C00CADE7B /* HistorialretosView.swift in Sources */,
 				798330D62C839CBC0054E21A /* RETOS.swift in Sources */,
