@@ -1,0 +1,111 @@
+Certificate:
+    Data:
+        Version: 3 (0x2)
+        Serial Number: 29 (0x1d)
+        Signature Algorithm: sha256WithRSAEncryption
+        Issuer: CN=ca.tc2007b.tec.mx, ST=NL, C=MX/emailAddress=juan.jose.gaytan@tec.mx, O=Tec de Monterrey, OU=TC2007B
+        Validity
+            Not Before: Sep 18 00:12:51 2024 GMT
+            Not After : Sep 18 00:12:51 2025 GMT
+        Subject: CN=iborregos.tc2007b.tec.mx, ST=NL, C=MX/emailAddress=iborregos@tc2007b.tec.mx, O=TC2007B, OU=Equipo 2
+        Subject Public Key Info:
+            Public Key Algorithm: rsaEncryption
+                Public-Key: (2048 bit)
+                Modulus:
+                    00:bd:1b:ab:e0:bd:fc:ad:78:f6:d3:49:3f:4e:bc:
+                    2c:9f:d8:94:0d:64:6d:9d:d3:81:72:fc:83:50:74:
+                    af:2b:0e:90:38:68:7c:c6:f8:ca:0c:73:80:e4:74:
+                    45:70:a9:8b:ee:c5:9f:80:33:e4:b7:16:f4:3b:bb:
+                    23:e7:f1:3d:12:3d:54:e4:f2:ec:11:f9:54:ff:97:
+                    ae:4a:45:98:51:68:11:a8:84:1e:86:d9:f3:82:75:
+                    f7:73:9e:e8:ef:78:a3:78:67:b0:9e:a4:2e:1f:87:
+                    09:06:7e:63:70:5d:f1:53:9e:33:c4:e0:a3:89:df:
+                    b0:36:6e:4a:0a:8a:7c:18:33:cb:71:46:b5:08:85:
+                    c9:a0:14:61:a9:56:5b:e7:ef:7b:a1:a7:45:f7:37:
+                    f5:c2:5d:d3:78:82:2a:b8:08:00:0a:38:5f:53:b2:
+                    65:9b:12:f2:34:d1:fe:2e:b0:f0:40:19:c6:5f:cb:
+                    75:8e:61:b1:32:ef:7b:f1:12:c8:d1:00:e4:a8:5f:
+                    31:01:0f:30:56:38:b6:d6:3f:9d:30:19:e6:06:5d:
+                    fe:12:f3:d7:c0:42:38:dc:3d:d1:20:ef:c3:3d:cb:
+                    a6:ba:b8:18:5a:09:67:73:88:f6:33:5b:3a:a9:f9:
+                    b0:2e:92:38:a8:52:51:97:1e:8b:79:8e:55:69:2f:
+                    f1:25
+                Exponent: 65537 (0x10001)
+        X509v3 extensions:
+            X509v3 Basic Constraints: 
+                CA:FALSE
+            X509v3 Key Usage: 
+                Digital Signature, Non Repudiation, Key Encipherment
+            X509v3 Subject Alternative Name: 
+                DNS:iborregos.tc2007b.tec.mx
+            X509v3 Extended Key Usage: 
+                TLS Web Server Authentication, TLS Web Client Authentication
+            X509v3 Subject Key Identifier: 
+                1D:DF:E4:07:2B:EA:77:AA:D1:50:66:91:94:F2:AF:09:DA:73:28:D0
+            X509v3 Authority Key Identifier: 
+                DirName:/CN=ca.tc2007b.tec.mx/ST=NL/C=MX/emailAddress=juan.jose.gaytan@tec.mx/O=Tec de Monterrey/OU=TC2007B
+                serial:02:20:06:DE:4E:E8:36:61:E0:46:12:2A:FE:C0:7A:B7:F7:43:F4:B4
+    Signature Algorithm: sha256WithRSAEncryption
+    Signature Value:
+        6f:52:94:f3:ce:26:57:7a:6b:e1:13:7f:ac:40:2e:31:f1:52:
+        1b:fd:23:6c:b0:46:76:83:27:c5:81:f6:73:97:27:a0:da:73:
+        98:fd:41:4d:f0:ab:3d:d2:e0:50:9c:6c:cf:67:a2:78:81:ad:
+        33:2f:07:fb:94:e1:03:55:69:e7:11:18:15:1f:e4:39:9e:bc:
+        36:69:c0:e1:7a:78:f5:78:ba:94:f0:cf:4b:21:ec:2f:44:24:
+        4e:af:7a:90:f3:ee:77:e4:db:91:d6:4d:ee:26:59:e0:7b:99:
+        20:f9:67:7f:de:fc:2e:db:88:02:6b:72:04:15:2c:8c:78:33:
+        a4:2d:90:45:78:43:f0:4c:98:dd:9e:7c:b5:e9:67:45:db:ec:
+        78:95:5f:f4:30:25:f6:56:97:10:89:d0:47:45:e2:60:94:d9:
+        40:f6:7c:9c:ab:de:36:0a:3d:63:f9:91:e3:3b:4e:da:bf:47:
+        b6:65:ca:d3:9e:e1:d4:84:75:12:d3:13:04:69:e8:57:39:3b:
+        9a:69:84:63:b8:39:03:76:a4:71:9a:2e:e5:f9:f4:c5:e7:45:
+        9b:31:0c:69:cd:30:6a:13:a7:54:b9:1e:05:7a:dd:e6:96:7d:
+        d4:0b:59:e2:05:17:3c:18:12:c4:cf:d0:37:9d:81:e6:b7:d3:
+        20:24:0c:46:be:5d:f0:ad:ff:78:a0:cb:d6:47:79:ee:5d:cc:
+        9b:f3:7d:8f:d9:1c:b9:39:1a:e1:91:dd:6a:b4:66:8f:84:73:
+        a7:d5:e6:94:e4:6f:22:3e:b2:44:36:29:7d:a9:35:28:89:b6:
+        5f:a1:4a:bb:73:e1:6d:d5:e7:b8:c7:01:ee:fc:f1:4a:29:6b:
+        58:bd:8e:a4:01:a0:1d:68:2b:71:4e:d3:62:95:0a:35:0f:38:
+        d0:0c:c8:a7:3f:28:68:09:9b:a8:ff:d5:e7:68:60:0d:f1:8a:
+        a0:a8:fb:01:8e:29:37:48:ca:c7:0e:8e:e4:91:94:08:32:22:
+        c1:6e:e1:ee:1c:e1:91:98:c8:8a:62:aa:04:fc:c0:ec:27:9f:
+        db:62:51:c6:7b:69:a7:fe:c2:62:d2:13:0d:76:54:73:b1:e8:
+        7e:18:fd:42:b2:96:d8:cc:34:ec:62:14:f3:5c:4c:52:fc:81:
+        29:f3:9e:4f:7c:0d:7d:73:82:91:b6:b6:2f:60:19:08:ec:0e:
+        31:a4:99:bf:15:5d:33:08:4f:87:8c:57:96:b7:9e:fb:e7:3b:
+        56:53:b9:1e:44:cc:27:5f:4f:37:d5:97:d0:22:c9:e9:aa:e7:
+        0d:74:53:03:38:32:38:86:1b:d9:0b:26:86:51:ac:5b:06:fc:
+        cf:64:6e:9f:33:31:29:f9
+-----BEGIN CERTIFICATE-----
+MIIFzDCCA7SgAwIBAgIBHTANBgkqhkiG9w0BAQsFADCBizEaMBgGA1UEAwwRY2Eu
+dGMyMDA3Yi50ZWMubXgxCzAJBgNVBAgMAk5MMQswCQYDVQQGEwJNWDEmMCQGCSqG
+SIb3DQEJARYXanVhbi5qb3NlLmdheXRhbkB0ZWMubXgxGTAXBgNVBAoMEFRlYyBk
+ZSBNb250ZXJyZXkxEDAOBgNVBAsMB1RDMjAwN0IwHhcNMjQwOTE4MDAxMjUxWhcN
+MjUwOTE4MDAxMjUxWjCBizEhMB8GA1UEAwwYaWJvcnJlZ29zLnRjMjAwN2IudGVj
+Lm14MQswCQYDVQQIDAJOTDELMAkGA1UEBhMCTVgxJzAlBgkqhkiG9w0BCQEWGGli
+b3JyZWdvc0B0YzIwMDdiLnRlYy5teDEQMA4GA1UECgwHVEMyMDA3QjERMA8GA1UE
+CwwIRXF1aXBvIDIwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQC9G6vg
+vfytePbTST9OvCyf2JQNZG2d04Fy/INQdK8rDpA4aHzG+MoMc4DkdEVwqYvuxZ+A
+M+S3FvQ7uyPn8T0SPVTk8uwR+VT/l65KRZhRaBGohB6G2fOCdfdznujveKN4Z7Ce
+pC4fhwkGfmNwXfFTnjPE4KOJ37A2bkoKinwYM8txRrUIhcmgFGGpVlvn73uhp0X3
+N/XCXdN4giq4CAAKOF9TsmWbEvI00f4usPBAGcZfy3WOYbEy73vxEsjRAOSoXzEB
+DzBWOLbWP50wGeYGXf4S89fAQjjcPdEg78M9y6a6uBhaCWdziPYzWzqp+bAukjio
+UlGXHot5jlVpL/ElAgMBAAGjggE3MIIBMzAJBgNVHRMEAjAAMAsGA1UdDwQEAwIF
+4DAjBgNVHREEHDAaghhpYm9ycmVnb3MudGMyMDA3Yi50ZWMubXgwHQYDVR0lBBYw
+FAYIKwYBBQUHAwEGCCsGAQUFBwMCMB0GA1UdDgQWBBQd3+QHK+p3qtFQZpGU8q8J
+2nMo0DCBtQYDVR0jBIGtMIGqoYGRpIGOMIGLMRowGAYDVQQDDBFjYS50YzIwMDdi
+LnRlYy5teDELMAkGA1UECAwCTkwxCzAJBgNVBAYTAk1YMSYwJAYJKoZIhvcNAQkB
+FhdqdWFuLmpvc2UuZ2F5dGFuQHRlYy5teDEZMBcGA1UECgwQVGVjIGRlIE1vbnRl
+cnJleTEQMA4GA1UECwwHVEMyMDA3QoIUAiAG3k7oNmHgRhIq/sB6t/dD9LQwDQYJ
+KoZIhvcNAQELBQADggIBAG9SlPPOJld6a+ETf6xALjHxUhv9I2ywRnaDJ8WB9nOX
+J6Dac5j9QU3wqz3S4FCcbM9noniBrTMvB/uU4QNVaecRGBUf5DmevDZpwOF6ePV4
+upTwz0sh7C9EJE6vepDz7nfk25HWTe4mWeB7mSD5Z3/e/C7biAJrcgQVLIx4M6Qt
+kEV4Q/BMmN2efLXpZ0Xb7HiVX/QwJfZWlxCJ0EdF4mCU2UD2fJyr3jYKPWP5keM7
+Ttq/R7ZlytOe4dSEdRLTEwRp6Fc5O5pphGO4OQN2pHGaLuX59MXnRZsxDGnNMGoT
+p1S5HgV63eaWfdQLWeIFFzwYEsTP0Dedgea30yAkDEa+XfCt/3igy9ZHee5dzJvz
+fY/ZHLk5GuGR3Wq0Zo+Ec6fV5pTkbyI+skQ2KX2pNSiJtl+hSrtz4W3V57jHAe78
+8Uopa1i9jqQBoB1oK3FO02KVCjUPONAMyKc/KGgJm6j/1edoYA3xiqCo+wGOKTdI
+yscOjuSRlAgyIsFu4e4c4ZGYyIpiqgT8wOwnn9tiUcZ7aaf+wmLSEw12VHOx6H4Y
+/UKyltjMNOxiFPNcTFL8gSnznk98DX1zgpG2ti9gGQjsDjGkmb8VXTMIT4eMV5a3
+nvvnO1ZTuR5EzCdfTzfVl9Aiyemq5w10UwM4MjiGG9kLJoZRrFsG/M9kbp8zMSn5
+-----END CERTIFICATE-----
