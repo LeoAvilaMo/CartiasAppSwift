@@ -162,7 +162,6 @@ struct EventDetailView: View {
                                     do {
                                         let success = try await registerAttendance(usuarioID: 1, eventoID: event.ID_EVENTO)
                                         if success {
-                                            print("Attendance successfully registered!")
                                             participa = false
                                         } else {
                                             print("Failed to register attendance.")
@@ -188,6 +187,7 @@ struct EventDetailView: View {
                 .padding(.horizontal)
                 .padding(.bottom, 0)
             }
+                    
         }
         .navigationBarTitle("", displayMode: .inline)
         .onAppear {
@@ -217,6 +217,8 @@ struct RegistrarAsistenciaModalView: View {
     @Binding var isPresented: Bool  // Use a binding to control the modal visibility
     @State private var codigoValidacion: String = ""
     @Binding var participa: Bool
+    @State private var message1: String = ""  // Control for showing the modal
+    @State private var showAlert: Bool = false  // Control for showing the modal
     
     var body: some View {
         ZStack {
@@ -249,20 +251,23 @@ struct RegistrarAsistenciaModalView: View {
                     .padding()
                 
                 HStack {
-                    Button("Subir") {
+                    Button("Registrar") {
                             let attendance = AttendanceRequest(usuario_id: 1, evento_id: event.ID_EVENTO, event_name: event.NOMBRE, event_code: codigoValidacion)
 
                             registerEventCompletion(attendance: attendance) { result in
                                 switch result {
                                 case .success(let message):
                                     print("Success: \(message)")
+                                message1 = "Asistenica registrada con exito"
+                                    showAlert = true
                                    participa = true
                                 case .failure(let error):
+                                    message1 = "Codigo incorrecto"
                                     print("Error: \(error.localizedDescription)")
+                                    showAlert = true
                                 }
                             }
                             print("Código ingresado: \(codigoValidacion)")
-                            isPresented = false  // Close the modal when the button is pressed
                         
                     }
                     .padding()
@@ -281,6 +286,15 @@ struct RegistrarAsistenciaModalView: View {
             }
             .padding()
         }
+        .alert( isPresented: $showAlert) {
+                Alert(
+                    title: Text(message1),
+                    dismissButton: .default(Text("Ok")) {
+                        showAlert = false
+                    }
+                )
+            
+            }
     }
 }
 
