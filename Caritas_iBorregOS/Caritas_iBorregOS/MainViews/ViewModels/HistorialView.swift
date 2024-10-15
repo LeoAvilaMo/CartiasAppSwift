@@ -109,9 +109,9 @@ struct HistorialView: View {
             .onAppear {
                 Task {
                     do {
-                        let fetchedEvents = try await fetchUserCompletedEvents(usuarioID: 1)
+                        let fetchedEvents = try await fetchUserCompletedEvents(usuarioID: UserDefaults.standard.integer(forKey: "usuario_id"))
                         events = fetchedEvents
-                        let fetchedRetos = getCompletedRETOSList(userID: myUser.ID_USUARIO)
+                        let fetchedRetos = getCompletedRETOSList(userID: UserDefaults.standard.integer(forKey: "usuario_id"))
                         retos = fetchedRetos
                     } catch {
                         errorMessage = "Failed to fetch events: \(error.localizedDescription)"

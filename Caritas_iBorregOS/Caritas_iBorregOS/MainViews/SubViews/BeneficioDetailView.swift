@@ -16,7 +16,7 @@ struct BeneficioDetailView: View {
     @State private var message1: String = ""
     @State private var message2: String = ""
     @State private var alertType: AlertType?
-    @State private var idUsuario: Int = 1
+    @State private var idUsuario = UserDefaults.standard.integer(forKey: "usuario_id")
     @State private var puntos: Int?
     @State private var beneficios: [BENEFICIOS] = []
     @State private var errorMessage: String?

@@ -8,7 +8,7 @@ import SwiftUI
 
 struct PremiosView: View {
     
-    @State private var premiosList: [PREMIO] = getPremiosNoUsados(userID: 1)
+    @State private var premiosList: [PREMIO] = getPremiosNoUsados(userID: UserDefaults.standard.integer(forKey: "usuario_id"))
     @Environment(\.presentationMode) var presentationMode
     let blueC = Color(red: 0/255, green: 156/255, blue: 166/255)
     let darkBlueC = Color(red: 0/255, green: 59/255, blue: 92/255)
