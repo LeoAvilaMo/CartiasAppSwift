@@ -1,0 +1,25 @@
+#
+# iborregos.tc2007b.tec.mx.cnf
+#
+
+[ req ]
+prompt                  = no
+distinguished_name      = a00765887_tc2007b_mx
+req_extensions          = v3_req
+
+[ a00765887_tc2007b_mx ]
+commonName              = iborregos.tc2007b.tec.mx
+stateOrProvinceName     = NL
+countryName             = MX
+emailAddress            = iborregos@tc2007b.tec.mx
+organizationName        = TC2007B
+organizationalUnitName  = Equipo 2
+
+[ v3_req ]
+basicConstraints        = CA:FALSE
+keyUsage                = nonRepudiation, digitalSignature, keyEncipherment
+subjectAltName          = @alt_names
+extendedKeyUsage        = serverAuth,clientAuth
+
+[ alt_names ]
+DNS.0                   = iborregos.tc2007b.tec.mx
